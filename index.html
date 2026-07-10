@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="把探店 UP 的视频整理成广州、佛山餐厅地图。"
+    />
+    <title>湾区探店地图</title>
+    <link rel="icon" href="./public/favicon.svg" />
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark">食</span>
+          <div>
+            <h1>湾区探店地图</h1>
+            <p>从 B 站探店视频里整理餐厅位置和口碑线索</p>
+          </div>
+        </div>
+        <nav class="up-tabs" id="upTabs" aria-label="探店 UP"></nav>
+        <button class="ghost-button" type="button" aria-label="添加新的 UP">
+          <span>+</span>
+          添加 UP
+        </button>
+      </header>
+
+      <main class="workspace">
+        <section class="map-panel" aria-label="餐厅地图">
+          <div class="toolbar">
+            <label class="search-box">
+              <span>搜索</span>
+              <input id="searchInput" type="search" placeholder="餐厅 / 区域 / 菜式" />
+            </label>
+            <div class="segmented" id="cityFilters" aria-label="城市筛选"></div>
+          </div>
+
+          <div class="map-wrap">
+            <div id="amap" class="amap"></div>
+            <div class="fallback-map" id="fallbackMap" aria-label="原型地图"></div>
+            <div class="map-hint">
+              <strong id="mapModeLabel">原型地图</strong>
+              <span>放大时显示餐厅名，缩小时看区域分布</span>
+            </div>
+          </div>
+
+          <div class="legend" id="legend" aria-label="区域图例"></div>
+        </section>
+
+        <aside class="side-panel">
+          <section class="stats-strip" id="statsStrip" aria-label="统计概览"></section>
+
+          <section class="restaurant-list">
+            <div class="section-heading">
+              <h2>当前餐厅</h2>
+              <span id="resultCount"></span>
+            </div>
+            <div id="restaurantList" class="list-stack"></div>
+          </section>
+
+          <section class="detail-card" id="detailCard" aria-live="polite"></section>
+        </aside>
+      </main>
+    </div>
+
+    <script>
+      window.FOOD_MAP_CONFIG = {
+        amapJsKey: "",
+      };
+    </script>
+    <script src="./src/data.js"></script>
+    <script src="./src/app.js"></script>
+  </body>
+</html>

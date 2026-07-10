@@ -1,0 +1,142 @@
+[
+  {
+    "id": "gz-tianhe-001",
+    "upId": "bilibili-700270361",
+    "name": "示例餐厅 A",
+    "city": "广州",
+    "district": "天河区",
+    "address": "广州市天河区体育西路附近",
+    "lng": 113.3219,
+    "lat": 23.1317,
+    "signatureDishes": ["啫啫煲", "牛杂", "白切鸡"],
+    "pricePerPerson": 78,
+    "environmentScore": 4.2,
+    "sourceVideo": {
+      "title": "示例：广州天河这家街坊店，啫啫煲香到停不下来",
+      "url": "https://space.bilibili.com/700270361",
+      "publishedAt": "待抓取"
+    },
+    "comments": [
+      {
+        "author": "网友补充",
+        "content": "晚饭时间排队明显，建议 17:30 前到。",
+        "likes": 128
+      },
+      {
+        "author": "本地食客",
+        "content": "啫啫煲和牛杂比较稳，口味偏广式家常。",
+        "likes": 86
+      }
+    ],
+    "status": "sample"
+  },
+  {
+    "id": "gz-yuexiu-001",
+    "upId": "bilibili-700270361",
+    "name": "示例餐厅 B",
+    "city": "广州",
+    "district": "越秀区",
+    "address": "广州市越秀区北京路附近",
+    "lng": 113.2714,
+    "lat": 23.1246,
+    "signatureDishes": ["云吞面", "牛腩粉", "炸酱捞面"],
+    "pricePerPerson": 42,
+    "environmentScore": 3.9,
+    "sourceVideo": {
+      "title": "示例：越秀老字号面店，街坊从小吃到大",
+      "url": "https://space.bilibili.com/700270361",
+      "publishedAt": "待抓取"
+    },
+    "comments": [
+      {
+        "author": "路过广州",
+        "content": "饭点翻台快，拼桌概率高。",
+        "likes": 54
+      }
+    ],
+    "status": "sample"
+  },
+  {
+    "id": "gz-liwan-001",
+    "upId": "bilibili-700270361",
+    "name": "示例餐厅 C",
+    "city": "广州",
+    "district": "荔湾区",
+    "address": "广州市荔湾区上下九附近",
+    "lng": 113.2442,
+    "lat": 23.1144,
+    "signatureDishes": ["艇仔粥", "肠粉", "萝卜糕"],
+    "pricePerPerson": 35,
+    "environmentScore": 3.8,
+    "sourceVideo": {
+      "title": "示例：荔湾老街早餐，艇仔粥和肠粉都很广州",
+      "url": "https://space.bilibili.com/700270361",
+      "publishedAt": "待抓取"
+    },
+    "comments": [
+      {
+        "author": "早茶爱好者",
+        "content": "早餐时段选择多，晚一点部分点心会卖完。",
+        "likes": 73
+      }
+    ],
+    "status": "sample"
+  },
+  {
+    "id": "fs-shunde-001",
+    "upId": "bilibili-700270361",
+    "name": "示例餐厅 D",
+    "city": "佛山",
+    "district": "顺德区",
+    "address": "佛山市顺德区大良附近",
+    "lng": 113.2494,
+    "lat": 22.8403,
+    "signatureDishes": ["鱼生", "桑拿鸡", "双皮奶"],
+    "pricePerPerson": 115,
+    "environmentScore": 4.4,
+    "sourceVideo": {
+      "title": "示例：顺德大良一日吃三家，鱼生和桑拿鸡都安排",
+      "url": "https://space.bilibili.com/700270361",
+      "publishedAt": "待抓取"
+    },
+    "comments": [
+      {
+        "author": "顺德朋友",
+        "content": "鱼生建议提前电话确认，周末订位更稳。",
+        "likes": 211
+      },
+      {
+        "author": "二刷用户",
+        "content": "双皮奶可以饭后打包，冷吃更顺口。",
+        "likes": 97
+      }
+    ],
+    "status": "sample"
+  },
+  {
+    "id": "fs-chancheng-001",
+    "upId": "bilibili-700270361",
+    "name": "示例餐厅 E",
+    "city": "佛山",
+    "district": "禅城区",
+    "address": "佛山市禅城区祖庙附近",
+    "lng": 113.1126,
+    "lat": 23.0277,
+    "signatureDishes": ["煲仔饭", "烧鹅", "糖水"],
+    "pricePerPerson": 68,
+    "environmentScore": 4.0,
+    "sourceVideo": {
+      "title": "示例：佛山祖庙附近的老广味，煲仔饭开盖就香",
+      "url": "https://space.bilibili.com/700270361",
+      "publishedAt": "待抓取"
+    },
+    "comments": [
+      {
+        "author": "附近上班族",
+        "content": "工作日午市人多，但出餐速度还可以。",
+        "likes": 62
+      }
+    ],
+    "status": "sample"
+  }
+]
