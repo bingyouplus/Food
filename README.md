@@ -1,6 +1,6 @@
-# 湾区探店地图
+# 湾区美食地图
 
-一个轻量静态网页原型，用来把 B 站探店 UP 的视频整理成广州、佛山餐厅地图。
+一个轻量静态网页原型，用来把 B 站美食 UP 的视频整理成广州、佛山餐厅地图。
 
 ## 本地预览
 
@@ -12,7 +12,7 @@ npm run dev
 
 ## 数据结构
 
-- `data/ups.json`：探店 UP 列表。
+- `data/ups.json`：美食 UP 列表。
 - `data/restaurants.json`：餐厅点位、来源视频、评论精选。
 - `scripts/update-bilibili.mjs`：后续每周自动扫描视频的脚本入口。
 

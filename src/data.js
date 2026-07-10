@@ -4,7 +4,7 @@ window.FOOD_MAP_DATA = {
     id: "bilibili-700270361",
     platform: "bilibili",
     uid: "700270361",
-    name: "探店 UP 700270361",
+    name: "NAV看广州",
     spaceUrl: "https://space.bilibili.com/700270361",
     avatar: "",
     accent: "#49b8a6",
