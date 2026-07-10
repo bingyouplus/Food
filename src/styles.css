@@ -266,6 +266,25 @@ p {
   display: none;
 }
 
+.fallback-stage {
+  position: absolute;
+  inset: 0;
+  transform: translate(var(--map-pan-x), var(--map-pan-y)) scale(var(--map-scale));
+  transform-origin: center;
+  transition: transform 180ms ease;
+  touch-action: none;
+  user-select: none;
+}
+
+.fallback-stage.draggable {
+  cursor: grab;
+}
+
+.fallback-stage.dragging {
+  cursor: grabbing;
+  transition: none;
+}
+
 .waterline {
   position: absolute;
   width: 44%;
@@ -305,12 +324,51 @@ p {
   bottom: 16%;
 }
 
-.zoom-toggle {
+.map-controls {
   position: absolute;
   top: 18px;
   left: 18px;
   z-index: 4;
-  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 24px rgba(34, 50, 47, 0.1);
+  padding: 5px;
+}
+
+.map-controls button {
+  min-width: 31px;
+  height: 31px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font-weight: 800;
+  padding: 0 9px;
+}
+
+.map-controls button:hover {
+  background: #edf7f4;
+}
+
+.map-controls .zoom-toggle,
+.map-controls .zoom-reset {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.map-controls span {
+  min-width: 36px;
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+.zoom-toggle {
+  height: 31px;
   border: 1px solid var(--line);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.88);
@@ -475,7 +533,7 @@ p {
 
 .restaurant-row {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   gap: 10px;
   align-items: center;
   width: 100%;
@@ -524,9 +582,37 @@ p {
   font-size: 12px;
 }
 
-.price {
+.price,
+.status-pill {
   color: var(--warm);
   font-weight: 800;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 25px;
+  border-radius: 999px;
+  font-size: 12px;
+  line-height: 1.2;
+  padding: 4px 9px;
+  white-space: nowrap;
+}
+
+.status-pill.verified {
+  background: rgba(78, 183, 168, 0.15);
+  color: #2f8e80;
+}
+
+.status-pill.commented {
+  background: rgba(242, 164, 95, 0.18);
+  color: #a76424;
+}
+
+.status-pill.pending {
+  background: rgba(105, 123, 118, 0.13);
+  color: #61736e;
 }
 
 .detail-card {
@@ -591,6 +677,72 @@ p {
   color: #367d74;
   line-height: 1.5;
   padding: 12px;
+  text-decoration: none;
+}
+
+.map-info {
+  display: grid;
+  gap: 10px;
+  margin: 16px 0;
+  border: 1px solid #e8eee9;
+  border-left: 4px solid #b9ddd5;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.82);
+  padding: 13px;
+}
+
+.map-info.verified {
+  border-left-color: #4eb7a8;
+}
+
+.map-info.commented {
+  border-left-color: #f2a45f;
+}
+
+.map-info.pending {
+  border-left-color: #98aaa5;
+}
+
+.map-info p {
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.map-info dl {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+}
+
+.map-info dl div {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 8px;
+}
+
+.map-info dt {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.map-info dd {
+  min-width: 0;
+  margin: 0;
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.map-link {
+  justify-self: start;
+  border-radius: 999px;
+  background: #edf7f4;
+  color: #367d74;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 12px;
   text-decoration: none;
 }
 

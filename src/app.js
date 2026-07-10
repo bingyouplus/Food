@@ -4,10 +4,14 @@ const state = {
   selectedId: null,
   city: "全部",
   query: "",
+  mapZoom: 1,
+  mapPan: { x: 0, y: 0 },
   zoomed: false,
   amap: null,
   markers: [],
 };
+
+const locationPattern = /地址|位置|坐标|定位|导航|路|街|巷|号|铺|层|楼|旁|附近|对面|门口|市场|村|城|广场|公园|地铁|公交|停车场|幼儿园|登峰|出地铁|在哪里|在哪|求地址/;
 
 const districtPalette = {
   广州: ["#4eb7a8", "#73c6b6", "#2f9c91", "#8fcfbe", "#5aa897", "#9bd8ca"],
@@ -78,6 +82,44 @@ function districtColor(item) {
   return palette[index % palette.length];
 }
 
+function locationEvidence(item) {
+  return (item.comments ?? []).filter(
+    (comment) => comment.author !== "系统标记" && locationPattern.test(comment.content),
+  );
+}
+
+function mapStatus(item) {
+  if (item.status === "geocoded") {
+    return {
+      key: "verified",
+      label: "高德已核实",
+      summary: item.geocode?.poiName ? `匹配：${item.geocode.poiName}` : "已通过高德 POI 匹配",
+    };
+  }
+  const evidence = locationEvidence(item);
+  if (evidence.length) {
+    return {
+      key: "commented",
+      label: "评论有位置线索",
+      summary: `筛到 ${evidence.length} 条可能帮助定位的评论`,
+    };
+  }
+  return {
+    key: "pending",
+    label: "仍需人工确认",
+    summary: "已有店名或菜品线索，但缺少可确认的详细位置",
+  };
+}
+
+function amapMarkerUrl(item) {
+  if (typeof item.lng !== "number" || typeof item.lat !== "number") return "";
+  return `https://uri.amap.com/marker?position=${item.lng},${item.lat}&name=${encodeURIComponent(item.name)}`;
+}
+
+function amapSearchUrl(item) {
+  return `https://www.amap.com/search?query=${encodeURIComponent([item.city, item.district, item.name].filter(Boolean).join(""))}`;
+}
+
 function renderUpTabs() {
   els.upTabs.innerHTML = state.ups
     .map((up) => {
@@ -112,15 +154,26 @@ function renderStats() {
   const items = filteredRestaurants();
   const cityCount = new Set(items.map((item) => item.city)).size;
   const districtCount = new Set(items.map((item) => item.district)).size;
-  const avgPrice = Math.round(items.reduce((sum, item) => sum + item.pricePerPerson, 0) / Math.max(items.length, 1));
-
+  const verifiedCount = items.filter((item) => mapStatus(item).key === "verified").length;
   els.statsStrip.innerHTML = `
     <article><strong>${items.length}</strong><span>家餐厅</span></article>
     <article><strong>${cityCount}</strong><span>个城市</span></article>
     <article><strong>${districtCount}</strong><span>个区</span></article>
-    <article><strong>¥${avgPrice}</strong><span>平均人均</span></article>
+    <article><strong>${verifiedCount}</strong><span>高德已核实</span></article>
   `;
   els.resultCount.textContent = `${items.length} 个结果`;
+}
+
+function clampPan(x, y) {
+  if (state.mapZoom <= 1) return { x: 0, y: 0 };
+  const width = els.fallbackMap.clientWidth || 1;
+  const height = els.fallbackMap.clientHeight || 1;
+  const maxX = Math.round((width * (state.mapZoom - 1)) / 2);
+  const maxY = Math.round((height * (state.mapZoom - 1)) / 2);
+  return {
+    x: Math.max(-maxX, Math.min(maxX, x)),
+    y: Math.max(-maxY, Math.min(maxY, y)),
+  };
 }
 
 function renderFallbackMap() {
@@ -132,37 +185,99 @@ function renderFallbackMap() {
   const minLat = Math.min(...lats, 22.78);
   const maxLat = Math.max(...lats, 23.18);
   const pad = 7;
+  const showLabels = state.zoomed || state.mapZoom >= 1.45;
 
   els.fallbackMap.innerHTML = `
-    <button class="zoom-toggle" type="button">${state.zoomed ? "收起名称" : "显示名称"}</button>
-    <div class="waterline one"></div>
-    <div class="waterline two"></div>
-    <div class="city-label gz">广州</div>
-    <div class="city-label fs">佛山</div>
-    ${items
-      .map((item) => {
-        const x = pad + ((item.lng - minLng) / Math.max(maxLng - minLng, 0.001)) * (100 - pad * 2);
-        const y = 100 - pad - ((item.lat - minLat) / Math.max(maxLat - minLat, 0.001)) * (100 - pad * 2);
-        const selected = item.id === state.selectedId ? "selected" : "";
-        const name = state.zoomed ? `<span class="pin-label">${item.name}</span>` : "";
-        return `
-          <button class="map-pin ${selected}" data-id="${item.id}" style="--x:${x}%;--y:${y}%;--pin:${districtColor(item)}" type="button" aria-label="${item.name}">
-            <span class="pin-dot"></span>
-            ${name}
-          </button>
-        `;
-      })
-      .join("")}
+    <div class="map-controls" aria-label="地图缩放">
+      <button class="zoom-in" type="button" aria-label="放大地图">+</button>
+      <button class="zoom-out" type="button" aria-label="缩小地图">−</button>
+      <button class="zoom-reset" type="button">重置</button>
+      <button class="zoom-toggle" type="button">${showLabels ? "收起名称" : "显示名称"}</button>
+      <span>${state.mapZoom.toFixed(1)}×</span>
+    </div>
+    <div class="fallback-stage ${state.mapZoom > 1 ? "draggable" : ""}" style="--map-scale:${state.mapZoom};--map-pan-x:${state.mapPan.x}px;--map-pan-y:${state.mapPan.y}px">
+      <div class="waterline one"></div>
+      <div class="waterline two"></div>
+      <div class="city-label gz">广州</div>
+      <div class="city-label fs">佛山</div>
+      ${items
+        .map((item) => {
+          const x = pad + ((item.lng - minLng) / Math.max(maxLng - minLng, 0.001)) * (100 - pad * 2);
+          const y = 100 - pad - ((item.lat - minLat) / Math.max(maxLat - minLat, 0.001)) * (100 - pad * 2);
+          const selected = item.id === state.selectedId ? "selected" : "";
+          const name = showLabels ? `<span class="pin-label">${item.name}</span>` : "";
+          return `
+            <button class="map-pin ${selected}" data-id="${item.id}" style="--x:${x}%;--y:${y}%;--pin:${districtColor(item)}" type="button" aria-label="${item.name}">
+              <span class="pin-dot"></span>
+              ${name}
+            </button>
+          `;
+        })
+        .join("")}
+    </div>
   `;
 
   els.fallbackMap.querySelector(".zoom-toggle").addEventListener("click", () => {
     state.zoomed = !state.zoomed;
     renderAll();
   });
+  els.fallbackMap.querySelector(".zoom-in").addEventListener("click", () => {
+    state.mapZoom = Math.min(2.4, Number((state.mapZoom + 0.2).toFixed(1)));
+    state.mapPan = clampPan(state.mapPan.x, state.mapPan.y);
+    renderAll();
+  });
+  els.fallbackMap.querySelector(".zoom-out").addEventListener("click", () => {
+    state.mapZoom = Math.max(1, Number((state.mapZoom - 0.2).toFixed(1)));
+    state.mapPan = clampPan(state.mapPan.x, state.mapPan.y);
+    renderAll();
+  });
+  els.fallbackMap.querySelector(".zoom-reset").addEventListener("click", () => {
+    state.mapZoom = 1;
+    state.mapPan = { x: 0, y: 0 };
+    state.zoomed = false;
+    renderAll();
+  });
+
+  setupMapDrag();
 
   els.fallbackMap.querySelectorAll(".map-pin").forEach((pin) => {
     pin.addEventListener("click", () => selectRestaurant(pin.dataset.id));
   });
+}
+
+function setupMapDrag() {
+  const stage = els.fallbackMap.querySelector(".fallback-stage");
+  if (!stage) return;
+  let start = null;
+
+  stage.addEventListener("pointerdown", (event) => {
+    if (state.mapZoom <= 1 || event.target.closest(".map-pin")) return;
+    start = {
+      pointerId: event.pointerId,
+      x: event.clientX,
+      y: event.clientY,
+      panX: state.mapPan.x,
+      panY: state.mapPan.y,
+    };
+    stage.classList.add("dragging");
+    stage.setPointerCapture(event.pointerId);
+  });
+
+  stage.addEventListener("pointermove", (event) => {
+    if (!start || event.pointerId !== start.pointerId) return;
+    const next = clampPan(start.panX + event.clientX - start.x, start.panY + event.clientY - start.y);
+    state.mapPan = next;
+    stage.style.setProperty("--map-pan-x", `${next.x}px`);
+    stage.style.setProperty("--map-pan-y", `${next.y}px`);
+  });
+
+  const endDrag = (event) => {
+    if (!start || event.pointerId !== start.pointerId) return;
+    stage.classList.remove("dragging");
+    start = null;
+  };
+  stage.addEventListener("pointerup", endDrag);
+  stage.addEventListener("pointercancel", endDrag);
 }
 
 function renderLegend() {
@@ -192,6 +307,7 @@ function renderList() {
   els.list.innerHTML = items
     .map((item) => {
       const selected = item.id === state.selectedId ? "active" : "";
+      const status = mapStatus(item);
       return `
         <button class="restaurant-row ${selected}" type="button" data-id="${item.id}">
           <span class="district-chip" style="--chip:${districtColor(item)}">${item.district}</span>
@@ -199,7 +315,7 @@ function renderList() {
             <strong>${item.name}</strong>
             <small>${item.signatureDishes.slice(0, 3).join(" · ")}</small>
           </span>
-          <span class="price">¥${item.pricePerPerson}</span>
+          <span class="status-pill ${status.key}">${status.label}</span>
         </button>
       `;
     })
@@ -228,22 +344,41 @@ function renderDetail() {
       `,
     )
     .join("");
+  const status = mapStatus(item);
+  const evidence = locationEvidence(item);
+  const mapLink = status.key === "verified" ? amapMarkerUrl(item) : amapSearchUrl(item);
+  const mapInfo = `
+    <div class="map-info ${status.key}">
+      <div class="section-heading compact">
+        <h3>地图信息</h3>
+        <span class="status-pill ${status.key}">${status.label}</span>
+      </div>
+      <p>${status.summary}</p>
+      <dl>
+        <div><dt>地址</dt><dd>${item.address}</dd></div>
+        <div><dt>坐标</dt><dd>${typeof item.lng === "number" && typeof item.lat === "number" ? `${item.lng.toFixed(6)}, ${item.lat.toFixed(6)}` : "待补"}</dd></div>
+      </dl>
+      <a class="map-link" href="${mapLink}" target="_blank" rel="noreferrer">${status.key === "verified" ? "打开高德位置" : "打开高德搜索"}</a>
+    </div>
+  `;
+  const clueTitle = evidence.length ? "评论位置线索" : "评论线索";
 
   els.detail.innerHTML = `
     <div class="detail-top">
       <span class="district-chip" style="--chip:${districtColor(item)}">${item.city} · ${item.district}</span>
-      <span class="score">${item.environmentScore.toFixed(1)} 环境</span>
+      <span class="status-pill ${status.key}">${status.label}</span>
     </div>
     <h2>${item.name}</h2>
     <p class="address">${item.address}</p>
     <div class="info-grid">
-      <div><span>人均</span><strong>¥${item.pricePerPerson}</strong></div>
-      <div><span>菜式</span><strong>${item.signatureDishes.join(" / ")}</strong></div>
+      <div><span>人均</span><strong>${typeof item.pricePerPerson === "number" ? `¥${item.pricePerPerson}` : "待补"}</strong></div>
+      <div><span>菜式</span><strong>${item.signatureDishes.length ? item.signatureDishes.join(" / ") : "待补"}</strong></div>
     </div>
+    ${mapInfo}
     <a class="video-link" href="${item.sourceVideo.url}" target="_blank" rel="noreferrer">${item.sourceVideo.title}</a>
     <div class="comments">
       <div class="section-heading compact">
-        <h3>网友补充</h3>
+        <h3>${clueTitle}</h3>
         <span>${item.comments.length} 条</span>
       </div>
       <ul>${comments}</ul>
