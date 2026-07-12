@@ -146,6 +146,11 @@ function amapSearchUrl(item) {
   return `https://www.amap.com/search?query=${encodeURIComponent([item.city, item.district, item.name].filter(Boolean).join(""))}`;
 }
 
+function amapBranchUrl(item, branch) {
+  const query = branch.amapQuery ?? [item.city, branch.district, branch.name].filter(Boolean).join("");
+  return `https://www.amap.com/search?query=${encodeURIComponent(query)}`;
+}
+
 function renderUpTabs() {
   els.upTabs.innerHTML = state.ups
     .map((up) => {
@@ -374,6 +379,29 @@ function renderDetail() {
   const status = mapStatus(item);
   const evidence = locationEvidence(item);
   const mapLink = status.key === "verified" ? amapMarkerUrl(item) : amapSearchUrl(item);
+  const branches = (item.branches ?? [])
+    .map(
+      (branch) => `
+        <li>
+          <div>
+            <strong>${branch.name}</strong>
+            <span>${[branch.district, branch.area].filter(Boolean).join(" · ")}</span>
+            <p>${branch.address}</p>
+            ${branch.pricePerPerson ? `<small>参考人均 ¥${branch.pricePerPerson}</small>` : ""}
+          </div>
+          <a href="${amapBranchUrl(item, branch)}" target="_blank" rel="noreferrer">打开</a>
+        </li>
+      `,
+    )
+    .join("");
+  const branchOptions = branches
+    ? `
+      <div class="branch-options">
+        <h4>可选地址</h4>
+        <ul>${branches}</ul>
+      </div>
+    `
+    : "";
   const mapInfo = `
     <div class="map-info ${status.key}">
       <div class="section-heading compact">
@@ -385,6 +413,7 @@ function renderDetail() {
         <div><dt>地址</dt><dd>${item.address}</dd></div>
         <div><dt>坐标</dt><dd>${typeof item.lng === "number" && typeof item.lat === "number" ? `${item.lng.toFixed(6)}, ${item.lat.toFixed(6)}` : "待补"}</dd></div>
       </dl>
+      ${branchOptions}
       <a class="map-link" href="${mapLink}" target="_blank" rel="noreferrer">${status.key === "verified" ? "打开高德位置" : "打开高德搜索"}</a>
     </div>
   `;

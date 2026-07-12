@@ -735,6 +735,71 @@ p {
   overflow-wrap: anywhere;
 }
 
+.branch-options {
+  display: grid;
+  gap: 8px;
+}
+
+.branch-options h4 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.branch-options ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.branch-options li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  align-items: center;
+  border-radius: 14px;
+  background: rgba(245, 250, 247, 0.9);
+  padding: 10px;
+}
+
+.branch-options strong,
+.branch-options span,
+.branch-options small {
+  display: block;
+}
+
+.branch-options strong {
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.branch-options span,
+.branch-options small {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.branch-options p {
+  margin: 3px 0;
+  color: var(--ink);
+  font-size: 12px;
+}
+
+.branch-options a {
+  border-radius: 999px;
+  background: #fff;
+  color: #367d74;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 7px 10px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
 .map-link {
   justify-self: start;
   border-radius: 999px;

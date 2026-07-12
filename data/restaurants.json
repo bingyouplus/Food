@@ -1314,14 +1314,18 @@
   {
     "id": "gz-升运来云吞面-BV14FDYBFEDH",
     "upId": "bilibili-700270361",
-    "name": "升运来云吞面",
+    "name": "昇运来云吞面",
     "city": "广州",
     "district": "越秀区",
-    "address": "广州越秀区升运来云吞面（待确认）",
+    "address": "广州多分店可选：五羊邨地铁站店、K11购物艺术中心B1、猎德地铁站店、潭村地铁站店",
     "lng": 113.267,
     "lat": 23.143,
-    "signatureDishes": [],
-    "pricePerPerson": null,
+    "signatureDishes": [
+      "云吞面",
+      "鲜肉云吞面",
+      "全虾云吞面"
+    ],
+    "pricePerPerson": 48,
     "environmentScore": null,
     "sourceVideo": {
       "title": "越秀｜升运来云吞面，在很多人心里都是广州云吞面的天花板，我承认它不论是汤头还是面身和云吞都有独到的新意，上汤猪润和大腰子也相当霸道，值得一试，但天花板还不至于。",
@@ -1330,8 +1334,8 @@
     },
     "comments": [
       {
-        "author": "系统标记",
-        "content": "坐标为区/镇街附近临时点位，需确认详细地址后再精确定位。",
+        "author": "人工补充",
+        "content": "根据高德截图，将“升运来云吞面”修正为“昇运来云吞面”，并整理为同品牌多分店：五羊邨地铁站店、K11购物艺术中心店、猎德地铁站店、潭村地铁站店。",
         "likes": 0
       },
       {
@@ -1363,15 +1367,52 @@
     "status": "needs_geocode",
     "confidence": 0.82,
     "missingFields": [
-      "详细地址",
-      "经纬度"
+      "分店门牌号待高德逐条复核"
     ],
     "commentReview": {
-      "status": "has_evidence",
-      "usefulCount": 5,
-      "locationCount": 0,
+      "status": "manual_branch_options",
+      "usefulCount": 6,
+      "locationCount": 4,
       "checkedAt": "2026-07-12"
-    }
+    },
+    "branches": [
+      {
+        "name": "昇运来云吞面（五羊邨地铁站店）",
+        "district": "越秀区",
+        "area": "五羊邨 / 东湖",
+        "address": "广州市越秀区五羊邨地铁站周边（截图高德显示：东湖，参考人均 ¥40）",
+        "pricePerPerson": 40,
+        "rating": 4.6,
+        "amapQuery": "广州 昇运来云吞面 五羊邨地铁站店"
+      },
+      {
+        "name": "昇运来云吞面（K11购物艺术中心店）",
+        "district": "天河区",
+        "area": "珠江新城",
+        "address": "广州市天河区珠江东路6号广州K11购物艺术中心B1层（截图高德显示：K11购物艺术中心B1）",
+        "pricePerPerson": 55,
+        "rating": 4.4,
+        "amapQuery": "广州 昇运来云吞面 K11购物艺术中心 B1"
+      },
+      {
+        "name": "昇运来云吞面（猎德地铁站店）",
+        "district": "天河区",
+        "area": "猎德",
+        "address": "广州市天河区猎德地铁站 / 猎德社区周边（截图高德显示：猎德社区，参考人均 ¥37）",
+        "pricePerPerson": 37,
+        "rating": 4.5,
+        "amapQuery": "广州 昇运来云吞面 猎德地铁站店"
+      },
+      {
+        "name": "昇运来云吞面（潭村地铁站店）",
+        "district": "天河区",
+        "area": "潭村 / 跑马场",
+        "address": "广州市天河区潭村地铁站 / 跑马场周边（截图高德显示：跑马场，参考人均 ¥59）",
+        "pricePerPerson": 59,
+        "rating": 4.6,
+        "amapQuery": "广州 昇运来云吞面 潭村地铁站店"
+      }
+    ]
   },
   {
     "id": "gz-悦厨家宴-BV1ryDKB5EP3",
