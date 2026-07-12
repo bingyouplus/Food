@@ -63,6 +63,7 @@ async function boot() {
 }
 
 function renderAll() {
+  syncSelectedRestaurant();
   renderStats();
   renderFallbackMap();
   renderLegend();
@@ -87,6 +88,17 @@ function filteredRestaurants() {
       .toLowerCase();
     return cityMatch && (!query || haystack.includes(query));
   });
+}
+
+function syncSelectedRestaurant() {
+  const items = filteredRestaurants();
+  if (!items.length) {
+    state.selectedId = null;
+    return;
+  }
+  if (!items.some((item) => item.id === state.selectedId)) {
+    state.selectedId = items[0].id;
+  }
 }
 
 function districtColor(item) {
@@ -341,7 +353,8 @@ function renderList() {
 }
 
 function renderDetail() {
-  const item = state.restaurants.find((restaurant) => restaurant.id === state.selectedId) ?? filteredRestaurants()[0];
+  const items = filteredRestaurants();
+  const item = items.find((restaurant) => restaurant.id === state.selectedId) ?? items[0];
   if (!item) {
     els.detail.innerHTML = `<p class="empty">没有匹配的餐厅。</p>`;
     return;
