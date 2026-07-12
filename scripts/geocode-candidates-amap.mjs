@@ -18,8 +18,12 @@ function normalize(text = "") {
   return String(text)
     .toLowerCase()
     .replace(/[（(].*?[）)]/g, "")
-    .replace(/[·\s｜|,，。！!～~\-_/]/g, "")
-    .replace(/餐厅|饭店|酒楼|菜馆|私厨|大排档|农家乐|食府|食肆/g, "");
+    .replace(/[·\s｜|,，。！!～~\-_/•]/g, "")
+    .replace(/[未味]/g, "味")
+    .replace(/[鷄雞]/g, "鸡")
+    .replace(/[嶸榕嵘]/g, "荣")
+    .replace(/[臺台]/g, "台")
+    .replace(/餐厅|饭店|酒楼|菜馆|私厨|大排档|农家乐|食府|食肆|酒家|餐馆|海鲜城/g, "");
 }
 
 function csvEscape(value) {
@@ -57,6 +61,13 @@ function scorePoi(restaurant, poi) {
   if (!parseLocation(poi.location)) score -= 50;
 
   return score;
+}
+
+function similarity(left = "", right = "") {
+  const a = [...new Set(normalize(left))];
+  const b = new Set(normalize(right));
+  if (!a.length || !b.size) return 0;
+  return a.filter((char) => b.has(char)).length / Math.max(a.length, b.size);
 }
 
 async function searchAmap(restaurant, city) {
@@ -97,7 +108,13 @@ async function locateRestaurant(restaurant) {
   const location = best ? parseLocation(best.poi.location) : null;
   const autoConfirmed =
     Boolean(best && location) &&
-    (best.score >= 86 || (best.score >= 76 && (!second || best.score - second.score >= 16)));
+    (best.score >= 86 ||
+      (best.score >= 76 && (!second || best.score - second.score >= 16)) ||
+      (best.score >= 58 &&
+        best.poi.adname &&
+        restaurant.district &&
+        best.poi.adname.includes(restaurant.district.replace(/区$/, "")) &&
+        similarity(restaurant.name, best.poi.name) >= 0.62));
 
   return {
     id: restaurant.id,

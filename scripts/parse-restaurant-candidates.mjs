@@ -25,6 +25,25 @@ const districtNames = [
   "高明",
 ];
 
+const cityNames = [
+  "广州",
+  "佛山",
+  "中山",
+  "珠海",
+  "深圳",
+  "东莞",
+  "江门",
+  "惠州",
+  "肇庆",
+  "清远",
+  "香港",
+  "澳门",
+  "上海",
+  "昆山",
+  "东京",
+  "日本",
+];
+
 const foshanTownToDistrict = {
   大良: "顺德区",
   勒流: "顺德区",
@@ -38,6 +57,7 @@ const foshanTownToDistrict = {
 
 const guangzhouAreaToDistrict = {
   石溪: "海珠区",
+  中山八: "荔湾区",
 };
 
 const areaToDistrict = {
@@ -75,7 +95,8 @@ const dishKeywords = [
 ];
 
 function normalizeDistrict(text = "") {
-  const hit = districtNames.find((district) => text.includes(district));
+  const clean = text.replace(/^\d{1,2}:\d{2}/, "").trim();
+  const hit = districtNames.find((district) => clean.includes(district));
   if (hit) return `${hit}区`;
   return "";
 }
@@ -85,8 +106,12 @@ function inferArea(text = "") {
 }
 
 function inferCity(prefix = "", title = "") {
-  if (prefix.includes("中山") || title.startsWith("中山")) return "中山";
-  if (prefix.includes("佛山") || title.includes("佛山") || prefix.includes("顺德")) return "佛山";
+  const cleanPrefix = prefix.replace(/^\d{1,2}:\d{2}/, "").trim();
+  if (cleanPrefix.includes("顺德") || cleanPrefix.includes("南海") || cleanPrefix.includes("禅城")) return "佛山";
+  if (normalizeDistrict(cleanPrefix)) return "广州";
+  const prefixCity = cityNames.find((city) => cleanPrefix.includes(city));
+  if (prefixCity) return prefixCity;
+  if (title.includes("佛山")) return "佛山";
   return "广州";
 }
 
@@ -102,7 +127,7 @@ function extractDishes(title) {
 }
 
 function parseMultiRestaurant(video) {
-  if (!video.title.includes("；")) return [];
+  if (!video.title.includes("；") || !video.title.includes("-")) return [];
   return video.title
     .replace(/^.*?，/, "")
     .replace(/[。！]$/g, "")
@@ -158,6 +183,19 @@ function parseVideo(video) {
   const multi = parseMultiRestaurant(video);
   if (multi.length) return multi;
 
+  const labeled = title.match(/店名[:：]\s*([^；;，,。]+).*?地址[:：]\s*([^；;。]+)/);
+  if (labeled) {
+    return [
+      makeCandidate(video, {
+        city: inferCity("", title),
+        district: video.district || normalizeDistrict(title),
+        name: cleanName(labeled[1]),
+        confidence: 0.74,
+        reason: "labeled-name-address",
+      }),
+    ];
+  }
+
   const separator = title.includes("｜") ? "｜" : title.includes("|") ? "|" : "";
   if (!separator) {
     return [
@@ -171,17 +209,20 @@ function parseVideo(video) {
     ];
   }
 
-  const [prefix, restRaw = ""] = title.split(separator);
+  const parts = title.split(separator).map((part) => part.trim()).filter(Boolean);
+  const [prefix, secondPart = "", ...tailParts] = parts;
   const city = inferCity(prefix, title);
   const prefixDistrict = normalizeDistrict(prefix) || video.district || "";
-  const rest = restRaw.trim();
+  const secondLooksLikeArea = Boolean(tailParts.length && (areaToDistrict[secondPart] || normalizeDistrict(secondPart) || cityNames.includes(city)));
+  const rest = (secondLooksLikeArea && tailParts.length ? tailParts.join(separator) : [secondPart, ...tailParts].join(separator)).trim();
   const fragments = rest.split(/[，,。！!]/).map((part) => part.trim()).filter(Boolean);
   const first = fragments[0] ?? "";
   const second = fragments[1] ?? "";
   const contextualArea = inferArea(title);
   const firstLooksLikeArea = Boolean(areaToDistrict[first]);
-  const area = firstLooksLikeArea ? first : contextualArea;
-  const name = cleanName(firstLooksLikeArea && second ? second : first);
+  const area = secondLooksLikeArea ? secondPart : firstLooksLikeArea ? first : contextualArea;
+  const firstLooksDescriptive = /^(这些天|今天|当地|带娃|连续|宝藏|一家|这家|刚下|刚来|每次)/.test(first);
+  const name = cleanName(secondLooksLikeArea && firstLooksDescriptive ? secondPart : firstLooksLikeArea && second ? second : first);
   const district = prefixDistrict || normalizeDistrict(area) || areaToDistrict[area] || "";
   const isCollection = nonRestaurantSignals.some((signal) => title.includes(signal));
 

@@ -4,8 +4,8 @@ import { requestBilibili, signedSpaceSearchUrl, toVideoRow } from "./bilibili-ut
 const uid = process.argv[2] ?? process.env.BILIBILI_UIDS?.split(",")[0] ?? "700270361";
 const pageSize = Number(process.argv[3] ?? 30);
 const outputDir = new URL("../work/", import.meta.url);
-const delayMs = Number(process.env.BILIBILI_EXPORT_DELAY_MS ?? 30000);
-const maxPagesPerRun = Number(process.env.BILIBILI_MAX_PAGES_PER_RUN ?? 2);
+const delayMs = Number(process.env.BILIBILI_EXPORT_DELAY_MS ?? 90000);
+const maxPagesPerRun = Number(process.env.BILIBILI_MAX_PAGES_PER_RUN ?? process.env.BILIBILI_MAX_FETCH_PAGES_PER_RUN ?? 3);
 const jsonPath = new URL(`bilibili-${uid}-videos.json`, outputDir);
 const csvPath = new URL(`bilibili-${uid}-videos.csv`, outputDir);
 
@@ -17,14 +17,20 @@ function csvEscape(value) {
 async function fetchPage(pageNumber) {
   let lastText = "";
   for (let attempt = 1; attempt <= 3; attempt += 1) {
-    const url = await signedSpaceSearchUrl({ uid, pageNumber, pageSize });
-    const current = await requestBilibili(url, uid);
-    const videos = current.json?.data?.list?.vlist;
-    if (videos) return current.json.data;
-    lastText = current.text;
-    const code = current.json?.code;
+    let code = "";
+    try {
+      const url = await signedSpaceSearchUrl({ uid, pageNumber, pageSize });
+      const current = await requestBilibili(url, uid);
+      const videos = current.json?.data?.list?.vlist;
+      if (videos) return current.json.data;
+      lastText = current.text;
+      code = current.json?.code ?? current.status;
+    } catch (error) {
+      lastText = error.message;
+      code = "network";
+    }
     const backoff = delayMs * attempt + Math.round(Math.random() * 2200);
-    console.log(`第 ${pageNumber} 页第 ${attempt} 次失败：${code ?? current.status}，${backoff}ms 后重试`);
+    console.log(`第 ${pageNumber} 页第 ${attempt} 次失败：${code}，${backoff}ms 后重试`);
     await new Promise((resolve) => setTimeout(resolve, backoff));
   }
   throw new Error(`第 ${pageNumber} 页失败：${lastText.slice(0, 220)}`);
@@ -52,15 +58,25 @@ async function writeOutputs(rows) {
   await writeFile(csvPath, `${csv}\n`);
 }
 
+function mergeVideoRows(byBv, videos) {
+  let added = 0;
+  for (const row of videos.map(toVideoRow)) {
+    if (!byBv.has(row.bv)) added += 1;
+    byBv.set(row.bv, row);
+  }
+  return added;
+}
+
 await mkdir(outputDir, { recursive: true });
 const existingRows = await readExistingRows();
 const byBv = new Map(existingRows.map((row) => [row.bv, row]));
 const first = await fetchPage(1);
 const total = first.page?.count ?? first.list.vlist.length;
 const pageCount = Math.ceil(total / pageSize);
-for (const row of first.list.vlist.map(toVideoRow)) byBv.set(row.bv, row);
+const firstPageNewRows = mergeVideoRows(byBv, first.list.vlist);
 let rows = [...byBv.values()];
 await writeOutputs(rows);
+let fetchedPagesThisRun = firstPageNewRows > 0 ? 1 : 0;
 
 console.log(`UID：${uid}`);
 console.log(`总视频数：${total}`);
@@ -73,14 +89,14 @@ for (let pageNumber = 2; pageNumber <= pageCount; pageNumber += 1) {
     console.log(`跳过第 ${pageNumber} 页：本地已有足够记录`);
     continue;
   }
-  const completedPages = Math.floor(rows.length / pageSize);
-  if (completedPages >= maxPagesPerRun) {
+  if (fetchedPagesThisRun >= maxPagesPerRun) {
     console.log(`本轮达到上限：${maxPagesPerRun} 页。稍后再次运行会从已保存数据继续。`);
     break;
   }
   await new Promise((resolve) => setTimeout(resolve, delayMs + Math.round(Math.random() * 2200)));
   const page = await fetchPage(pageNumber);
-  for (const row of page.list.vlist.map(toVideoRow)) byBv.set(row.bv, row);
+  const newRows = mergeVideoRows(byBv, page.list.vlist);
+  if (newRows > 0) fetchedPagesThisRun += 1;
   rows = [...byBv.values()];
   await writeOutputs(rows);
   console.log(`已保存：${rows.length}/${total}`);

@@ -8,6 +8,25 @@ const dataJsPath = new URL("../src/data.js", import.meta.url);
 const restaurantsJsonPath = new URL("../data/restaurants.json", import.meta.url);
 const upId = "bilibili-700270361";
 
+const cityCenters = {
+  广州: [113.28, 23.08],
+  佛山: [113.12, 23.02],
+  中山: [113.39, 22.52],
+  珠海: [113.57, 22.27],
+  深圳: [114.06, 22.54],
+  东莞: [113.75, 23.04],
+  江门: [113.08, 22.58],
+  惠州: [114.42, 23.11],
+  肇庆: [112.47, 23.05],
+  清远: [113.05, 23.68],
+  香港: [114.17, 22.32],
+  澳门: [113.55, 22.2],
+  上海: [121.47, 31.23],
+  昆山: [120.98, 31.38],
+  东京: [139.76, 35.68],
+  日本: [139.76, 35.68],
+};
+
 const districtCenters = {
   天河区: [113.361, 23.124],
   越秀区: [113.267, 23.129],
@@ -19,6 +38,20 @@ const districtCenters = {
   顺德区: [113.293, 22.805],
   南海区: [113.143, 23.028],
   禅城区: [113.122, 23.009],
+  中山: cityCenters.中山,
+  珠海: cityCenters.珠海,
+  深圳: cityCenters.深圳,
+  东莞: cityCenters.东莞,
+  江门: cityCenters.江门,
+  惠州: cityCenters.惠州,
+  肇庆: cityCenters.肇庆,
+  清远: cityCenters.清远,
+  香港: cityCenters.香港,
+  澳门: cityCenters.澳门,
+  上海: cityCenters.上海,
+  昆山: cityCenters.昆山,
+  东京: cityCenters.东京,
+  日本: cityCenters.日本,
 };
 
 const areaOffsets = {
@@ -41,7 +74,7 @@ function slugify(text) {
 }
 
 function pseudoPoint(candidate, index) {
-  const center = districtCenters[candidate.district] ?? [113.28, 23.08];
+  const center = districtCenters[candidate.district] ?? cityCenters[candidate.city] ?? [113.28, 23.08];
   const areaOffset = areaOffsets[candidate.area] ?? [0, 0];
   const ring = index % 8;
   const jitterLng = (Math.cos((ring / 8) * Math.PI * 2) * 0.018) + areaOffset[0];
@@ -55,10 +88,31 @@ function pseudoPoint(candidate, index) {
 function isMappable(candidate) {
   return (
     candidate.name &&
-    candidate.district &&
-    ["广州", "佛山"].includes(candidate.city) &&
+    candidate.city &&
     candidate.reason !== "collection-or-summary"
   );
+}
+
+function cityPrefix(city) {
+  const prefixes = {
+    广州: "gz",
+    佛山: "fs",
+    中山: "zs",
+    珠海: "zh",
+    深圳: "sz",
+    东莞: "dg",
+    江门: "jm",
+    惠州: "hz",
+    肇庆: "zq",
+    清远: "qy",
+    香港: "hk",
+    澳门: "mo",
+    上海: "sh",
+    昆山: "ks",
+    东京: "tokyo",
+    日本: "jp",
+  };
+  return prefixes[city] ?? "other";
 }
 
 function csvEscape(value) {
@@ -74,12 +128,12 @@ const restaurants = mappable.map((candidate, index) => {
   const point = pseudoPoint(candidate, index);
   const area = candidate.area ? `${candidate.area}，` : "";
   return {
-    id: `${candidate.city === "佛山" ? "fs" : "gz"}-${slugify(candidate.name)}-${candidate.bv}`,
+    id: `${cityPrefix(candidate.city)}-${slugify(candidate.name)}-${candidate.bv}`,
     upId,
     name: candidate.name,
     city: candidate.city,
-    district: candidate.district,
-    address: `${candidate.city}${candidate.district}${area}${candidate.name}（待确认）`,
+    district: candidate.district || candidate.city,
+    address: `${candidate.city}${candidate.district || ""}${area}${candidate.name}（待确认）`,
     lng: point.lng,
     lat: point.lat,
     signatureDishes: candidate.signatureDishes,

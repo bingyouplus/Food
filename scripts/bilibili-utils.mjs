@@ -1,6 +1,7 @@
 import { readFile } from "node:fs/promises";
 
 let cachedCookie;
+const wbiKeyCache = new Map();
 
 async function getBilibiliCookie() {
   if (cachedCookie !== undefined) return cachedCookie;
@@ -88,6 +89,7 @@ export async function md5(text) {
 }
 
 export async function getWbiKeys(uid) {
+  if (wbiKeyCache.has(uid)) return wbiKeyCache.get(uid);
   const current = await requestBilibili("https://api.bilibili.com/x/web-interface/nav", uid);
   const wbi = current.json?.data?.wbi_img;
   if (!wbi?.img_url || !wbi?.sub_url) {
@@ -95,7 +97,9 @@ export async function getWbiKeys(uid) {
   }
   const imgKey = wbi.img_url.slice(wbi.img_url.lastIndexOf("/") + 1, wbi.img_url.lastIndexOf("."));
   const subKey = wbi.sub_url.slice(wbi.sub_url.lastIndexOf("/") + 1, wbi.sub_url.lastIndexOf("."));
-  return { imgKey, subKey };
+  const keys = { imgKey, subKey };
+  wbiKeyCache.set(uid, keys);
+  return keys;
 }
 
 export async function signedSpaceSearchUrl({ uid, pageNumber = 1, pageSize = 30 }) {

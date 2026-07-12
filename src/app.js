@@ -16,6 +16,20 @@ const locationPattern = /地址|位置|坐标|定位|导航|路|街|巷|号|铺|
 const districtPalette = {
   广州: ["#4eb7a8", "#73c6b6", "#2f9c91", "#8fcfbe", "#5aa897", "#9bd8ca"],
   佛山: ["#5ba8d6", "#7dbbe0", "#408ec4", "#9acbe8", "#6c9ed0", "#4f83bd"],
+  中山: ["#e39d5c", "#d98945", "#efb676", "#c87839"],
+  珠海: ["#6aa6df", "#88bee8", "#4b8dcc", "#a4cdec"],
+  深圳: ["#58b88f", "#7bcaa8", "#3e9d77", "#96d8bb"],
+  东莞: ["#c695d8", "#b77bcd", "#d3b0e0", "#9f65b9"],
+  江门: ["#d7aa5d", "#c99642", "#e5bf7b", "#b48034"],
+  惠州: ["#68b7c4", "#83c7d1", "#4ca1b0", "#9bd5dd"],
+  肇庆: ["#93ad62", "#a8be7c", "#7f9b4f", "#bbcb96"],
+  清远: ["#d98680", "#e49c96", "#c96f68", "#edb4af"],
+  香港: ["#d46f9f", "#e18ab1", "#bf5b8a", "#eca9c5"],
+  澳门: ["#b7a05f", "#c9b77a", "#9f8948", "#d8ca98"],
+  上海: ["#6f98d4", "#8aaee1", "#587fbd", "#abc5ec"],
+  昆山: ["#79b178", "#91c58e", "#5f9b5e", "#acd6a8"],
+  东京: ["#b889d7", "#c7a0e1", "#9e6bc4", "#d8b8ec"],
+  日本: ["#b889d7", "#c7a0e1", "#9e6bc4", "#d8b8ec"],
 };
 
 const els = {
@@ -96,12 +110,12 @@ function mapStatus(item) {
       summary: item.geocode?.poiName ? `匹配：${item.geocode.poiName}` : "已通过高德 POI 匹配",
     };
   }
-  const evidence = locationEvidence(item);
-  if (evidence.length) {
+  const evidenceCount = item.commentReview?.locationCount ?? locationEvidence(item).length;
+  if (evidenceCount) {
     return {
       key: "commented",
       label: "评论有位置线索",
-      summary: `筛到 ${evidence.length} 条可能帮助定位的评论`,
+      summary: `筛到 ${evidenceCount} 条可能帮助定位的评论`,
     };
   }
   return {
