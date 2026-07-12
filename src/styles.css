@@ -680,6 +680,19 @@ p {
   text-decoration: none;
 }
 
+.video-link span {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.video-list {
+  display: grid;
+  gap: 8px;
+}
+
 .map-info {
   display: grid;
   gap: 10px;

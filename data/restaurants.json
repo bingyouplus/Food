@@ -37,7 +37,7 @@
     }
   },
   {
-    "id": "gz-粤正盅-BV1pZMv6fEWs",
+    "id": "gz-粤正盅",
     "upId": "bilibili-700270361",
     "name": "粤正盅",
     "city": "广州",
@@ -58,6 +58,11 @@
     },
     "comments": [
       {
+        "author": "系统合并",
+        "content": "同一家粤正盅出现 3 次探店视频，已合并为一个餐厅条目，并保留全部探店记录。",
+        "likes": 0
+      },
+      {
         "author": "高德核实",
         "content": "已按高德 POI 自动匹配：粤正盅",
         "likes": 0
@@ -71,7 +76,24 @@
       "confidence": 110,
       "poiName": "粤正盅",
       "poiType": "餐饮服务;餐饮相关场所;餐饮相关"
-    }
+    },
+    "sourceVideos": [
+      {
+        "title": "越秀｜粤正盅，广州难得有一家食肆～每年回顾都能给我意料之外的味觉惊喜，还总会发现一些别处不太能吃到的美味，像今天的姜油石娃简直是极品～，黑醋猪颈肉也是挺无敌的。",
+        "url": "https://www.bilibili.com/video/BV1pZMv6fEWs",
+        "publishedAt": "2026-07-08"
+      },
+      {
+        "title": "越秀｜粤正盅，已经很少见的美味，蠄蚷粥如果没喝过～绝对想象不到它有多鲜甜，虽然是午饭，但吃的菜都是广州城区几乎绝迹的宵夜顶配。",
+        "url": "https://www.bilibili.com/video/BV1w4puzKETf",
+        "publishedAt": "2025-09-15"
+      },
+      {
+        "title": "越秀｜粤正盅，炖汤大概是广东人与生俱来的技能，各有各的看家本事，中午这家粤菜馆子大盅足料的炖汤相当靠谱，其他菜的出品也足够扎实，不少都是很经典的广府菜。",
+        "url": "https://www.bilibili.com/video/BV1sM4m117F6",
+        "publishedAt": "2024-08-20"
+      }
+    ]
   },
   {
     "id": "fs-新公舍饭店-BV1KEMt6VE4h",
@@ -3774,40 +3796,6 @@
       "confidence": 110,
       "poiName": "水仙头私房菜(近良店)",
       "poiType": "餐饮服务;中餐厅;广东菜(粤菜)"
-    }
-  },
-  {
-    "id": "gz-粤正盅-BV1w4puzKETf",
-    "upId": "bilibili-700270361",
-    "name": "粤正盅",
-    "city": "广州",
-    "district": "越秀区",
-    "address": "广州市越秀区太和岗路20如意大楼F1层",
-    "lng": 113.296507,
-    "lat": 23.14258,
-    "signatureDishes": [],
-    "pricePerPerson": null,
-    "environmentScore": null,
-    "sourceVideo": {
-      "title": "越秀｜粤正盅，已经很少见的美味，蠄蚷粥如果没喝过～绝对想象不到它有多鲜甜，虽然是午饭，但吃的菜都是广州城区几乎绝迹的宵夜顶配。",
-      "url": "https://www.bilibili.com/video/BV1w4puzKETf",
-      "publishedAt": "2025-09-15"
-    },
-    "comments": [
-      {
-        "author": "高德核实",
-        "content": "已按高德 POI 自动匹配：粤正盅",
-        "likes": 0
-      }
-    ],
-    "status": "geocoded",
-    "confidence": 0.82,
-    "missingFields": [],
-    "geocode": {
-      "provider": "amap",
-      "confidence": 110,
-      "poiName": "粤正盅",
-      "poiType": "餐饮服务;餐饮相关场所;餐饮相关"
     }
   },
   {
@@ -8738,42 +8726,6 @@
       "confidence": 110,
       "poiName": "汉景·粤菜酒家(长隆店)",
       "poiType": "餐饮服务;中餐厅;综合酒楼"
-    }
-  },
-  {
-    "id": "gz-粤正盅-BV1sM4m117F6",
-    "upId": "bilibili-700270361",
-    "name": "粤正盅",
-    "city": "广州",
-    "district": "越秀区",
-    "address": "广州市越秀区太和岗路20如意大楼F1层",
-    "lng": 113.296507,
-    "lat": 23.14258,
-    "signatureDishes": [
-      "炖汤"
-    ],
-    "pricePerPerson": null,
-    "environmentScore": null,
-    "sourceVideo": {
-      "title": "越秀｜粤正盅，炖汤大概是广东人与生俱来的技能，各有各的看家本事，中午这家粤菜馆子大盅足料的炖汤相当靠谱，其他菜的出品也足够扎实，不少都是很经典的广府菜。",
-      "url": "https://www.bilibili.com/video/BV1sM4m117F6",
-      "publishedAt": "2024-08-20"
-    },
-    "comments": [
-      {
-        "author": "高德核实",
-        "content": "已按高德 POI 自动匹配：粤正盅",
-        "likes": 0
-      }
-    ],
-    "status": "geocoded",
-    "confidence": 0.82,
-    "missingFields": [],
-    "geocode": {
-      "provider": "amap",
-      "confidence": 110,
-      "poiName": "粤正盅",
-      "poiType": "餐饮服务;餐饮相关场所;餐饮相关"
     }
   },
   {

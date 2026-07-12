@@ -83,6 +83,7 @@ function filteredRestaurants() {
       item.address,
       item.signatureDishes.join(" "),
       item.sourceVideo.title,
+      ...(item.sourceVideos ?? []).map((video) => video.title),
     ]
       .join(" ")
       .toLowerCase();
@@ -402,6 +403,28 @@ function renderDetail() {
       </div>
     `
     : "";
+  const videos = item.sourceVideos?.length ? item.sourceVideos : [item.sourceVideo];
+  const videoLinks = videos
+    .map(
+      (video) => `
+        <a class="video-link" href="${video.url}" target="_blank" rel="noreferrer">
+          <span>${video.publishedAt || "日期待补"}</span>
+          ${video.title}
+        </a>
+      `,
+    )
+    .join("");
+  const videoBlock = videos.length > 1
+    ? `
+      <div class="video-list">
+        <div class="section-heading compact">
+          <h3>探店记录</h3>
+          <span>${videos.length} 次</span>
+        </div>
+        ${videoLinks}
+      </div>
+    `
+    : videoLinks;
   const mapInfo = `
     <div class="map-info ${status.key}">
       <div class="section-heading compact">
@@ -431,7 +454,7 @@ function renderDetail() {
       <div><span>菜式</span><strong>${item.signatureDishes.length ? item.signatureDishes.join(" / ") : "待补"}</strong></div>
     </div>
     ${mapInfo}
-    <a class="video-link" href="${item.sourceVideo.url}" target="_blank" rel="noreferrer">${item.sourceVideo.title}</a>
+    ${videoBlock}
     <div class="comments">
       <div class="section-heading compact">
         <h3>${clueTitle}</h3>
