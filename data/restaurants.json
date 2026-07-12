@@ -21,6 +21,11 @@
     },
     "comments": [
       {
+        "author": "系统合并",
+        "content": "同一家店出现 2 次探店视频，已合并为一个餐厅条目，并保留全部探店记录。",
+        "likes": 0
+      },
+      {
         "author": "高德核实",
         "content": "已按高德 POI 自动匹配：山鼎荟·顺德家宴",
         "likes": 0
@@ -34,7 +39,19 @@
       "confidence": 96,
       "poiName": "山鼎荟·顺德家宴",
       "poiType": "餐饮服务;中餐厅;中餐厅"
-    }
+    },
+    "sourceVideos": [
+      {
+        "title": "天河｜山鼎荟，广式炖汤真正的天花板～，我常说它是汤品江湖内功深厚的一代宗师，做着不少相当见功底或者别处不太能吃到的手工菜，临结束还邂逅了最叫人惊喜的菜心。",
+        "url": "https://www.bilibili.com/video/BV1wCN76vEtf",
+        "publishedAt": "2026-07-10"
+      },
+      {
+        "title": "天河｜山鼎荟，最近聚会多跟着一群本地老饕吃了不少平时自己不太能找到的～低调又功力深厚的粤菜私房菜，昨天这家的炒禾虫相当见功底，竹狸在广州市区也不常见。",
+        "url": "https://www.bilibili.com/video/BV14GC6YuEfn",
+        "publishedAt": "2024-12-26"
+      }
+    ]
   },
   {
     "id": "gz-粤正盅",
@@ -942,6 +959,11 @@
     },
     "comments": [
       {
+        "author": "系统合并",
+        "content": "同一家店出现 2 次探店视频，已合并为一个餐厅条目，并保留全部探店记录。",
+        "likes": 0
+      },
+      {
         "author": "高德核实",
         "content": "已按高德 POI 自动匹配：渔情味了街坊味大排档",
         "likes": 0
@@ -955,7 +977,19 @@
       "confidence": 96,
       "poiName": "渔情味了街坊味大排档",
       "poiType": "餐饮服务;中餐厅;中餐厅"
-    }
+    },
+    "sourceVideos": [
+      {
+        "title": "海珠｜渔情味了，我自己经常吃鱼生的小饭桌，典型的街坊排档，它的花泥猛和笋壳鱼生在城区都不算多见，今年发现它其他菜也明显进步了，尤其姜油菜做的又醇又香。",
+        "url": "https://www.bilibili.com/video/BV1oudABuEN8",
+        "publishedAt": "2026-05-07"
+      },
+      {
+        "title": "海珠｜渔情味了，中午想整点儿清爽的，特意来吃个有花泥鯭鱼生的挺经典的粤菜街坊大排档，它家用黄椒蒸的泥猛皮尤其好吃。",
+        "url": "https://www.bilibili.com/video/BV1dE4m197Cm",
+        "publishedAt": "2024-08-29"
+      }
+    ]
   },
   {
     "id": "gz-猪腰世家-BV1EjR5BgEtL",
@@ -1392,9 +1426,9 @@
       "分店门牌号待高德逐条复核"
     ],
     "commentReview": {
-      "status": "manual_branch_options",
+      "status": "has_evidence",
       "usefulCount": 6,
-      "locationCount": 4,
+      "locationCount": 0,
       "checkedAt": "2026-07-12"
     },
     "branches": [
@@ -1873,6 +1907,11 @@
     },
     "comments": [
       {
+        "author": "系统合并",
+        "content": "同一家店出现 2 次探店视频，已合并为一个餐厅条目，并保留全部探店记录。",
+        "likes": 0
+      },
+      {
         "author": "高德核实",
         "content": "已按高德 POI 自动匹配：金纺私房菜",
         "likes": 0
@@ -1886,7 +1925,19 @@
       "confidence": 110,
       "poiName": "金纺私房菜",
       "poiType": "餐饮服务;中餐厅;中餐厅"
-    }
+    },
+    "sourceVideos": [
+      {
+        "title": "顺德｜容桂，金纺私房菜，顺德土著请客～吃一个在容桂性价比相当不错的街坊饭堂，像酿鲮鱼也好～还有鱼皮饺之类的几个手工菜做的相当可以，还头一次吃到了蜜汁口的烤羊排。",
+        "url": "https://www.bilibili.com/video/BV1txcsziEtz",
+        "publishedAt": "2026-02-11"
+      },
+      {
+        "title": "顺德｜金纺私房菜，土著带路～来吃一个量大实惠的顺德菜馆儿，不仅鲍鱼焖鸭有些惊喜，还吃到了已经许久不见的猪肚饼，三十几块的黄鳝饭更是性价比贼高。",
+        "url": "https://www.bilibili.com/video/BV1DRD2YJEGX",
+        "publishedAt": "2024-11-07"
+      }
+    ]
   },
   {
     "id": "gz-锦堂春想-雅瑶-BV1yMFSzcE2o",
@@ -2279,6 +2330,11 @@
     },
     "comments": [
       {
+        "author": "系统合并",
+        "content": "同一家店出现 4 次探店视频，已合并为一个餐厅条目，并保留全部探店记录。",
+        "likes": 0
+      },
+      {
         "author": "高德核实",
         "content": "已按高德 POI 自动匹配：翅叔港式酒家",
         "likes": 0
@@ -2292,7 +2348,29 @@
       "confidence": 110,
       "poiName": "翅叔港式酒家",
       "poiType": "餐饮服务;中餐厅;中餐厅"
-    }
+    },
+    "sourceVideos": [
+      {
+        "title": "越秀｜翅叔港式酒家，老城区非常宝藏的粤菜馆子，作者很多别处吃不到的独家菜式，每年在他家跟朋友小聚已经成了惯例。",
+        "url": "https://www.bilibili.com/video/BV16qrgBAEQ9",
+        "publishedAt": "2026-01-10"
+      },
+      {
+        "title": "越秀｜翅叔港式酒家，每年节前跟朋友们到翅叔小聚~吃个广府人传统的新春盆菜已经成了习惯，算是每年的定期回顾～。",
+        "url": "https://www.bilibili.com/video/BV1A2fbY3EbS",
+        "publishedAt": "2025-01-22"
+      },
+      {
+        "title": "越秀｜翅叔港式酒家，在广州比较独树一帜的宝藏粤菜食肆，我自己经常闪现～也经常带朋友来，每年定期做个回顾已经成了习惯。",
+        "url": "https://www.bilibili.com/video/BV1uC411J7Ym",
+        "publishedAt": "2024-05-02"
+      },
+      {
+        "title": "越秀｜翅叔港式酒家，我心中的宝藏粤菜之一，复出的头一餐又来翅叔～算是真爱了。出品靠谱～凭着不少独家菜式，吸引着很多挑剔的老广，也属于哪种我会经常带朋友来的食肆。",
+        "url": "https://www.bilibili.com/video/BV1w94y1j77v",
+        "publishedAt": "2023-10-24"
+      }
+    ]
   },
   {
     "id": "gz-曹记牛佛蒸笼-BV1wBisBcEE8",
@@ -2465,53 +2543,6 @@
     }
   },
   {
-    "id": "gz-龙津西路92号-BV1pfBKBDEaX",
-    "upId": "bilibili-700270361",
-    "name": "龙津西路92号",
-    "city": "广州",
-    "district": "荔湾区",
-    "address": "广州荔湾区龙津西路92号（待确认）",
-    "lng": 113.262,
-    "lat": 23.125,
-    "signatureDishes": [],
-    "pricePerPerson": null,
-    "environmentScore": null,
-    "sourceVideo": {
-      "title": "荔湾｜龙津西路92号，老荔湾非常实惠的宵夜饭堂，住在附近差不多十年了，他家一直是我的小饭桌之一，性价比相当可以，尤其想吃烧烤它都是首选，生蚝烤的尤其出色。",
-      "url": "https://www.bilibili.com/video/BV1pfBKBDEaX",
-      "publishedAt": "2025-12-23"
-    },
-    "comments": [
-      {
-        "author": "系统标记",
-        "content": "坐标为区/镇街附近临时点位，需确认详细地址后再精确定位。",
-        "likes": 0
-      },
-      {
-        "author": "UP主评论线索",
-        "content": "荔湾｜龙津西路 92号",
-        "likes": 101
-      },
-      {
-        "author": "评论线索",
-        "content": "刚好来荔湾湖玩，酒还在，好喝[星星眼]\n烧烤和菜都不错[doge]",
-        "likes": 84
-      }
-    ],
-    "status": "needs_geocode",
-    "confidence": 0.82,
-    "missingFields": [
-      "详细地址",
-      "经纬度"
-    ],
-    "commentReview": {
-      "status": "has_evidence",
-      "usefulCount": 2,
-      "locationCount": 1,
-      "checkedAt": "2026-07-12"
-    }
-  },
-  {
     "id": "fs-鹿门-BV1yiqdBdEfX",
     "upId": "bilibili-700270361",
     "name": "鹿门",
@@ -2530,6 +2561,11 @@
     },
     "comments": [
       {
+        "author": "系统合并",
+        "content": "同一家店出现 2 次探店视频，已合并为一个餐厅条目，并保留全部探店记录。",
+        "likes": 0
+      },
+      {
         "author": "高德核实",
         "content": "已按高德 POI 自动匹配：德雅鹿门书局",
         "likes": 0
@@ -2543,7 +2579,19 @@
       "confidence": 96,
       "poiName": "德雅鹿门书局",
       "poiType": "餐饮服务;咖啡厅;咖啡厅"
-    }
+    },
+    "sourceVideos": [
+      {
+        "title": "顺德｜鹿门，一次难得的纹身大鳝全席～，很多做法我都是头一次见，而且人均才100出头～粤菜里性价比真的是贼高。",
+        "url": "https://www.bilibili.com/video/BV1yiqdBdEfX",
+        "publishedAt": "2025-12-19"
+      },
+      {
+        "title": "顺德｜大良｜鹿门，顺德人民总能把最简单的食材～通过精细的处理～再以最淳朴的方式得到意想不到的味觉享受，如果没试过～永远不会想到一条花鲢能做出多么美妙的鲜甜醇香。",
+        "url": "https://www.bilibili.com/video/BV1Re76zAEbm",
+        "publishedAt": "2025-06-01"
+      }
+    ]
   },
   {
     "id": "gz-星-south-beauty-BV1YdqJBTEBo",
@@ -2628,6 +2676,11 @@
     },
     "comments": [
       {
+        "author": "系统合并",
+        "content": "同一家店出现 2 次探店视频，已合并为一个餐厅条目，并保留全部探店记录。",
+        "likes": 0
+      },
+      {
         "author": "高德核实",
         "content": "已按高德 POI 自动匹配：品汤居菜馆(王朝广场店)",
         "likes": 0
@@ -2641,7 +2694,19 @@
       "confidence": 110,
       "poiName": "品汤居菜馆(王朝广场店)",
       "poiType": "餐饮服务;中餐厅;中餐厅"
-    }
+    },
+    "sourceVideos": [
+      {
+        "title": "海珠｜品汤居，真正“平靓正”的顺德菜馆儿，一直比较喜欢它的蒸菜，像无骨千层鱼也好～还有它的无骨鲫鱼～都是吃起来相当过瘾，今天还发现一个很少见的扣肉芋泥酥。",
+        "url": "https://www.bilibili.com/video/BV1x3qaBdEWG",
+        "publishedAt": "2025-12-16"
+      },
+      {
+        "title": "海珠｜品汤居，我自己私藏的“平靓正”街坊饭堂，做了20年的顺德菜，一直比较喜欢它家的蒸菜，尤其是去骨的千层鱼，吃起来很过瘾。",
+        "url": "https://www.bilibili.com/video/BV1Gx421171B",
+        "publishedAt": "2024-03-13"
+      }
+    ]
   },
   {
     "id": "gz-新兴饭店-BV18TmCBWESB",
@@ -3208,6 +3273,11 @@
     },
     "comments": [
       {
+        "author": "系统合并",
+        "content": "同一家店出现 2 次探店视频，已合并为一个餐厅条目，并保留全部探店记录。",
+        "likes": 0
+      },
+      {
         "author": "高德核实",
         "content": "已按高德 POI 自动匹配：大门公小公馆",
         "likes": 0
@@ -3221,7 +3291,19 @@
       "confidence": 110,
       "poiName": "大门公小公馆",
       "poiType": "餐饮服务;中餐厅;中餐厅"
-    }
+    },
+    "sourceVideos": [
+      {
+        "title": "顺德｜大良，大门公小公馆，整个广佛能坚持手工现做，既有传统，又对很多老式茶点有效改良～而且用料扎实还相当实惠的茶楼屈指可数，也是我心中“平靓正”早茶的标杆之一。",
+        "url": "https://www.bilibili.com/video/BV1sS1mBWEYU",
+        "publishedAt": "2025-11-08"
+      },
+      {
+        "title": "顺德｜大门公小公馆，在广佛的手工茶点江湖～有那么几家口味地道～坚持手工现做，有传统，用料扎实又相当实惠的粤菜酒楼，大门公小公馆算是我心中“平靓正”的标杆之一。",
+        "url": "https://www.bilibili.com/video/BV1Qr421n7HN",
+        "publishedAt": "2024-03-16"
+      }
+    ]
   },
   {
     "id": "gz-回头客潮汕粉面-BV1UB2MBHEnj",
@@ -3276,6 +3358,11 @@
     },
     "comments": [
       {
+        "author": "系统合并",
+        "content": "同一家店出现 2 次探店视频，已合并为一个餐厅条目，并保留全部探店记录。",
+        "likes": 0
+      },
+      {
         "author": "高德核实",
         "content": "已按高德 POI 自动匹配：玲玲美食(葵蓬分店)",
         "likes": 0
@@ -3289,7 +3376,19 @@
       "confidence": 110,
       "poiName": "玲玲美食(葵蓬分店)",
       "poiType": "餐饮服务;中餐厅;中餐厅"
-    }
+    },
+    "sourceVideos": [
+      {
+        "title": "荔湾｜玲玲美食，贼实惠的20年宝藏老店～，做着不少平时不多见的菜式，去年头一次来就留下了很深的味觉记忆，但也有很多感兴趣的菜都没尝，今天补上了，出品依然不含糊。",
+        "url": "https://www.bilibili.com/video/BV1dT1xBkEb6",
+        "publishedAt": "2025-11-05"
+      },
+      {
+        "title": "荔湾｜玲玲美食，一个隐藏极深～真正做到了“平靓正”的街坊粤菜饭堂～，广宁菜为主，开了将近20年，在网上几乎找不到它的痕迹，但是出品却一点儿不含糊。",
+        "url": "https://www.bilibili.com/video/BV1M4BKYPEf1",
+        "publishedAt": "2024-12-16"
+      }
+    ]
   },
   {
     "id": "gz-十九涌美食-BV1gt1rBLEpT",
@@ -3425,6 +3524,11 @@
     },
     "comments": [
       {
+        "author": "系统合并",
+        "content": "同一家店出现 2 次探店视频，已合并为一个餐厅条目，并保留全部探店记录。",
+        "likes": 0
+      },
+      {
         "author": "高德核实",
         "content": "已按高德 POI 自动匹配：黎哥粤味坊(新风社区店)",
         "likes": 0
@@ -3438,7 +3542,19 @@
       "confidence": 110,
       "poiName": "黎哥粤味坊(新风社区店)",
       "poiType": "餐饮服务;中餐厅;中餐厅"
-    }
+    },
+    "sourceVideos": [
+      {
+        "title": "荔湾｜黎哥粤味坊，挺实惠的平价海鲜排挡，家门口～算是我自己的小饭桌之一，它的菜品跟之前介绍过的四哥和蛙香差不多，价格也接近，都是性价比路线，不相上下。",
+        "url": "https://www.bilibili.com/video/BV1QvxczBEQU",
+        "publishedAt": "2025-10-26"
+      },
+      {
+        "title": "荔湾｜黎哥粤味坊，多宝路附近实惠的平价海鲜排档，跟熟悉的四哥家类似。店面小，人手少，不必刻意打卡。",
+        "url": "https://www.bilibili.com/video/BV1Nw4m1e7yk",
+        "publishedAt": "2024-06-18"
+      }
+    ]
   },
   {
     "id": "gz-新诚品-BV1whWQz4EyZ",
@@ -3479,10 +3595,10 @@
   {
     "id": "zh-乾务-BV1NJsgzmET2",
     "upId": "bilibili-700270361",
-    "name": "乾务",
+    "name": "胜记美食",
     "city": "珠海",
-    "district": "珠海",
-    "address": "珠海斗门，乾务（待确认）",
+    "district": "斗门区",
+    "address": "珠海市斗门区乾务镇胜记美食（待确认）",
     "lng": 113.552,
     "lat": 22.27,
     "signatureDishes": [],
@@ -3494,6 +3610,11 @@
       "publishedAt": "2025-10-20"
     },
     "comments": [
+      {
+        "author": "系统修正",
+        "content": "原解析名“胜记美食”不是准确店名，已按标题/UP主评论线索修正为“胜记美食”。",
+        "likes": 0
+      },
       {
         "author": "系统标记",
         "content": "坐标为区/镇街附近临时点位，需确认详细地址后再精确定位。",
@@ -3519,7 +3640,7 @@
     ],
     "commentReview": {
       "status": "has_evidence",
-      "usefulCount": 2,
+      "usefulCount": 3,
       "locationCount": 0,
       "checkedAt": "2026-07-12"
     }
@@ -3687,6 +3808,11 @@
     },
     "comments": [
       {
+        "author": "系统合并",
+        "content": "同一家店出现 2 次探店视频，已合并为一个餐厅条目，并保留全部探店记录。",
+        "likes": 0
+      },
+      {
         "author": "高德核实",
         "content": "已按高德 POI 自动匹配：勇记手工竹升面",
         "likes": 0
@@ -3700,7 +3826,19 @@
       "confidence": 110,
       "poiName": "勇记手工竹升面",
       "poiType": "餐饮服务;餐饮相关场所;餐饮相关"
-    }
+    },
+    "sourceVideos": [
+      {
+        "title": "荔湾｜勇记手工竹升面，来回顾一个连续两年在NAV必吃清单里的宝藏面馆儿，一直坚持传统和真材实料～踏踏实实的手工制面，我极少能用幼滑来形容竹升面的口感，不可多得。",
+        "url": "https://www.bilibili.com/video/BV1BNnAzuEdH",
+        "publishedAt": "2025-09-22"
+      },
+      {
+        "title": "荔湾｜西塱｜终于又有动力更新宝藏面家的系列了。能坚持传统踏踏实实手工制作的面家真是越来越少了，它家做出来的面口感相当幼滑爽弹，在广州已经很难得了。",
+        "url": "https://www.bilibili.com/video/BV1ou4y1q71D",
+        "publishedAt": "2023-08-07"
+      }
+    ]
   },
   {
     "id": "gz-海珠饭店-BV1pLWFz1EK7",
@@ -4071,55 +4209,12 @@
     }
   },
   {
-    "id": "jp-东京都-BV1cTevzNEH1",
-    "upId": "bilibili-700270361",
-    "name": "东京都",
-    "city": "日本",
-    "district": "日本",
-    "address": "日本东京都（待确认）",
-    "lng": 139.747272,
-    "lat": 35.670101,
-    "signatureDishes": [],
-    "pricePerPerson": null,
-    "environmentScore": null,
-    "sourceVideo": {
-      "title": "日本｜东京都，成田，横滨，把上周在东京吃过的餐厅中～比较有特点的8家做个总结～，都是性价比还不错的食肆。",
-      "url": "https://www.bilibili.com/video/BV1cTevzNEH1",
-      "publishedAt": "2025-08-23"
-    },
-    "comments": [
-      {
-        "author": "系统标记",
-        "content": "坐标为区/镇街附近临时点位，需确认详细地址后再精确定位。",
-        "likes": 0
-      },
-      {
-        "author": "UP主评论线索",
-        "content": "1、川豊(本店)，成田表参道\n2、GOKU BURGER，东京表参道\n3、竹虎，新宿/六本木\n4、Verve Coffee Roasters，六本木\n5、KINKA Sushi Bar Izakaya，国立新美术馆旁\n6、牛かつもと村，横滨站地下\n7、元祖油堂，横浜西口本店\n8、日本橋玉ゐ(本店)，日本桥",
-        "likes": 114
-      }
-    ],
-    "status": "needs_geocode",
-    "confidence": 0.62,
-    "missingFields": [
-      "所在区",
-      "详细地址",
-      "经纬度"
-    ],
-    "commentReview": {
-      "status": "has_evidence",
-      "usefulCount": 1,
-      "locationCount": 1,
-      "checkedAt": "2026-07-12"
-    }
-  },
-  {
     "id": "fs-伦教-BV1q1eMzWErQ",
     "upId": "bilibili-700270361",
-    "name": "伦教",
+    "name": "香江饭店",
     "city": "佛山",
     "district": "顺德区",
-    "address": "佛山顺德区伦教（待确认）",
+    "address": "佛山市顺德区伦教香江饭店（待确认）",
     "lng": 113.293,
     "lat": 22.791,
     "signatureDishes": [
@@ -4133,6 +4228,11 @@
       "publishedAt": "2025-08-20"
     },
     "comments": [
+      {
+        "author": "系统修正",
+        "content": "原解析名“香江饭店”不是准确店名，已按标题/UP主评论线索修正为“香江饭店”。",
+        "likes": 0
+      },
       {
         "author": "系统标记",
         "content": "坐标为区/镇街附近临时点位，需确认详细地址后再精确定位。",
@@ -4172,7 +4272,7 @@
     ],
     "commentReview": {
       "status": "has_evidence",
-      "usefulCount": 5,
+      "usefulCount": 6,
       "locationCount": 1,
       "checkedAt": "2026-07-12"
     }
@@ -4196,6 +4296,11 @@
     },
     "comments": [
       {
+        "author": "系统合并",
+        "content": "同一家店出现 2 次探店视频，已合并为一个餐厅条目，并保留全部探店记录。",
+        "likes": 0
+      },
+      {
         "author": "高德核实",
         "content": "已按高德 POI 自动匹配：大门公饭店",
         "likes": 0
@@ -4209,15 +4314,27 @@
       "confidence": 110,
       "poiName": "大门公饭店",
       "poiType": "餐饮服务;中餐厅;广东菜(粤菜)"
-    }
+    },
+    "sourceVideos": [
+      {
+        "title": "顺德｜大良｜大门公，在NAV必吃清单里很重要的经典顺德菜，因为一道红糯谷鹧鸪汤我今年已经带家人来了5、6次，今天豉汁蒸猪润三宝贵妃鸡和香茅柚皮焗白鳝都让人回味。",
+        "url": "https://www.bilibili.com/video/BV15RYszbEwp",
+        "publishedAt": "2025-08-18"
+      },
+      {
+        "title": "顺德｜大门公，现在很少有餐厅愿意做那些手工繁复又费时的功夫粤菜，平时在一家食肆能碰到一两样就很让人欣喜了，能整出一桌古法粤菜～且道道有精彩的，暂时找不出第二家。",
+        "url": "https://www.bilibili.com/video/BV1Pr421M75w",
+        "publishedAt": "2024-07-15"
+      }
+    ]
   },
   {
     "id": "fs-一个非常经典的街坊饭堂-BV1X7bazwEAx",
     "upId": "bilibili-700270361",
-    "name": "一个非常经典的街坊饭堂",
+    "name": "顺年居",
     "city": "佛山",
     "district": "顺德区",
-    "address": "佛山顺德区大良，一个非常经典的街坊饭堂（待确认）",
+    "address": "佛山市顺德区大良顺年居（待确认）",
     "lng": 113.311,
     "lat": 22.785,
     "signatureDishes": [
@@ -4231,6 +4348,11 @@
       "publishedAt": "2025-08-13"
     },
     "comments": [
+      {
+        "author": "系统修正",
+        "content": "原解析名“顺年居”不是准确店名，已按标题/UP主评论线索修正为“顺年居”。",
+        "likes": 0
+      },
       {
         "author": "系统标记",
         "content": "坐标为区/镇街附近临时点位，需确认详细地址后再精确定位。",
@@ -4260,7 +4382,7 @@
     ],
     "commentReview": {
       "status": "has_evidence",
-      "usefulCount": 3,
+      "usefulCount": 4,
       "locationCount": 1,
       "checkedAt": "2026-07-12"
     }
@@ -4318,6 +4440,11 @@
     },
     "comments": [
       {
+        "author": "系统合并",
+        "content": "同一家店出现 2 次探店视频，已合并为一个餐厅条目，并保留全部探店记录。",
+        "likes": 0
+      },
+      {
         "author": "高德核实",
         "content": "已按高德 POI 自动匹配：蛙香大排档",
         "likes": 0
@@ -4331,7 +4458,19 @@
       "confidence": 110,
       "poiName": "蛙香大排档",
       "poiType": "餐饮服务;中餐厅;中餐厅"
-    }
+    },
+    "sourceVideos": [
+      {
+        "title": "荔湾｜蛙香大排档，在老荔湾性价比非常不错的海鲜大排档，人均7、80可以吃的很满足，它家走鬼出身，别瞅出品看起来挺粗旷的，但胜在镬气十足～食材足够新鲜。",
+        "url": "https://www.bilibili.com/video/BV16wtUzWE4A",
+        "publishedAt": "2025-08-08"
+      },
+      {
+        "title": "荔湾｜蛙香大排档，性价比贼高的海鲜大排档，人均60多吃到撑，虽然苍蝇馆子出品粗旷，但胜在用料新鲜镬气十足。",
+        "url": "https://www.bilibili.com/video/BV1e4iRY6EpL",
+        "publishedAt": "2024-12-05"
+      }
+    ]
   },
   {
     "id": "gz-宴江南-BV1tjtgz8E9f",
@@ -4370,10 +4509,10 @@
   {
     "id": "fs-盐步-BV16qhgzdEzQ",
     "upId": "bilibili-700270361",
-    "name": "盐步",
+    "name": "长润餐厅",
     "city": "佛山",
-    "district": "佛山",
-    "address": "佛山盐步（待确认）",
+    "district": "南海区",
+    "address": "佛山市南海区盐步长润餐厅（待确认）",
     "lng": 113.102,
     "lat": 23.02,
     "signatureDishes": [],
@@ -4385,6 +4524,11 @@
       "publishedAt": "2025-08-03"
     },
     "comments": [
+      {
+        "author": "系统修正",
+        "content": "原解析名“长润餐厅”不是准确店名，已按标题/UP主评论线索修正为“长润餐厅”。",
+        "likes": 0
+      },
       {
         "author": "系统标记",
         "content": "坐标为区/镇街附近临时点位，需确认详细地址后再精确定位。",
@@ -4410,7 +4554,7 @@
     ],
     "commentReview": {
       "status": "has_evidence",
-      "usefulCount": 2,
+      "usefulCount": 3,
       "locationCount": 1,
       "checkedAt": "2026-07-12"
     }
@@ -4615,6 +4759,11 @@
     },
     "comments": [
       {
+        "author": "系统合并",
+        "content": "同一家店出现 2 次探店视频，已合并为一个餐厅条目，并保留全部探店记录。",
+        "likes": 0
+      },
+      {
         "author": "高德核实",
         "content": "已按高德 POI 自动匹配：清平饭店(荔湾湖店)",
         "likes": 0
@@ -4628,7 +4777,19 @@
       "confidence": 110,
       "poiName": "清平饭店(荔湾湖店)",
       "poiType": "餐饮服务;中餐厅;中餐厅"
-    }
+    },
+    "sourceVideos": [
+      {
+        "title": "荔湾｜清平饭店，中午再次回顾和检验一家曾经凭着一道清平鸡风靡广州～，去年又重新回归西关的粤菜老号，清平鸡非常出众。",
+        "url": "https://www.bilibili.com/video/BV1GFuRz5Ewj",
+        "publishedAt": "2025-07-19"
+      },
+      {
+        "title": "荔湾｜陈家祠｜清平饭店，中午来吃一家曾经风靡广州～却已经消失20年的老牌粤菜，虽有瑕疵，但还是对得起曾经“广州第一鸡”的称号。",
+        "url": "https://www.bilibili.com/video/BV1Gx4y1S7Km",
+        "publishedAt": "2024-03-12"
+      }
+    ]
   },
   {
     "id": "gz-顺得来-BV1HzgNztE92",
@@ -4735,10 +4896,10 @@
   {
     "id": "fs-南海-BV1EhGuzTEwX",
     "upId": "bilibili-700270361",
-    "name": "南海",
+    "name": "饭巢肚",
     "city": "佛山",
     "district": "南海区",
-    "address": "佛山南海区南海（待确认）",
+    "address": "佛山市南海区饭巢肚（待确认）",
     "lng": 113.130272,
     "lat": 23.018101,
     "signatureDishes": [],
@@ -4750,6 +4911,11 @@
       "publishedAt": "2025-07-10"
     },
     "comments": [
+      {
+        "author": "系统修正",
+        "content": "原解析名“饭巢肚”不是准确店名，已按标题/UP主评论线索修正为“饭巢肚”。",
+        "likes": 0
+      },
       {
         "author": "系统标记",
         "content": "坐标为区/镇街附近临时点位，需确认详细地址后再精确定位。",
@@ -4774,7 +4940,7 @@
     ],
     "commentReview": {
       "status": "has_evidence",
-      "usefulCount": 2,
+      "usefulCount": 3,
       "locationCount": 1,
       "checkedAt": "2026-07-12"
     }
@@ -4868,6 +5034,11 @@
     },
     "comments": [
       {
+        "author": "系统合并",
+        "content": "同一家店出现 2 次探店视频，已合并为一个餐厅条目，并保留全部探店记录。",
+        "likes": 0
+      },
+      {
         "author": "高德核实",
         "content": "已按高德 POI 自动匹配：德馨餐厅",
         "likes": 0
@@ -4881,7 +5052,19 @@
       "confidence": 110,
       "poiName": "德馨餐厅",
       "poiType": "餐饮服务;中餐厅;中餐厅"
-    }
+    },
+    "sourceVideos": [
+      {
+        "title": "佛山｜南海｜德馨餐厅，二刷不可多得的粤菜老店，一道蒜子焖白鳝堪称极品～，霸王鸭也胜过我们之前介绍的任何一家，金华玉树鸡更是旧时老酒席的风骨。",
+        "url": "https://www.bilibili.com/video/BV12LgkzBEtX",
+        "publishedAt": "2025-06-30"
+      },
+      {
+        "title": "佛山｜南海｜德馨餐厅，一个从九零年开始营业的老粤菜。像这种老掉牙的隐世食肆～随着老一辈的退休真的是吃一次少一次，充满年代感的旧味道也越来越多只能停留在记忆里。",
+        "url": "https://www.bilibili.com/video/BV1crTXzDEs5",
+        "publishedAt": "2025-06-08"
+      }
+    ]
   },
   {
     "id": "gz-贰少星厨-BV1SUKBzREph",
@@ -5122,40 +5305,6 @@
     }
   },
   {
-    "id": "fs-德馨餐厅-BV1crTXzDEs5",
-    "upId": "bilibili-700270361",
-    "name": "德馨餐厅",
-    "city": "佛山",
-    "district": "南海区",
-    "address": "佛山市南海区小塘站前路35号",
-    "lng": 112.977085,
-    "lat": 23.091038,
-    "signatureDishes": [],
-    "pricePerPerson": null,
-    "environmentScore": null,
-    "sourceVideo": {
-      "title": "佛山｜南海｜德馨餐厅，一个从九零年开始营业的老粤菜。像这种老掉牙的隐世食肆～随着老一辈的退休真的是吃一次少一次，充满年代感的旧味道也越来越多只能停留在记忆里。",
-      "url": "https://www.bilibili.com/video/BV1crTXzDEs5",
-      "publishedAt": "2025-06-08"
-    },
-    "comments": [
-      {
-        "author": "高德核实",
-        "content": "已按高德 POI 自动匹配：德馨餐厅",
-        "likes": 0
-      }
-    ],
-    "status": "geocoded",
-    "confidence": 0.82,
-    "missingFields": [],
-    "geocode": {
-      "provider": "amap",
-      "confidence": 110,
-      "poiName": "德馨餐厅",
-      "poiType": "餐饮服务;中餐厅;中餐厅"
-    }
-  },
-  {
     "id": "fs-叠水陆羽茶居-BV1e3TTzCE6S",
     "upId": "bilibili-700270361",
     "name": "叠水陆羽茶居",
@@ -5190,46 +5339,12 @@
     }
   },
   {
-    "id": "fs-鹿门-BV1Re76zAEbm",
-    "upId": "bilibili-700270361",
-    "name": "鹿门",
-    "city": "佛山",
-    "district": "顺德区",
-    "address": "佛山市顺德区大门社区大门东路1号之一",
-    "lng": 113.253227,
-    "lat": 22.809224,
-    "signatureDishes": [],
-    "pricePerPerson": null,
-    "environmentScore": null,
-    "sourceVideo": {
-      "title": "顺德｜大良｜鹿门，顺德人民总能把最简单的食材～通过精细的处理～再以最淳朴的方式得到意想不到的味觉享受，如果没试过～永远不会想到一条花鲢能做出多么美妙的鲜甜醇香。",
-      "url": "https://www.bilibili.com/video/BV1Re76zAEbm",
-      "publishedAt": "2025-06-01"
-    },
-    "comments": [
-      {
-        "author": "高德核实",
-        "content": "已按高德 POI 自动匹配：德雅鹿门书局",
-        "likes": 0
-      }
-    ],
-    "status": "geocoded",
-    "confidence": 0.82,
-    "missingFields": [],
-    "geocode": {
-      "provider": "amap",
-      "confidence": 96,
-      "poiName": "德雅鹿门书局",
-      "poiType": "餐饮服务;咖啡厅;咖啡厅"
-    }
-  },
-  {
     "id": "fs-鲮鱼仔-BV1TE7Gz6Eov",
     "upId": "bilibili-700270361",
-    "name": "鲮鱼仔",
+    "name": "鲮渔仔",
     "city": "佛山",
     "district": "南海区",
-    "address": "佛山南海区南海，鲮鱼仔（待确认）",
+    "address": "佛山市南海区鲮渔仔（待确认）",
     "lng": 113.130272,
     "lat": 23.037899,
     "signatureDishes": [],
@@ -5241,6 +5356,11 @@
       "publishedAt": "2025-05-29"
     },
     "comments": [
+      {
+        "author": "系统修正",
+        "content": "原解析名“鲮渔仔”不是准确店名，已按标题/UP主评论线索修正为“鲮渔仔”。",
+        "likes": 0
+      },
       {
         "author": "系统标记",
         "content": "坐标为区/镇街附近临时点位，需确认详细地址后再精确定位。",
@@ -5260,7 +5380,7 @@
     ],
     "commentReview": {
       "status": "has_evidence",
-      "usefulCount": 1,
+      "usefulCount": 2,
       "locationCount": 0,
       "checkedAt": "2026-07-12"
     }
@@ -5474,6 +5594,11 @@
     },
     "comments": [
       {
+        "author": "系统合并",
+        "content": "同一家店出现 2 次探店视频，已合并为一个餐厅条目，并保留全部探店记录。",
+        "likes": 0
+      },
+      {
         "author": "高德核实",
         "content": "已按高德 POI 自动匹配：伍哥厨房(新滘东路店)",
         "likes": 0
@@ -5487,60 +5612,19 @@
       "confidence": 110,
       "poiName": "伍哥厨房(新滘东路店)",
       "poiType": "餐饮服务;中餐厅;中餐厅"
-    }
-  },
-  {
-    "id": "jp-大阪-和歌山-BV1er5cz5Exb",
-    "upId": "bilibili-700270361",
-    "name": "大阪、和歌山",
-    "city": "日本",
-    "district": "日本",
-    "address": "日本大阪、和歌山（待确认）",
-    "lng": 139.76,
-    "lat": 35.694,
-    "signatureDishes": [],
-    "pricePerPerson": null,
-    "environmentScore": null,
-    "sourceVideo": {
-      "title": "日本｜大阪、和歌山，我的关西美食清单中又新增了几个没有被游客占领～而且出品很有特点，性价比还不错的食肆。",
-      "url": "https://www.bilibili.com/video/BV1er5cz5Exb",
-      "publishedAt": "2025-05-11"
     },
-    "comments": [
+    "sourceVideos": [
       {
-        "author": "系统标记",
-        "content": "坐标为区/镇街附近临时点位，需确认详细地址后再精确定位。",
-        "likes": 0
+        "title": "海珠｜伍哥厨房，广州吃鸡吃鹅好去处，上次在他家吃鸡吃的很过瘾，但是没把鹅吃爽，特意预约了一桌全鹅宴，有鹅骨炖汤～有焖的～有炒的～有蒸的，还有椒盐儿的，贼过瘾。",
+        "url": "https://www.bilibili.com/video/BV1ZYEjzzE6X",
+        "publishedAt": "2025-05-12"
       },
       {
-        "author": "UP主评论线索",
-        "content": "地址",
-        "likes": 293
-      },
-      {
-        "author": "UP主评论线索",
-        "content": "这种做的比较细的基本都处理掉了",
-        "likes": 29
-      },
-      {
-        "author": "评论线索",
-        "content": "这种鳗鱼饭是不是鱼刺很多啊，之前吃过一次感觉没想象的过瘾，刺太多了",
-        "likes": 194
+        "title": "海珠｜伍哥厨房，在广州如果吃鸡吃鹅，这个深藏不露的十八年老店已经在我心里留下了一个必吃食肆的位置，鸡油捞饭简直香迷糊了。",
+        "url": "https://www.bilibili.com/video/BV1jPZUYmEeY",
+        "publishedAt": "2025-04-03"
       }
-    ],
-    "status": "needs_geocode",
-    "confidence": 0.62,
-    "missingFields": [
-      "所在区",
-      "详细地址",
-      "经纬度"
-    ],
-    "commentReview": {
-      "status": "has_evidence",
-      "usefulCount": 3,
-      "locationCount": 1,
-      "checkedAt": "2026-07-12"
-    }
+    ]
   },
   {
     "id": "gz-里所-livso-BV1U75NzjE3x",
@@ -5868,6 +5952,11 @@
     },
     "comments": [
       {
+        "author": "系统合并",
+        "content": "同一家店出现 3 次探店视频，已合并为一个餐厅条目，并保留全部探店记录。",
+        "likes": 0
+      },
+      {
         "author": "高德核实",
         "content": "已按高德 POI 自动匹配：桥珠印象·鱼生顺德菜·佛山老字号(清晖园店)",
         "likes": 0
@@ -5881,7 +5970,24 @@
       "confidence": 96,
       "poiName": "桥珠印象·鱼生顺德菜·佛山老字号(清晖园店)",
       "poiType": "餐饮服务;餐饮相关场所;餐饮相关"
-    }
+    },
+    "sourceVideos": [
+      {
+        "title": "顺德｜大良｜桥珠印象，我和同行老饕们都非常喜欢的顺德菜，这次来～我心中性价比最高的鱼生也有着落了，还解锁了网油春花卷这么一道老菜。",
+        "url": "https://www.bilibili.com/video/BV1DRLFzzEwU",
+        "publishedAt": "2025-04-20"
+      },
+      {
+        "title": "顺德｜大良｜桥珠印象，至今还能坚持手工做着很多怀旧点心的酒楼越来越少了，像冰肉蛋糕估计很多老广都没见过，又能把出品保持在较高水准更是值得珍惜，价格也算比较实惠。",
+        "url": "https://www.bilibili.com/video/BV1UHo9Y2ECc",
+        "publishedAt": "2025-03-28"
+      },
+      {
+        "title": "顺德｜桥珠印象，在广州实在找不到吃黄脚立鱼生的地方，开车来顺德解解馋。一个做鱼生口碑非常好的顺德菜馆，除了鱼生～像隔夜凉瓜～酿鲮鱼之类的其他菜品也都相当不错。",
+        "url": "https://www.bilibili.com/video/BV1er421K7DL",
+        "publishedAt": "2024-08-01"
+      }
+    ]
   },
   {
     "id": "gz-立村-BV17o5szHECD",
@@ -6072,40 +6178,6 @@
     }
   },
   {
-    "id": "gz-伍哥厨房-BV1jPZUYmEeY",
-    "upId": "bilibili-700270361",
-    "name": "伍哥厨房",
-    "city": "广州",
-    "district": "海珠区",
-    "address": "广州市海珠区新滘东路615号赤沙村丰田车专卖店后侧",
-    "lng": 113.362273,
-    "lat": 23.086335,
-    "signatureDishes": [],
-    "pricePerPerson": null,
-    "environmentScore": null,
-    "sourceVideo": {
-      "title": "海珠｜伍哥厨房，在广州如果吃鸡吃鹅，这个深藏不露的十八年老店已经在我心里留下了一个必吃食肆的位置，鸡油捞饭简直香迷糊了。",
-      "url": "https://www.bilibili.com/video/BV1jPZUYmEeY",
-      "publishedAt": "2025-04-03"
-    },
-    "comments": [
-      {
-        "author": "高德核实",
-        "content": "已按高德 POI 自动匹配：伍哥厨房(新滘东路店)",
-        "likes": 0
-      }
-    ],
-    "status": "geocoded",
-    "confidence": 0.82,
-    "missingFields": [],
-    "geocode": {
-      "provider": "amap",
-      "confidence": 110,
-      "poiName": "伍哥厨房(新滘东路店)",
-      "poiType": "餐饮服务;中餐厅;中餐厅"
-    }
-  },
-  {
     "id": "gz-新厝-BV1rqZtYeEUC",
     "upId": "bilibili-700270361",
     "name": "新厝",
@@ -6178,40 +6250,6 @@
       "provider": "amap",
       "confidence": 96,
       "poiName": "津津有味",
-      "poiType": "餐饮服务;餐饮相关场所;餐饮相关"
-    }
-  },
-  {
-    "id": "fs-桥珠印象-BV1UHo9Y2ECc",
-    "upId": "bilibili-700270361",
-    "name": "桥珠印象",
-    "city": "佛山",
-    "district": "顺德区",
-    "address": "佛山市顺德区宝华巷6号之二(大良钟楼地铁站E口步行420米)",
-    "lng": 113.253752,
-    "lat": 22.836015,
-    "signatureDishes": [],
-    "pricePerPerson": null,
-    "environmentScore": null,
-    "sourceVideo": {
-      "title": "顺德｜大良｜桥珠印象，至今还能坚持手工做着很多怀旧点心的酒楼越来越少了，像冰肉蛋糕估计很多老广都没见过，又能把出品保持在较高水准更是值得珍惜，价格也算比较实惠。",
-      "url": "https://www.bilibili.com/video/BV1UHo9Y2ECc",
-      "publishedAt": "2025-03-28"
-    },
-    "comments": [
-      {
-        "author": "高德核实",
-        "content": "已按高德 POI 自动匹配：桥珠印象·鱼生顺德菜·佛山老字号(清晖园店)",
-        "likes": 0
-      }
-    ],
-    "status": "geocoded",
-    "confidence": 0.82,
-    "missingFields": [],
-    "geocode": {
-      "provider": "amap",
-      "confidence": 96,
-      "poiName": "桥珠印象·鱼生顺德菜·佛山老字号(清晖园店)",
       "poiType": "餐饮服务;餐饮相关场所;餐饮相关"
     }
   },
@@ -6771,40 +6809,6 @@
     }
   },
   {
-    "id": "gz-翅叔港式酒家-BV1A2fbY3EbS",
-    "upId": "bilibili-700270361",
-    "name": "翅叔港式酒家",
-    "city": "广州",
-    "district": "越秀区",
-    "address": "广州市越秀区文明路36-48号精彩大厦二楼",
-    "lng": 113.270305,
-    "lat": 23.121403,
-    "signatureDishes": [],
-    "pricePerPerson": null,
-    "environmentScore": null,
-    "sourceVideo": {
-      "title": "越秀｜翅叔港式酒家，每年节前跟朋友们到翅叔小聚~吃个广府人传统的新春盆菜已经成了习惯，算是每年的定期回顾～。",
-      "url": "https://www.bilibili.com/video/BV1A2fbY3EbS",
-      "publishedAt": "2025-01-22"
-    },
-    "comments": [
-      {
-        "author": "高德核实",
-        "content": "已按高德 POI 自动匹配：翅叔港式酒家",
-        "likes": 0
-      }
-    ],
-    "status": "geocoded",
-    "confidence": 0.82,
-    "missingFields": [],
-    "geocode": {
-      "provider": "amap",
-      "confidence": 110,
-      "poiName": "翅叔港式酒家",
-      "poiType": "餐饮服务;中餐厅;中餐厅"
-    }
-  },
-  {
     "id": "gz-海城餐厅-BV1ibcieXEzs",
     "upId": "bilibili-700270361",
     "name": "海城餐厅",
@@ -7013,40 +7017,6 @@
     }
   },
   {
-    "id": "gz-山鼎荟-BV14GC6YuEfn",
-    "upId": "bilibili-700270361",
-    "name": "山鼎荟",
-    "city": "广州",
-    "district": "天河区",
-    "address": "广州市天河区广州大道北75号大院内",
-    "lng": 113.316006,
-    "lat": 23.156338,
-    "signatureDishes": [],
-    "pricePerPerson": null,
-    "environmentScore": null,
-    "sourceVideo": {
-      "title": "天河｜山鼎荟，最近聚会多跟着一群本地老饕吃了不少平时自己不太能找到的～低调又功力深厚的粤菜私房菜，昨天这家的炒禾虫相当见功底，竹狸在广州市区也不常见。",
-      "url": "https://www.bilibili.com/video/BV14GC6YuEfn",
-      "publishedAt": "2024-12-26"
-    },
-    "comments": [
-      {
-        "author": "高德核实",
-        "content": "已按高德 POI 自动匹配：山鼎荟·顺德家宴",
-        "likes": 0
-      }
-    ],
-    "status": "geocoded",
-    "confidence": 0.82,
-    "missingFields": [],
-    "geocode": {
-      "provider": "amap",
-      "confidence": 96,
-      "poiName": "山鼎荟·顺德家宴",
-      "poiType": "餐饮服务;中餐厅;中餐厅"
-    }
-  },
-  {
     "id": "gz-le-hachoir-亚莎-BV1h5CGYPECM",
     "upId": "bilibili-700270361",
     "name": "LE HACHOIR 亚莎",
@@ -7065,6 +7035,11 @@
     },
     "comments": [
       {
+        "author": "系统合并",
+        "content": "同一家店出现 2 次探店视频，已合并为一个餐厅条目，并保留全部探店记录。",
+        "likes": 0
+      },
+      {
         "author": "高德核实",
         "content": "已按高德 POI 自动匹配：LE HACHOIR亚莎·法国餐厅&BAR(广粤天地店)",
         "likes": 0
@@ -7078,7 +7053,19 @@
       "confidence": 96,
       "poiName": "LE HACHOIR亚莎·法国餐厅&BAR(广粤天地店)",
       "poiType": "餐饮服务;外国餐厅;西餐厅(综合风味)"
-    }
+    },
+    "sourceVideos": [
+      {
+        "title": "天河｜LE HACHOIR 亚莎，周末来回顾一个我和家人都挺喜欢的法餐，出品一向够豪横，又把炭烧和烟火气玩儿的特别到位，口味也有自己的坚持。",
+        "url": "https://www.bilibili.com/video/BV1h5CGYPECM",
+        "publishedAt": "2024-12-23"
+      },
+      {
+        "title": "天河｜LE HACHOIR 亚莎｜把烟熏火燎玩的相当到位的地道法餐，出品相当豪横。",
+        "url": "https://www.bilibili.com/video/BV1Qk4y1579H",
+        "publishedAt": "2023-07-19"
+      }
+    ]
   },
   {
     "id": "gz-渔情味了街坊味大排档-BV1T5k1YJEAa",
@@ -7167,40 +7154,6 @@
     }
   },
   {
-    "id": "gz-玲玲美食-BV1M4BKYPEf1",
-    "upId": "bilibili-700270361",
-    "name": "玲玲美食",
-    "city": "广州",
-    "district": "荔湾区",
-    "address": "广州市荔湾区葵蓬路18号(近茶叶市场南)",
-    "lng": 113.221124,
-    "lat": 23.0959,
-    "signatureDishes": [],
-    "pricePerPerson": null,
-    "environmentScore": null,
-    "sourceVideo": {
-      "title": "荔湾｜玲玲美食，一个隐藏极深～真正做到了“平靓正”的街坊粤菜饭堂～，广宁菜为主，开了将近20年，在网上几乎找不到它的痕迹，但是出品却一点儿不含糊。",
-      "url": "https://www.bilibili.com/video/BV1M4BKYPEf1",
-      "publishedAt": "2024-12-16"
-    },
-    "comments": [
-      {
-        "author": "高德核实",
-        "content": "已按高德 POI 自动匹配：玲玲美食(葵蓬分店)",
-        "likes": 0
-      }
-    ],
-    "status": "geocoded",
-    "confidence": 0.82,
-    "missingFields": [],
-    "geocode": {
-      "provider": "amap",
-      "confidence": 110,
-      "poiName": "玲玲美食(葵蓬分店)",
-      "poiType": "餐饮服务;中餐厅;中餐厅"
-    }
-  },
-  {
     "id": "gz-渔盏-BV1eNqzYYEus",
     "upId": "bilibili-700270361",
     "name": "渔盏",
@@ -7245,40 +7198,6 @@
       "usefulCount": 2,
       "locationCount": 1,
       "checkedAt": "2026-07-12"
-    }
-  },
-  {
-    "id": "gz-一家小小的夫妻店里-找到了广州相当难得的泉州味道-BV1aJq3YJEMu",
-    "upId": "bilibili-700270361",
-    "name": "一家小小的夫妻店里～找到了广州相当难得的泉州味道",
-    "city": "广州",
-    "district": "荔湾区",
-    "address": "广州市荔湾区茶滘路如家酒店(芳村店)南侧约30米",
-    "lng": 113.227927,
-    "lat": 23.089481,
-    "signatureDishes": [],
-    "pricePerPerson": null,
-    "environmentScore": null,
-    "sourceVideo": {
-      "title": "荔湾｜一家小小的夫妻店里～找到了广州相当难得的泉州味道，很家常，没有前些天米其林大开大合的惊喜，却能感受到出品的用心和温度，而且份量十足。",
-      "url": "https://www.bilibili.com/video/BV1aJq3YJEMu",
-      "publishedAt": "2024-12-10"
-    },
-    "comments": [
-      {
-        "author": "高德核实",
-        "content": "已按高德 POI 自动匹配：重庆华姐风味小吃",
-        "likes": 0
-      }
-    ],
-    "status": "geocoded",
-    "confidence": 0.82,
-    "missingFields": [],
-    "geocode": {
-      "provider": "amap",
-      "confidence": 76,
-      "poiName": "重庆华姐风味小吃",
-      "poiType": "餐饮服务;餐饮相关场所;餐饮相关"
     }
   },
   {
@@ -7365,40 +7284,6 @@
       "usefulCount": 3,
       "locationCount": 0,
       "checkedAt": "2026-07-12"
-    }
-  },
-  {
-    "id": "gz-蛙香大排档-BV1e4iRY6EpL",
-    "upId": "bilibili-700270361",
-    "name": "蛙香大排档",
-    "city": "广州",
-    "district": "荔湾区",
-    "address": "广州市荔湾区龙津东路732号",
-    "lng": 113.25054,
-    "lat": 23.121888,
-    "signatureDishes": [],
-    "pricePerPerson": null,
-    "environmentScore": null,
-    "sourceVideo": {
-      "title": "荔湾｜蛙香大排档，性价比贼高的海鲜大排档，人均60多吃到撑，虽然苍蝇馆子出品粗旷，但胜在用料新鲜镬气十足。",
-      "url": "https://www.bilibili.com/video/BV1e4iRY6EpL",
-      "publishedAt": "2024-12-05"
-    },
-    "comments": [
-      {
-        "author": "高德核实",
-        "content": "已按高德 POI 自动匹配：蛙香大排档",
-        "likes": 0
-      }
-    ],
-    "status": "geocoded",
-    "confidence": 0.82,
-    "missingFields": [],
-    "geocode": {
-      "provider": "amap",
-      "confidence": 110,
-      "poiName": "蛙香大排档",
-      "poiType": "餐饮服务;中餐厅;中餐厅"
     }
   },
   {
@@ -7847,42 +7732,6 @@
       "provider": "amap",
       "confidence": 76,
       "poiName": "首创集北水蛇粥番禺第一家",
-      "poiType": "餐饮服务;中餐厅;中餐厅"
-    }
-  },
-  {
-    "id": "fs-金纺私房菜-BV1DRD2YJEGX",
-    "upId": "bilibili-700270361",
-    "name": "金纺私房菜",
-    "city": "佛山",
-    "district": "顺德区",
-    "address": "佛山市顺德区广龙路与广珠公路交叉口西南20米",
-    "lng": 113.277441,
-    "lat": 22.745087,
-    "signatureDishes": [
-      "黄鳝饭"
-    ],
-    "pricePerPerson": null,
-    "environmentScore": null,
-    "sourceVideo": {
-      "title": "顺德｜金纺私房菜，土著带路～来吃一个量大实惠的顺德菜馆儿，不仅鲍鱼焖鸭有些惊喜，还吃到了已经许久不见的猪肚饼，三十几块的黄鳝饭更是性价比贼高。",
-      "url": "https://www.bilibili.com/video/BV1DRD2YJEGX",
-      "publishedAt": "2024-11-07"
-    },
-    "comments": [
-      {
-        "author": "高德核实",
-        "content": "已按高德 POI 自动匹配：金纺私房菜",
-        "likes": 0
-      }
-    ],
-    "status": "geocoded",
-    "confidence": 0.82,
-    "missingFields": [],
-    "geocode": {
-      "provider": "amap",
-      "confidence": 110,
-      "poiName": "金纺私房菜",
       "poiType": "餐饮服务;中餐厅;中餐厅"
     }
   },
@@ -8460,6 +8309,11 @@
     },
     "comments": [
       {
+        "author": "系统合并",
+        "content": "同一家店出现 3 次探店视频，已合并为一个餐厅条目，并保留全部探店记录。",
+        "likes": 0
+      },
+      {
         "author": "系统标记",
         "content": "坐标为区/镇街附近临时点位，需确认详细地址后再精确定位。",
         "likes": 0
@@ -8483,10 +8337,27 @@
     ],
     "commentReview": {
       "status": "has_evidence",
-      "usefulCount": 2,
+      "usefulCount": 3,
       "locationCount": 1,
       "checkedAt": "2026-07-12"
-    }
+    },
+    "sourceVideos": [
+      {
+        "title": "海珠｜GAIA 盖娅，我经常介绍给朋友的宝藏西餐厅～最近三年我吃牛排的首选都是这家，品质非常好。",
+        "url": "https://www.bilibili.com/video/BV1RasrebE3F",
+        "publishedAt": "2024-09-25"
+      },
+      {
+        "title": "海珠｜GAIA 盖娅，广州出众的牛排西餐厅的，多次验证，现在只要有人问广州靠谱的西餐厅，我都毫不犹豫的把GAIA发给他，近两年我自己的一些纪念日都是在这儿度过。",
+        "url": "https://www.bilibili.com/video/BV1Fr421G7rq",
+        "publishedAt": "2024-04-17"
+      },
+      {
+        "title": "海珠｜GAIA 盖娅，广州超硬核宝藏西餐厅，几乎成了我在广州吃牛排的必选项，一些纪念日也都是在这儿度过，周末又跟家人一起过来整点儿豪横的。",
+        "url": "https://www.bilibili.com/video/BV1sC4y1S7yh",
+        "publishedAt": "2023-12-19"
+      }
+    ]
   },
   {
     "id": "gz-亮丰盛澳门咖喱档-BV13GsSeLEPY",
@@ -8643,6 +8514,11 @@
     },
     "comments": [
       {
+        "author": "系统合并",
+        "content": "同一家店出现 2 次探店视频，已合并为一个餐厅条目，并保留全部探店记录。",
+        "likes": 0
+      },
+      {
         "author": "高德核实",
         "content": "已按高德 POI 自动匹配：丰尔粥食·顺德非遗鱼生·地道顺德菜(分店)",
         "likes": 0
@@ -8656,43 +8532,19 @@
       "confidence": 96,
       "poiName": "丰尔粥食·顺德非遗鱼生·地道顺德菜(分店)",
       "poiType": "餐饮服务;中餐厅;中餐厅"
-    }
-  },
-  {
-    "id": "gz-渔情味了-BV1dE4m197Cm",
-    "upId": "bilibili-700270361",
-    "name": "渔情味了",
-    "city": "广州",
-    "district": "海珠区",
-    "address": "广州市海珠区同庆路解放大桥底",
-    "lng": 113.264591,
-    "lat": 23.109776,
-    "signatureDishes": [
-      "鱼生"
-    ],
-    "pricePerPerson": null,
-    "environmentScore": null,
-    "sourceVideo": {
-      "title": "海珠｜渔情味了，中午想整点儿清爽的，特意来吃个有花泥鯭鱼生的挺经典的粤菜街坊大排档，它家用黄椒蒸的泥猛皮尤其好吃。",
-      "url": "https://www.bilibili.com/video/BV1dE4m197Cm",
-      "publishedAt": "2024-08-29"
     },
-    "comments": [
+    "sourceVideos": [
       {
-        "author": "高德核实",
-        "content": "已按高德 POI 自动匹配：渔情味了街坊味大排档",
-        "likes": 0
+        "title": "顺德｜丰尔粥食，真正做到了“平靓正”的全手工茶点，早茶出品足够扎实和经典，而且藏着一些像无花果糕这种别处吃不到美味。",
+        "url": "https://www.bilibili.com/video/BV1hzpMeZEf8",
+        "publishedAt": "2024-09-05"
+      },
+      {
+        "title": "顺德｜丰尔粥食，名副其实“平靓正”的40年本地人粤菜饭堂，鱼生的品质相当出众，也藏着像狗仔鹅～无花果软糕之类的宝藏菜单。",
+        "url": "https://www.bilibili.com/video/BV16r421K79J",
+        "publishedAt": "2024-07-24"
       }
-    ],
-    "status": "geocoded",
-    "confidence": 0.82,
-    "missingFields": [],
-    "geocode": {
-      "provider": "amap",
-      "confidence": 96,
-      "poiName": "渔情味了街坊味大排档",
-      "poiType": "餐饮服务;中餐厅;中餐厅"
-    }
+    ]
   },
   {
     "id": "gz-汉景粤菜酒家-BV1fz421e7qo",
@@ -8976,42 +8828,6 @@
     }
   },
   {
-    "id": "fs-桥珠印象-BV1er421K7DL",
-    "upId": "bilibili-700270361",
-    "name": "桥珠印象",
-    "city": "佛山",
-    "district": "顺德区",
-    "address": "佛山市顺德区宝华巷6号之二(大良钟楼地铁站E口步行420米)",
-    "lng": 113.253752,
-    "lat": 22.836015,
-    "signatureDishes": [
-      "鱼生"
-    ],
-    "pricePerPerson": null,
-    "environmentScore": null,
-    "sourceVideo": {
-      "title": "顺德｜桥珠印象，在广州实在找不到吃黄脚立鱼生的地方，开车来顺德解解馋。一个做鱼生口碑非常好的顺德菜馆，除了鱼生～像隔夜凉瓜～酿鲮鱼之类的其他菜品也都相当不错。",
-      "url": "https://www.bilibili.com/video/BV1er421K7DL",
-      "publishedAt": "2024-08-01"
-    },
-    "comments": [
-      {
-        "author": "高德核实",
-        "content": "已按高德 POI 自动匹配：桥珠印象·鱼生顺德菜·佛山老字号(清晖园店)",
-        "likes": 0
-      }
-    ],
-    "status": "geocoded",
-    "confidence": 0.82,
-    "missingFields": [],
-    "geocode": {
-      "provider": "amap",
-      "confidence": 96,
-      "poiName": "桥珠印象·鱼生顺德菜·佛山老字号(清晖园店)",
-      "poiType": "餐饮服务;餐饮相关场所;餐饮相关"
-    }
-  },
-  {
     "id": "gz-潮香-BV1sT42167Yt",
     "upId": "bilibili-700270361",
     "name": "潮香",
@@ -9043,42 +8859,6 @@
       "confidence": 110,
       "poiName": "潮香",
       "poiType": "餐饮服务;中餐厅;潮州菜"
-    }
-  },
-  {
-    "id": "fs-丰尔粥食-BV16r421K79J",
-    "upId": "bilibili-700270361",
-    "name": "丰尔粥食",
-    "city": "佛山",
-    "district": "顺德区",
-    "address": "佛山市顺德区顺德国际商业城A区西北2门东120米",
-    "lng": 113.254947,
-    "lat": 22.81661,
-    "signatureDishes": [
-      "鱼生"
-    ],
-    "pricePerPerson": null,
-    "environmentScore": null,
-    "sourceVideo": {
-      "title": "顺德｜丰尔粥食，名副其实“平靓正”的40年本地人粤菜饭堂，鱼生的品质相当出众，也藏着像狗仔鹅～无花果软糕之类的宝藏菜单。",
-      "url": "https://www.bilibili.com/video/BV16r421K79J",
-      "publishedAt": "2024-07-24"
-    },
-    "comments": [
-      {
-        "author": "高德核实",
-        "content": "已按高德 POI 自动匹配：丰尔粥食·顺德非遗鱼生·地道顺德菜(分店)",
-        "likes": 0
-      }
-    ],
-    "status": "geocoded",
-    "confidence": 0.82,
-    "missingFields": [],
-    "geocode": {
-      "provider": "amap",
-      "confidence": 96,
-      "poiName": "丰尔粥食·顺德非遗鱼生·地道顺德菜(分店)",
-      "poiType": "餐饮服务;中餐厅;中餐厅"
     }
   },
   {
@@ -9215,40 +8995,6 @@
       "confidence": 110,
       "poiName": "明记海鲜城(昌岗中店)",
       "poiType": "餐饮服务;中餐厅;海鲜酒楼"
-    }
-  },
-  {
-    "id": "fs-大门公-BV1Pr421M75w",
-    "upId": "bilibili-700270361",
-    "name": "大门公",
-    "city": "佛山",
-    "district": "顺德区",
-    "address": "佛山市顺德区大门居委会大门田心村留用地规划11-2号1-2层",
-    "lng": 113.257527,
-    "lat": 22.812193,
-    "signatureDishes": [],
-    "pricePerPerson": null,
-    "environmentScore": null,
-    "sourceVideo": {
-      "title": "顺德｜大门公，现在很少有餐厅愿意做那些手工繁复又费时的功夫粤菜，平时在一家食肆能碰到一两样就很让人欣喜了，能整出一桌古法粤菜～且道道有精彩的，暂时找不出第二家。",
-      "url": "https://www.bilibili.com/video/BV1Pr421M75w",
-      "publishedAt": "2024-07-15"
-    },
-    "comments": [
-      {
-        "author": "高德核实",
-        "content": "已按高德 POI 自动匹配：大门公饭店",
-        "likes": 0
-      }
-    ],
-    "status": "geocoded",
-    "confidence": 0.82,
-    "missingFields": [],
-    "geocode": {
-      "provider": "amap",
-      "confidence": 110,
-      "poiName": "大门公饭店",
-      "poiType": "餐饮服务;中餐厅;广东菜(粤菜)"
     }
   },
   {
@@ -9594,40 +9340,6 @@
     }
   },
   {
-    "id": "gz-黎哥粤味坊-BV1Nw4m1e7yk",
-    "upId": "bilibili-700270361",
-    "name": "黎哥粤味坊",
-    "city": "广州",
-    "district": "荔湾区",
-    "address": "广州市荔湾区逢源路3号(长寿路地铁站D1口步行290米)",
-    "lng": 113.239351,
-    "lat": 23.116887,
-    "signatureDishes": [],
-    "pricePerPerson": null,
-    "environmentScore": null,
-    "sourceVideo": {
-      "title": "荔湾｜黎哥粤味坊，多宝路附近实惠的平价海鲜排档，跟熟悉的四哥家类似。店面小，人手少，不必刻意打卡。",
-      "url": "https://www.bilibili.com/video/BV1Nw4m1e7yk",
-      "publishedAt": "2024-06-18"
-    },
-    "comments": [
-      {
-        "author": "高德核实",
-        "content": "已按高德 POI 自动匹配：黎哥粤味坊(新风社区店)",
-        "likes": 0
-      }
-    ],
-    "status": "geocoded",
-    "confidence": 0.82,
-    "missingFields": [],
-    "geocode": {
-      "provider": "amap",
-      "confidence": 110,
-      "poiName": "黎哥粤味坊(新风社区店)",
-      "poiType": "餐饮服务;中餐厅;中餐厅"
-    }
-  },
-  {
     "id": "fs-悦品私宴-BV1gS411P7dP",
     "upId": "bilibili-700270361",
     "name": "悦品私宴",
@@ -9871,6 +9583,11 @@
     },
     "comments": [
       {
+        "author": "系统合并",
+        "content": "同一家店出现 2 次探店视频，已合并为一个餐厅条目，并保留全部探店记录。",
+        "likes": 0
+      },
+      {
         "author": "高德核实",
         "content": "已按高德 POI 自动匹配：穗香食府",
         "likes": 0
@@ -9884,7 +9601,19 @@
       "confidence": 110,
       "poiName": "穗香食府",
       "poiType": "餐饮服务;餐饮相关场所;餐饮相关"
-    }
+    },
+    "sourceVideos": [
+      {
+        "title": "越秀｜穗香食府，一家特实惠的粤菜老广饭堂，之前试过它的清平鸡出品很经典，当时不少附近的朋友说，它家不少经典菜都被我错过了，比如烧鹅，刚好在附近，来个二刷走起。",
+        "url": "https://www.bilibili.com/video/BV1Pb421q7kT",
+        "publishedAt": "2024-05-22"
+      },
+      {
+        "title": "越秀｜惠福西｜穗香食府，名副其实“平靓正”的老广饭堂，这种出品经典又实惠的粤菜馆儿真的不多见了。",
+        "url": "https://www.bilibili.com/video/BV14w411e7TR",
+        "publishedAt": "2023-09-19"
+      }
+    ]
   },
   {
     "id": "gz-马记又一家东北锦州烧烤-BV1yT421U7Pu",
@@ -10119,6 +9848,11 @@
     },
     "comments": [
       {
+        "author": "系统合并",
+        "content": "同一家店出现 2 次探店视频，已合并为一个餐厅条目，并保留全部探店记录。",
+        "likes": 0
+      },
+      {
         "author": "高德核实",
         "content": "已按高德 POI 自动匹配：养鱼苏的庄园清泉水活鱼火锅",
         "likes": 0
@@ -10132,41 +9866,19 @@
       "confidence": 96,
       "poiName": "养鱼苏的庄园清泉水活鱼火锅",
       "poiType": "餐饮服务;中餐厅;火锅店"
-    }
-  },
-  {
-    "id": "gz-翅叔港式酒家-BV1uC411J7Ym",
-    "upId": "bilibili-700270361",
-    "name": "翅叔港式酒家",
-    "city": "广州",
-    "district": "越秀区",
-    "address": "广州市越秀区文明路36-48号精彩大厦二楼",
-    "lng": 113.270305,
-    "lat": 23.121403,
-    "signatureDishes": [],
-    "pricePerPerson": null,
-    "environmentScore": null,
-    "sourceVideo": {
-      "title": "越秀｜翅叔港式酒家，在广州比较独树一帜的宝藏粤菜食肆，我自己经常闪现～也经常带朋友来，每年定期做个回顾已经成了习惯。",
-      "url": "https://www.bilibili.com/video/BV1uC411J7Ym",
-      "publishedAt": "2024-05-02"
     },
-    "comments": [
+    "sourceVideos": [
       {
-        "author": "高德核实",
-        "content": "已按高德 POI 自动匹配：翅叔港式酒家",
-        "likes": 0
+        "title": "天河｜养鱼苏的庄园，广州仅有的中山正丰鱼清水火锅，把普通的淡水鱼养到入口甘甜确实不多见，虽然小贵，还是值得。",
+        "url": "https://www.bilibili.com/video/BV1cH4y1G7HR",
+        "publishedAt": "2024-05-07"
+      },
+      {
+        "title": "天河｜养鱼苏的庄园，刚来广州时其实挺难理解当地的清水火锅是什么鬼，后来到顺德中山这些地方体验过越来越多好的食材，慢慢会发现最朴素的方式才是对好食材最大的尊重。",
+        "url": "https://www.bilibili.com/video/BV1ew411h7XX",
+        "publishedAt": "2023-12-06"
       }
-    ],
-    "status": "geocoded",
-    "confidence": 0.82,
-    "missingFields": [],
-    "geocode": {
-      "provider": "amap",
-      "confidence": 110,
-      "poiName": "翅叔港式酒家",
-      "poiType": "餐饮服务;中餐厅;中餐厅"
-    }
+    ]
   },
   {
     "id": "gz-滨少旺厨-BV18T42117YC",
@@ -10288,58 +10000,6 @@
       "confidence": 110,
       "poiName": "松月自慢料理",
       "poiType": "餐饮服务;外国餐厅;日本料理"
-    }
-  },
-  {
-    "id": "gz-gaia-盖娅-BV1Fr421G7rq",
-    "upId": "bilibili-700270361",
-    "name": "GAIA 盖娅",
-    "city": "广州",
-    "district": "海珠区",
-    "address": "广州海珠区GAIA 盖娅（待确认）",
-    "lng": 113.318,
-    "lat": 23.098,
-    "signatureDishes": [],
-    "pricePerPerson": null,
-    "environmentScore": null,
-    "sourceVideo": {
-      "title": "海珠｜GAIA 盖娅，广州出众的牛排西餐厅的，多次验证，现在只要有人问广州靠谱的西餐厅，我都毫不犹豫的把GAIA发给他，近两年我自己的一些纪念日都是在这儿度过。",
-      "url": "https://www.bilibili.com/video/BV1Fr421G7rq",
-      "publishedAt": "2024-04-17"
-    },
-    "comments": [
-      {
-        "author": "系统标记",
-        "content": "坐标为区/镇街附近临时点位，需确认详细地址后再精确定位。",
-        "likes": 0
-      },
-      {
-        "author": "UP主评论线索",
-        "content": "海珠｜GAIA 盖娅，老朋友们应该都不陌生的西餐厅，这两年结婚纪念啥的都是在它家过的，几乎成了我吃牛排的首选，很多粉丝也成了常客，低调小众的实力派，出品稳定，红屋牛排相对同类餐厅动不动上千，它998属于性价比较高的。[打call][打call][打call]",
-        "likes": 121
-      },
-      {
-        "author": "评论线索",
-        "content": "盖娅确实蛮不错的，要是只是想便宜点尝个鲜可以去点个三百多的m7西冷，其他像薯条和牛芝士丸的小菜也不贵，值得一吃。",
-        "likes": 83
-      },
-      {
-        "author": "评论线索",
-        "content": "回复 @理想主义の咸鱼 :可以毕业工作之后自己买牛肉自己做，m5级别的其实没有很贵的",
-        "likes": 10
-      }
-    ],
-    "status": "needs_geocode",
-    "confidence": 0.82,
-    "missingFields": [
-      "详细地址",
-      "经纬度"
-    ],
-    "commentReview": {
-      "status": "has_evidence",
-      "usefulCount": 3,
-      "locationCount": 1,
-      "checkedAt": "2026-07-12"
     }
   },
   {
@@ -10465,6 +10125,11 @@
     },
     "comments": [
       {
+        "author": "系统合并",
+        "content": "同一家店出现 2 次探店视频，已合并为一个餐厅条目，并保留全部探店记录。",
+        "likes": 0
+      },
+      {
         "author": "系统标记",
         "content": "坐标为区/镇街附近临时点位，需确认详细地址后再精确定位。",
         "likes": 0
@@ -10498,10 +10163,22 @@
     ],
     "commentReview": {
       "status": "has_evidence",
-      "usefulCount": 4,
+      "usefulCount": 5,
       "locationCount": 1,
       "checkedAt": "2026-07-12"
-    }
+    },
+    "sourceVideos": [
+      {
+        "title": "越秀｜矿泉大可以，广州三十年原始桑拿菜，藏身批发市场却出品十分出色的老牌粤菜，这次的烧鸡又给了不小惊喜。",
+        "url": "https://www.bilibili.com/video/BV1SE421M7nA",
+        "publishedAt": "2024-04-10"
+      },
+      {
+        "title": "越秀｜矿泉大可以｜广州三十年原始桑拿菜，藏身批发市场却出品十分出色的老牌粤菜，这次的烧鹅又给了不小惊喜。",
+        "url": "https://www.bilibili.com/video/BV1W14y1C79i",
+        "publishedAt": "2023-09-06"
+      }
+    ]
   },
   {
     "id": "gz-文记壹心鸡-BV12p42197j5",
@@ -10797,108 +10474,6 @@
     }
   },
   {
-    "id": "fs-大门公小公馆-BV1Qr421n7HN",
-    "upId": "bilibili-700270361",
-    "name": "大门公小公馆",
-    "city": "佛山",
-    "district": "顺德区",
-    "address": "佛山市顺德区大门社区田心村巴路二街6号",
-    "lng": 113.257255,
-    "lat": 22.811935,
-    "signatureDishes": [],
-    "pricePerPerson": null,
-    "environmentScore": null,
-    "sourceVideo": {
-      "title": "顺德｜大门公小公馆，在广佛的手工茶点江湖～有那么几家口味地道～坚持手工现做，有传统，用料扎实又相当实惠的粤菜酒楼，大门公小公馆算是我心中“平靓正”的标杆之一。",
-      "url": "https://www.bilibili.com/video/BV1Qr421n7HN",
-      "publishedAt": "2024-03-16"
-    },
-    "comments": [
-      {
-        "author": "高德核实",
-        "content": "已按高德 POI 自动匹配：大门公小公馆",
-        "likes": 0
-      }
-    ],
-    "status": "geocoded",
-    "confidence": 0.82,
-    "missingFields": [],
-    "geocode": {
-      "provider": "amap",
-      "confidence": 110,
-      "poiName": "大门公小公馆",
-      "poiType": "餐饮服务;中餐厅;中餐厅"
-    }
-  },
-  {
-    "id": "gz-品汤居-BV1Gx421171B",
-    "upId": "bilibili-700270361",
-    "name": "品汤居",
-    "city": "广州",
-    "district": "海珠区",
-    "address": "广州市海珠区上渡路123号王朝广场1层",
-    "lng": 113.308412,
-    "lat": 23.100017,
-    "signatureDishes": [],
-    "pricePerPerson": null,
-    "environmentScore": null,
-    "sourceVideo": {
-      "title": "海珠｜品汤居，我自己私藏的“平靓正”街坊饭堂，做了20年的顺德菜，一直比较喜欢它家的蒸菜，尤其是去骨的千层鱼，吃起来很过瘾。",
-      "url": "https://www.bilibili.com/video/BV1Gx421171B",
-      "publishedAt": "2024-03-13"
-    },
-    "comments": [
-      {
-        "author": "高德核实",
-        "content": "已按高德 POI 自动匹配：品汤居菜馆(王朝广场店)",
-        "likes": 0
-      }
-    ],
-    "status": "geocoded",
-    "confidence": 0.82,
-    "missingFields": [],
-    "geocode": {
-      "provider": "amap",
-      "confidence": 110,
-      "poiName": "品汤居菜馆(王朝广场店)",
-      "poiType": "餐饮服务;中餐厅;中餐厅"
-    }
-  },
-  {
-    "id": "gz-清平饭店-BV1Gx4y1S7Km",
-    "upId": "bilibili-700270361",
-    "name": "清平饭店",
-    "city": "广州",
-    "district": "荔湾区",
-    "address": "广州市荔湾区泮塘路5号(荔湾湖公园东门旁)",
-    "lng": 113.236014,
-    "lat": 23.122363,
-    "signatureDishes": [],
-    "pricePerPerson": null,
-    "environmentScore": null,
-    "sourceVideo": {
-      "title": "荔湾｜陈家祠｜清平饭店，中午来吃一家曾经风靡广州～却已经消失20年的老牌粤菜，虽有瑕疵，但还是对得起曾经“广州第一鸡”的称号。",
-      "url": "https://www.bilibili.com/video/BV1Gx4y1S7Km",
-      "publishedAt": "2024-03-12"
-    },
-    "comments": [
-      {
-        "author": "高德核实",
-        "content": "已按高德 POI 自动匹配：清平饭店(荔湾湖店)",
-        "likes": 0
-      }
-    ],
-    "status": "geocoded",
-    "confidence": 0.82,
-    "missingFields": [],
-    "geocode": {
-      "provider": "amap",
-      "confidence": 110,
-      "poiName": "清平饭店(荔湾湖店)",
-      "poiType": "餐饮服务;中餐厅;中餐厅"
-    }
-  },
-  {
     "id": "gz-abc石烧牛扒-BV1EW421w7RZ",
     "upId": "bilibili-700270361",
     "name": "ABC石烧牛扒",
@@ -11079,10 +10654,10 @@
   {
     "id": "jp-京都-BV1Gt421876S",
     "upId": "bilibili-700270361",
-    "name": "京都",
+    "name": "京都勝牛",
     "city": "日本",
-    "district": "日本",
-    "address": "日本京都（待确认）",
+    "district": "京都",
+    "address": "日本京都河原町店（604-8041，待确认）",
     "lng": 139.772728,
     "lat": 35.670101,
     "signatureDishes": [],
@@ -11094,6 +10669,11 @@
       "publishedAt": "2024-02-27"
     },
     "comments": [
+      {
+        "author": "系统修正",
+        "content": "原解析名“京都勝牛”不是准确店名，已按标题/UP主评论线索修正为“京都勝牛”。",
+        "likes": 0
+      },
       {
         "author": "系统标记",
         "content": "坐标为区/镇街附近临时点位，需确认详细地址后再精确定位。",
@@ -11124,7 +10704,7 @@
     ],
     "commentReview": {
       "status": "has_evidence",
-      "usefulCount": 3,
+      "usefulCount": 4,
       "locationCount": 0,
       "checkedAt": "2026-07-12"
     }
@@ -11917,58 +11497,6 @@
     }
   },
   {
-    "id": "gz-gaia-盖娅-BV1sC4y1S7yh",
-    "upId": "bilibili-700270361",
-    "name": "GAIA 盖娅",
-    "city": "广州",
-    "district": "海珠区",
-    "address": "广州海珠区GAIA 盖娅（待确认）",
-    "lng": 113.3,
-    "lat": 23.084,
-    "signatureDishes": [],
-    "pricePerPerson": null,
-    "environmentScore": null,
-    "sourceVideo": {
-      "title": "海珠｜GAIA 盖娅，广州超硬核宝藏西餐厅，几乎成了我在广州吃牛排的必选项，一些纪念日也都是在这儿度过，周末又跟家人一起过来整点儿豪横的。",
-      "url": "https://www.bilibili.com/video/BV1sC4y1S7yh",
-      "publishedAt": "2023-12-19"
-    },
-    "comments": [
-      {
-        "author": "系统标记",
-        "content": "坐标为区/镇街附近临时点位，需确认详细地址后再精确定位。",
-        "likes": 0
-      },
-      {
-        "author": "UP主评论线索",
-        "content": "海珠｜GAIA 盖娅，老朋友们应该都不陌生的西餐厅，这两年结婚纪念啥的都是在它家过的，打卡过的朋友几乎没有不好的反馈，算是低调小众的实力派，出品依旧稳定，纯血金凤凰在广州不算多，而且价格也相对实在，这家我就不打分了，价格看图。",
-        "likes": 121
-      },
-      {
-        "author": "评论线索",
-        "content": "谢谢up主，上周末朋友来广州，带他去了天河的常来大排档和鱼粤大排档，评价都很高[打call]",
-        "likes": 99
-      },
-      {
-        "author": "评论线索",
-        "content": "我也是吃牛肉[酸了]",
-        "likes": 96
-      }
-    ],
-    "status": "needs_geocode",
-    "confidence": 0.82,
-    "missingFields": [
-      "详细地址",
-      "经纬度"
-    ],
-    "commentReview": {
-      "status": "has_evidence",
-      "usefulCount": 3,
-      "locationCount": 1,
-      "checkedAt": "2026-07-12"
-    }
-  },
-  {
     "id": "gz-名郡鲜-BV1oa4y1r7gX",
     "upId": "bilibili-700270361",
     "name": "名郡鲜",
@@ -12202,10 +11730,10 @@
   {
     "id": "fs-千灯湖-BV1J94y177Wa",
     "upId": "bilibili-700270361",
-    "name": "千灯湖",
+    "name": "邱家庄鸡煲蟹",
     "city": "佛山",
-    "district": "佛山",
-    "address": "佛山千灯湖（待确认）",
+    "district": "南海区",
+    "address": "佛山市南海区千灯湖致越优城A座二层邱家庄鸡煲蟹（待确认）",
     "lng": 113.107272,
     "lat": 23.029899,
     "signatureDishes": [],
@@ -12217,6 +11745,11 @@
       "publishedAt": "2023-12-07"
     },
     "comments": [
+      {
+        "author": "系统修正",
+        "content": "原解析名“邱家庄鸡煲蟹”不是准确店名，已按标题/UP主评论线索修正为“邱家庄鸡煲蟹”。",
+        "likes": 0
+      },
       {
         "author": "系统标记",
         "content": "坐标为区/镇街附近临时点位，需确认详细地址后再精确定位。",
@@ -12242,43 +11775,9 @@
     ],
     "commentReview": {
       "status": "has_evidence",
-      "usefulCount": 2,
+      "usefulCount": 3,
       "locationCount": 1,
       "checkedAt": "2026-07-12"
-    }
-  },
-  {
-    "id": "gz-养鱼苏的庄园-BV1ew411h7XX",
-    "upId": "bilibili-700270361",
-    "name": "养鱼苏的庄园",
-    "city": "广州",
-    "district": "天河区",
-    "address": "广州市天河区邦华环球广场(杨箕东地铁站C1口旁)",
-    "lng": 113.316375,
-    "lat": 23.124675,
-    "signatureDishes": [],
-    "pricePerPerson": null,
-    "environmentScore": null,
-    "sourceVideo": {
-      "title": "天河｜养鱼苏的庄园，刚来广州时其实挺难理解当地的清水火锅是什么鬼，后来到顺德中山这些地方体验过越来越多好的食材，慢慢会发现最朴素的方式才是对好食材最大的尊重。",
-      "url": "https://www.bilibili.com/video/BV1ew411h7XX",
-      "publishedAt": "2023-12-06"
-    },
-    "comments": [
-      {
-        "author": "高德核实",
-        "content": "已按高德 POI 自动匹配：养鱼苏的庄园清泉水活鱼火锅",
-        "likes": 0
-      }
-    ],
-    "status": "geocoded",
-    "confidence": 0.82,
-    "missingFields": [],
-    "geocode": {
-      "provider": "amap",
-      "confidence": 96,
-      "poiName": "养鱼苏的庄园清泉水活鱼火锅",
-      "poiType": "餐饮服务;中餐厅;火锅店"
     }
   },
   {
@@ -12863,7 +12362,7 @@
     "name": "永楷饭店",
     "city": "广州",
     "district": "海珠区",
-    "address": "广州海珠区永楷饭店（待确认）",
+    "address": "广州市海珠区新港西路164号永楷饭店（待确认）",
     "lng": 113.305272,
     "lat": 23.093899,
     "signatureDishes": [],
@@ -12875,6 +12374,16 @@
       "publishedAt": "2023-10-30"
     },
     "comments": [
+      {
+        "author": "系统修正",
+        "content": "原解析名“永楷饭店”不是准确店名，已按标题/UP主评论线索修正为“永楷饭店”。",
+        "likes": 0
+      },
+      {
+        "author": "系统合并",
+        "content": "同一家店出现 2 次探店视频，已合并为一个餐厅条目，并保留全部探店记录。",
+        "likes": 0
+      },
       {
         "author": "系统标记",
         "content": "坐标为区/镇街附近临时点位，需确认详细地址后再精确定位。",
@@ -12909,10 +12418,22 @@
     ],
     "commentReview": {
       "status": "has_evidence",
-      "usefulCount": 4,
+      "usefulCount": 6,
       "locationCount": 1,
       "checkedAt": "2026-07-12"
-    }
+    },
+    "sourceVideos": [
+      {
+        "title": "海珠｜永楷饭店，每次吃到这些越来越少有饭店愿意做的老派功夫粤菜真的是开心，虽然偶有瑕疵，入口却总能感受到满满诚意。",
+        "url": "https://www.bilibili.com/video/BV1Nw411B7Li",
+        "publishedAt": "2023-10-30"
+      },
+      {
+        "title": "海珠｜永楷饭店｜惊喜的粤菜馆子，做着很多其他地方吃不到的冷门手工粤菜，胡椒鸡尤其出色。",
+        "url": "https://www.bilibili.com/video/BV1NX4y1v7Kb",
+        "publishedAt": "2023-07-12"
+      }
+    ]
   },
   {
     "id": "gz-海王星海鲜烧烤-BV1LM411X7do",
@@ -12983,40 +12504,6 @@
     }
   },
   {
-    "id": "gz-翅叔港式酒家-BV1w94y1j77v",
-    "upId": "bilibili-700270361",
-    "name": "翅叔港式酒家",
-    "city": "广州",
-    "district": "越秀区",
-    "address": "广州市越秀区文明路36-48号精彩大厦二楼",
-    "lng": 113.270305,
-    "lat": 23.121403,
-    "signatureDishes": [],
-    "pricePerPerson": null,
-    "environmentScore": null,
-    "sourceVideo": {
-      "title": "越秀｜翅叔港式酒家，我心中的宝藏粤菜之一，复出的头一餐又来翅叔～算是真爱了。出品靠谱～凭着不少独家菜式，吸引着很多挑剔的老广，也属于哪种我会经常带朋友来的食肆。",
-      "url": "https://www.bilibili.com/video/BV1w94y1j77v",
-      "publishedAt": "2023-10-24"
-    },
-    "comments": [
-      {
-        "author": "高德核实",
-        "content": "已按高德 POI 自动匹配：翅叔港式酒家",
-        "likes": 0
-      }
-    ],
-    "status": "geocoded",
-    "confidence": 0.82,
-    "missingFields": [],
-    "geocode": {
-      "provider": "amap",
-      "confidence": 110,
-      "poiName": "翅叔港式酒家",
-      "poiType": "餐饮服务;中餐厅;中餐厅"
-    }
-  },
-  {
     "id": "gz-荔枝湾家厨-BV1Gm4y157AY",
     "upId": "bilibili-700270361",
     "name": "荔枝湾家厨",
@@ -13056,40 +12543,6 @@
       "usefulCount": 1,
       "locationCount": 1,
       "checkedAt": "2026-07-12"
-    }
-  },
-  {
-    "id": "gz-穗香食府-BV14w411e7TR",
-    "upId": "bilibili-700270361",
-    "name": "穗香食府",
-    "city": "广州",
-    "district": "越秀区",
-    "address": "广州市越秀区惠福西路199号甜水巷1号",
-    "lng": 113.259066,
-    "lat": 23.120259,
-    "signatureDishes": [],
-    "pricePerPerson": null,
-    "environmentScore": null,
-    "sourceVideo": {
-      "title": "越秀｜惠福西｜穗香食府，名副其实“平靓正”的老广饭堂，这种出品经典又实惠的粤菜馆儿真的不多见了。",
-      "url": "https://www.bilibili.com/video/BV14w411e7TR",
-      "publishedAt": "2023-09-19"
-    },
-    "comments": [
-      {
-        "author": "高德核实",
-        "content": "已按高德 POI 自动匹配：穗香食府",
-        "likes": 0
-      }
-    ],
-    "status": "geocoded",
-    "confidence": 0.82,
-    "missingFields": [],
-    "geocode": {
-      "provider": "amap",
-      "confidence": 110,
-      "poiName": "穗香食府",
-      "poiType": "餐饮服务;餐饮相关场所;餐饮相关"
     }
   },
   {
@@ -13195,61 +12648,9 @@
     }
   },
   {
-    "id": "gz-广州三十年原始桑拿菜-BV1W14y1C79i",
-    "upId": "bilibili-700270361",
-    "name": "广州三十年原始桑拿菜",
-    "city": "广州",
-    "district": "越秀区",
-    "address": "广州越秀区矿泉大可以，广州三十年原始桑拿菜（待确认）",
-    "lng": 113.249,
-    "lat": 23.129,
-    "signatureDishes": [],
-    "pricePerPerson": null,
-    "environmentScore": null,
-    "sourceVideo": {
-      "title": "越秀｜矿泉大可以｜广州三十年原始桑拿菜，藏身批发市场却出品十分出色的老牌粤菜，这次的烧鹅又给了不小惊喜。",
-      "url": "https://www.bilibili.com/video/BV1W14y1C79i",
-      "publishedAt": "2023-09-06"
-    },
-    "comments": [
-      {
-        "author": "系统标记",
-        "content": "坐标为区/镇街附近临时点位，需确认详细地址后再精确定位。",
-        "likes": 0
-      },
-      {
-        "author": "UP主评论线索",
-        "content": "越秀｜矿泉大可以｜真正的桑拿菜，跟着粉丝指引二刷上次没点到的菜式，意外的烧鹅给了一个惊喜。惯例打分，荔枝木烧鹅下庄，68，空口吃非常醇香，有炭火气，甚至胜过万年在我心里的位置，酸梅酱扣点分，9分；冰山豆腐，46，细腻顺滑，蛋香十足，8.5分；桑拿白鳝，一斤（分了两份蒸），108，肉质紧实鲜嫩，汁水饱满有弹性，调味咸鲜清香，好吃，9分；桑拿九节虾，一斤，108，完美展现虾的本味，没有一丝多余的水汽，9分。[打call][打call][打call]",
-        "likes": 112
-      },
-      {
-        "author": "评论线索",
-        "content": "这一家从小吃到大了，每次来广州，姨妈都会带我去这家吃[笑哭]站西鞋城除了这家就是御口福了",
-        "likes": 11
-      },
-      {
-        "author": "评论线索",
-        "content": "我家附近都一次没吃过[doge]店面看起来有点差",
-        "likes": 0
-      }
-    ],
-    "status": "needs_geocode",
-    "confidence": 0.82,
-    "missingFields": [
-      "详细地址",
-      "经纬度"
-    ],
-    "commentReview": {
-      "status": "has_evidence",
-      "usefulCount": 3,
-      "locationCount": 1,
-      "checkedAt": "2026-07-12"
-    }
-  },
-  {
     "id": "gz-快一年没发现可以称为-宝藏-的煲仔饭了-BV1qH4y1Q7Jx",
     "upId": "bilibili-700270361",
-    "name": "快一年没发现可以称为“宝藏”的煲仔饭了",
+    "name": "煲掌柜老广煲仔饭",
     "city": "广州",
     "district": "荔湾区",
     "address": "广州市荔湾区宝华路133号恒宝广场L2层001号",
@@ -13264,6 +12665,11 @@
       "publishedAt": "2023-09-04"
     },
     "comments": [
+      {
+        "author": "系统修正",
+        "content": "原解析名“快一年没发现可以称为“宝藏”的煲仔饭了”不是准确店名，已按标题/UP主评论线索修正为“煲掌柜老广煲仔饭”。",
+        "likes": 0
+      },
       {
         "author": "高德核实",
         "content": "已按高德 POI 自动匹配：煲掌柜老广煲仔饭(恒宝广场店)",
@@ -13283,10 +12689,10 @@
   {
     "id": "gz-一个低调-但相当靠谱的江浙菜馆儿-BV16p4y1P7mt",
     "upId": "bilibili-700270361",
-    "name": "一个低调～但相当靠谱的江浙菜馆儿",
+    "name": "三秋桂子",
     "city": "广州",
     "district": "天河区",
-    "address": "广州天河区三秋桂子，一个低调～但相当靠谱的江浙菜馆儿（待确认）",
+    "address": "广州市天河区三秋桂子（待确认）",
     "lng": 113.361,
     "lat": 23.11,
     "signatureDishes": [],
@@ -13298,6 +12704,11 @@
       "publishedAt": "2023-08-28"
     },
     "comments": [
+      {
+        "author": "系统修正",
+        "content": "原解析名“三秋桂子”不是准确店名，已按标题/UP主评论线索修正为“三秋桂子”。",
+        "likes": 0
+      },
       {
         "author": "系统标记",
         "content": "坐标为区/镇街附近临时点位，需确认详细地址后再精确定位。",
@@ -13327,7 +12738,7 @@
     ],
     "commentReview": {
       "status": "has_evidence",
-      "usefulCount": 3,
+      "usefulCount": 4,
       "locationCount": 1,
       "checkedAt": "2026-07-12"
     }
@@ -13423,63 +12834,6 @@
     }
   },
   {
-    "id": "gz-终于又有动力更新宝藏面家的系列了-BV1ou4y1q71D",
-    "upId": "bilibili-700270361",
-    "name": "终于又有动力更新宝藏面家的系列了",
-    "city": "广州",
-    "district": "荔湾区",
-    "address": "广州荔湾区西塱，终于又有动力更新宝藏面家的系列了（待确认）",
-    "lng": 113.256728,
-    "lat": 23.134899,
-    "signatureDishes": [],
-    "pricePerPerson": null,
-    "environmentScore": null,
-    "sourceVideo": {
-      "title": "荔湾｜西塱｜终于又有动力更新宝藏面家的系列了。能坚持传统踏踏实实手工制作的面家真是越来越少了，它家做出来的面口感相当幼滑爽弹，在广州已经很难得了。",
-      "url": "https://www.bilibili.com/video/BV1ou4y1q71D",
-      "publishedAt": "2023-08-07"
-    },
-    "comments": [
-      {
-        "author": "系统标记",
-        "content": "坐标为区/镇街附近临时点位，需确认详细地址后再精确定位。",
-        "likes": 0
-      },
-      {
-        "author": "UP主评论线索",
-        "content": "荔湾｜西塱｜勇记手工竹升面，现在坚持手工制面的越来越少了，它家用料还非常实在，出品是我这几年吃过最滑的面，那个脆弹的口感也非常舒服，真的不多见了，价格也实在，如果路过绝对值得试试。[打call][打call][打call]真心希望少一些“吴财记”，多一些“勇记”。[打call]",
-        "likes": 794
-      },
-      {
-        "author": "评论线索",
-        "content": "东山那家如意竹升面号称也是坐出来的，唔知真假[热]",
-        "likes": 323
-      },
-      {
-        "author": "UP主评论线索",
-        "content": "去过了，店里那杆基本上是摆设，早上早点到他门口就知道了，不过出品还行，用料可以。",
-        "likes": 221
-      },
-      {
-        "author": "UP主评论线索",
-        "content": "回复 @Devil嘉然上单 :最难吃TOP5算它一个",
-        "likes": 56
-      }
-    ],
-    "status": "needs_geocode",
-    "confidence": 0.82,
-    "missingFields": [
-      "详细地址",
-      "经纬度"
-    ],
-    "commentReview": {
-      "status": "has_evidence",
-      "usefulCount": 4,
-      "locationCount": 1,
-      "checkedAt": "2026-07-12"
-    }
-  },
-  {
     "id": "gz-太史五蛇羹-BV1Dz4y1s7RB",
     "upId": "bilibili-700270361",
     "name": "太史五蛇羹",
@@ -13563,10 +12917,10 @@
   {
     "id": "gz-龙美三家神店收尾-BV1f94y1i7SX",
     "upId": "bilibili-700270361",
-    "name": "龙美三家神店收尾",
+    "name": "奉座泥炉烤肉·活鳗",
     "city": "广州",
     "district": "番禺区",
-    "address": "广州番禺区奉座泥炉烤肉活鳗鱼，龙美三家神店收尾（待确认）",
+    "address": "广州市番禺区龙美奉座泥炉烤肉·活鳗（待确认）",
     "lng": 113.366,
     "lat": 22.937,
     "signatureDishes": [],
@@ -13578,6 +12932,11 @@
       "publishedAt": "2023-07-20"
     },
     "comments": [
+      {
+        "author": "系统修正",
+        "content": "原解析名“奉座泥炉烤肉·活鳗”不是准确店名，已按标题/UP主评论线索修正为“奉座泥炉烤肉·活鳗”。",
+        "likes": 0
+      },
       {
         "author": "系统标记",
         "content": "坐标为区/镇街附近临时点位，需确认详细地址后再精确定位。",
@@ -13612,80 +12971,18 @@
     ],
     "commentReview": {
       "status": "has_evidence",
-      "usefulCount": 4,
-      "locationCount": 1,
-      "checkedAt": "2026-07-12"
-    }
-  },
-  {
-    "id": "gz-把烟熏火燎玩的相当到位的地道法餐-BV1Qk4y1579H",
-    "upId": "bilibili-700270361",
-    "name": "把烟熏火燎玩的相当到位的地道法餐",
-    "city": "广州",
-    "district": "天河区",
-    "address": "广州天河区LE HACHOIR 亚莎，把烟熏火燎玩的相当到位的地道法餐（待确认）",
-    "lng": 113.348272,
-    "lat": 23.114101,
-    "signatureDishes": [],
-    "pricePerPerson": null,
-    "environmentScore": null,
-    "sourceVideo": {
-      "title": "天河｜LE HACHOIR 亚莎｜把烟熏火燎玩的相当到位的地道法餐，出品相当豪横。",
-      "url": "https://www.bilibili.com/video/BV1Qk4y1579H",
-      "publishedAt": "2023-07-19"
-    },
-    "comments": [
-      {
-        "author": "系统标记",
-        "content": "坐标为区/镇街附近临时点位，需确认详细地址后再精确定位。",
-        "likes": 0
-      },
-      {
-        "author": "UP主评论线索",
-        "content": "AD｜LE HACHOIR 亚莎｜把烟熏火燎玩的很到位的法式酒馆，这次是被邀请去试他们新的夏季菜单，整体依然出色，除了牛排之外，其他菜主打一个酸香清新的口感，但是柠檬挞过酸了，菜量依然很扎实。说下价格：八爪鱼卡巴乔 148；鸡蛋吐司 68；火焰西冷牛排 628；牛骨髓藏红花烩饭 128；柠檬塔 78；碳烤芦笋 78。[打call][打call][打call]",
-        "likes": 565
-      },
-      {
-        "author": "UP主评论线索",
-        "content": "回复 @翻过山巅的暮光明信片 :是，这款比较高，加点钱够吃到M7了，老菜单里的都还可以。",
-        "likes": 55
-      },
-      {
-        "author": "UP主评论线索",
-        "content": "菜品太老了，不适合现代人口味了，怀旧还行，房子里环境不错，适合聊天很舒服。",
-        "likes": 14
-      },
-      {
-        "author": "评论线索",
-        "content": "从视觉效果来看，法餐做的很地道。而且确实也都是法国餐馆里的家常菜。唯一的问题是那道牛排价格太贵，在法国这道牛排30欧左右算是正常价。628软妹币约等于80欧，都能吃上保罗博古斯的小店或者米其林级别的餐馆了。",
-        "likes": 123
-      },
-      {
-        "author": "评论线索",
-        "content": "有去过沙面那家火车头餐厅吗[星星眼]我发现也是老外的据点 应该是很传统正宗的法餐 但是我去了三次 感觉都一般般 好在氛围服务不错",
-        "likes": 80
-      }
-    ],
-    "status": "needs_geocode",
-    "confidence": 0.82,
-    "missingFields": [
-      "详细地址",
-      "经纬度"
-    ],
-    "commentReview": {
-      "status": "has_evidence",
       "usefulCount": 5,
-      "locationCount": 0,
+      "locationCount": 1,
       "checkedAt": "2026-07-12"
     }
   },
   {
     "id": "gz-近二十年的老牌粤菜-BV1XN41127CU",
     "upId": "bilibili-700270361",
-    "name": "近二十年的老牌粤菜",
+    "name": "新文记",
     "city": "广州",
     "district": "越秀区",
-    "address": "广州越秀区新文记，近二十年的老牌粤菜（待确认）",
+    "address": "广州市越秀区盘福路新文记（待确认）",
     "lng": 113.267,
     "lat": 23.115,
     "signatureDishes": [],
@@ -13697,6 +12994,11 @@
       "publishedAt": "2023-07-18"
     },
     "comments": [
+      {
+        "author": "系统修正",
+        "content": "原解析名“新文记”不是准确店名，已按标题/UP主评论线索修正为“新文记”。",
+        "likes": 0
+      },
       {
         "author": "系统标记",
         "content": "坐标为区/镇街附近临时点位，需确认详细地址后再精确定位。",
@@ -13721,7 +13023,7 @@
     ],
     "commentReview": {
       "status": "has_evidence",
-      "usefulCount": 2,
+      "usefulCount": 3,
       "locationCount": 0,
       "checkedAt": "2026-07-12"
     }
@@ -13729,10 +13031,10 @@
   {
     "id": "gz-妥妥的宝藏小馆儿-BV1wV411K7qQ",
     "upId": "bilibili-700270361",
-    "name": "妥妥的宝藏小馆儿",
+    "name": "御灶四季",
     "city": "广州",
     "district": "越秀区",
-    "address": "广州越秀区御灶四季，妥妥的宝藏小馆儿（待确认）",
+    "address": "广州市越秀区北京路天河城8层御灶四季（待确认）",
     "lng": 113.279728,
     "lat": 23.119101,
     "signatureDishes": [],
@@ -13744,6 +13046,11 @@
       "publishedAt": "2023-07-17"
     },
     "comments": [
+      {
+        "author": "系统修正",
+        "content": "原解析名“妥妥的宝藏小馆儿”不是准确店名，已按标题/UP主评论线索修正为“御灶四季”。",
+        "likes": 0
+      },
       {
         "author": "系统标记",
         "content": "坐标为区/镇街附近临时点位，需确认详细地址后再精确定位。",
@@ -13773,7 +13080,7 @@
     ],
     "commentReview": {
       "status": "has_evidence",
-      "usefulCount": 3,
+      "usefulCount": 4,
       "locationCount": 1,
       "checkedAt": "2026-07-12"
     }
@@ -13781,10 +13088,10 @@
   {
     "id": "gz-天河性价比非常不错的宵夜大排档-BV15F411Q7ui",
     "upId": "bilibili-700270361",
-    "name": "天河性价比非常不错的宵夜大排档",
+    "name": "煮米天河大排档",
     "city": "广州",
     "district": "天河区",
-    "address": "广州天河区煮米大排档，天河性价比非常不错的宵夜大排档（待确认）",
+    "address": "广州市天河区天河路99号煮米天河大排档（待确认）",
     "lng": 113.379,
     "lat": 23.124,
     "signatureDishes": [],
@@ -13796,6 +13103,11 @@
       "publishedAt": "2023-07-13"
     },
     "comments": [
+      {
+        "author": "系统修正",
+        "content": "原解析名“煮米天河大排档”不是准确店名，已按标题/UP主评论线索修正为“煮米天河大排档”。",
+        "likes": 0
+      },
       {
         "author": "系统标记",
         "content": "坐标为区/镇街附近临时点位，需确认详细地址后再精确定位。",
@@ -13825,65 +13137,8 @@
     ],
     "commentReview": {
       "status": "has_evidence",
-      "usefulCount": 3,
-      "locationCount": 1,
-      "checkedAt": "2026-07-12"
-    }
-  },
-  {
-    "id": "gz-惊喜的粤菜馆子-BV1NX4y1v7Kb",
-    "upId": "bilibili-700270361",
-    "name": "惊喜的粤菜馆子",
-    "city": "广州",
-    "district": "海珠区",
-    "address": "广州海珠区永楷饭店，惊喜的粤菜馆子（待确认）",
-    "lng": 113.330728,
-    "lat": 23.093899,
-    "signatureDishes": [],
-    "pricePerPerson": null,
-    "environmentScore": null,
-    "sourceVideo": {
-      "title": "海珠｜永楷饭店｜惊喜的粤菜馆子，做着很多其他地方吃不到的冷门手工粤菜，胡椒鸡尤其出色。",
-      "url": "https://www.bilibili.com/video/BV1NX4y1v7Kb",
-      "publishedAt": "2023-07-12"
-    },
-    "comments": [
-      {
-        "author": "系统标记",
-        "content": "坐标为区/镇街附近临时点位，需确认详细地址后再精确定位。",
-        "likes": 0
-      },
-      {
-        "author": "UP主评论线索",
-        "content": "叫“永楷饭店”，在新港西路No.164。非常低调的传统粤菜，很多菜在外面不多见，复杂些的手工菜需要提前约，也可以根据自己的口味要求食材，我们来的临时，只要了些常规的。惯例打分：咕噜冰肉，56，前几块惊喜，酒香醇厚，甘甜不腻，但不能多吃，8.5分；百花鲈鱼，138，量足扎实，很正的咸鲜口，8分；胡椒鸡，78/半只，很少见，有惊喜，咸鲜直接清晰，胡椒香炸开味蕾，鸡肉本香加倍，9分；稻香鱼，118，汤底浓厚醇香，但是个人不是很喜欢脆米的口感，8分。[打call][打call][打call]",
-        "likes": 659
-      },
-      {
-        "author": "评论线索",
-        "content": "胡椒鸡！ 我爷爷阿兹海默前最喜欢做的菜，为了方便他直接搬家去芳村住了，胡椒鸡的要领就是鸡吃起来必须嫩滑多汁有鸡味，皮香肉香里夹杂着胡椒的微辣和刺激感，咽下去之后胡椒香味在鼻子里打转是最佳，我爷爷年轻时得了一场大病，嗅觉不如常人灵敏，唯独吃胡椒鸡滋味远胜其他，自30岁起就钻研，还告诉我海南胡椒最好吃，其次是福建[笑哭]在他搬出去之前，我家每周最少吃一次胡椒鸡，现在也好几年没吃过了",
-        "likes": 378
-      },
-      {
-        "author": "评论线索",
-        "content": "在公司附近，改天有客户过来请客户吃饭可以直接到这里来[呲牙]感谢推荐",
-        "likes": 4
-      },
-      {
-        "author": "评论线索",
-        "content": "回复 @想死没死的肥狗 :买原粒胡椒自己磨，买的时候凑近鼻子闻一下，如果味道浓郁就是老胡椒，味道淡就是新胡椒，胡椒鸡一般是用新胡椒，因为不辣",
-        "likes": 12
-      }
-    ],
-    "status": "needs_geocode",
-    "confidence": 0.82,
-    "missingFields": [
-      "详细地址",
-      "经纬度"
-    ],
-    "commentReview": {
-      "status": "has_evidence",
       "usefulCount": 4,
-      "locationCount": 0,
+      "locationCount": 1,
       "checkedAt": "2026-07-12"
     }
   },

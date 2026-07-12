@@ -10,6 +10,7 @@
     "geocode:candidates": "node scripts/geocode-candidates-amap.mjs",
     "review:comments": "node scripts/review-comments-bilibili.mjs",
     "finalize:review": "node scripts/finalize-review.mjs",
+    "clean:data": "node scripts/clean-restaurant-data.mjs",
     "slow-export:bilibili": "node scripts/slow-export-loop.mjs",
     "parse:candidates": "node scripts/parse-restaurant-candidates.mjs",
     "preflight:bilibili": "node scripts/preflight-bilibili.mjs",
