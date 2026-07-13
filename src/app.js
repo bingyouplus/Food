@@ -46,6 +46,35 @@ function safeUrl(value) {
   return /^(https?:|mailto:|\/|\.\/|#)/i.test(url) ? esc(url) : "#";
 }
 
+function clamp(value, min, max) {
+  return Math.max(min, Math.min(max, value));
+}
+
+function quantile(sortedValues, p) {
+  if (!sortedValues.length) return undefined;
+  const idx = (sortedValues.length - 1) * p;
+  const lo = Math.floor(idx);
+  const hi = Math.ceil(idx);
+  if (lo === hi) return sortedValues[lo];
+  return sortedValues[lo] + (sortedValues[hi] - sortedValues[lo]) * (idx - lo);
+}
+
+function mostCommonCity(restaurants) {
+  const counts = new Map();
+  for (const item of restaurants) {
+    counts.set(item.city, (counts.get(item.city) ?? 0) + 1);
+  }
+  let best = "全部";
+  let max = 0;
+  for (const [city, count] of counts) {
+    if (count > max) {
+      max = count;
+      best = city;
+    }
+  }
+  return best;
+}
+
 const els = {
   upTabs: document.querySelector("#upTabs"),
   cityFilters: document.querySelector("#cityFilters"),
@@ -63,6 +92,7 @@ async function boot() {
   const { restaurants, ups } = window.FOOD_MAP_DATA;
   state.ups = ups;
   state.restaurants = restaurants;
+  state.city = mostCommonCity(restaurants);
   state.selectedId = restaurants[0]?.id ?? null;
 
   renderUpTabs();
@@ -218,12 +248,16 @@ function clampPan(x, y) {
 
 function renderFallbackMap() {
   const items = filteredRestaurants();
-  const lngs = items.map((item) => item.lng);
-  const lats = items.map((item) => item.lat);
-  const minLng = Math.min(...lngs, 113.05);
-  const maxLng = Math.max(...lngs, 113.35);
-  const minLat = Math.min(...lats, 22.78);
-  const maxLat = Math.max(...lats, 23.18);
+  const lngs = items.map((item) => item.lng).filter((value) => typeof value === "number");
+  const lats = items.map((item) => item.lat).filter((value) => typeof value === "number");
+  const lngSorted = [...lngs].sort((a, b) => a - b);
+  const latSorted = [...lats].sort((a, b) => a - b);
+  // 用 5%~95% 分位框定主聚集区，避免个别离群点位（如境外城市的视频）
+  // 把坐标轴拉爆、导致 300+ 个广佛点被压扁成一坨。离群点稍后会 clamp 到边缘。
+  const minLng = Math.min(quantile(lngSorted, 0.05) ?? 113.05, 113.05);
+  const maxLng = Math.max(quantile(lngSorted, 0.95) ?? 113.35, 113.35);
+  const minLat = Math.min(quantile(latSorted, 0.05) ?? 22.78, 22.78);
+  const maxLat = Math.max(quantile(latSorted, 0.95) ?? 23.18, 23.18);
   const pad = 7;
   const showLabels = state.zoomed || state.mapZoom >= 1.45;
 
@@ -242,8 +276,8 @@ function renderFallbackMap() {
       <div class="city-label fs">佛山</div>
       ${items
         .map((item) => {
-          const x = pad + ((item.lng - minLng) / Math.max(maxLng - minLng, 0.001)) * (100 - pad * 2);
-          const y = 100 - pad - ((item.lat - minLat) / Math.max(maxLat - minLat, 0.001)) * (100 - pad * 2);
+          const x = clamp(pad + ((item.lng - minLng) / Math.max(maxLng - minLng, 0.001)) * (100 - pad * 2), pad, 100 - pad);
+          const y = clamp(100 - pad - ((item.lat - minLat) / Math.max(maxLat - minLat, 0.001)) * (100 - pad * 2), pad, 100 - pad);
           const selected = item.id === state.selectedId ? "selected" : "";
           const name = showLabels ? `<span class="pin-label">${esc(item.name)}</span>` : "";
           return `
