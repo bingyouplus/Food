@@ -104,6 +104,19 @@ async function boot() {
     state.query = event.target.value.trim();
     renderAll();
   });
+
+  // "添加 UP"目前是占位功能，给它一个明确反馈，避免用户以为页面坏了。
+  const addUpButton = document.querySelector(".ghost-button");
+  if (addUpButton) {
+    const originalHtml = addUpButton.innerHTML;
+    addUpButton.title = "多 UP 主支持开发中";
+    addUpButton.addEventListener("click", () => {
+      addUpButton.textContent = "开发中，敬请期待";
+      setTimeout(() => {
+        addUpButton.innerHTML = originalHtml;
+      }, 1500);
+    });
+  }
 }
 
 function renderAll() {
@@ -162,22 +175,22 @@ function mapStatus(item) {
   if (item.status === "geocoded") {
     return {
       key: "verified",
-      label: "高德已核实",
-      summary: item.geocode?.poiName ? `匹配：${item.geocode.poiName}` : "已通过高德 POI 匹配",
+      label: "位置已核实",
+      summary: item.geocode?.poiName ? `已核对到店铺：${item.geocode.poiName}` : "位置已核对，可放心导航",
     };
   }
   const evidenceCount = item.commentReview?.locationCount ?? locationEvidence(item).length;
   if (evidenceCount) {
     return {
       key: "commented",
-      label: "评论有位置线索",
-      summary: `筛到 ${evidenceCount} 条可能帮助定位的评论`,
+      label: "大致位置",
+      summary: `有 ${evidenceCount} 条网友评论线索，导航前建议再确认门店`,
     };
   }
   return {
     key: "pending",
-    label: "仍需人工确认",
-    summary: "已有店名或菜品线索，但缺少可确认的详细位置",
+    label: "位置未确认",
+    summary: "暂缺可确认的详细地址，导航前请先自行核实",
   };
 }
 
@@ -229,7 +242,7 @@ function renderStats() {
     <article><strong>${items.length}</strong><span>家餐厅</span></article>
     <article><strong>${cityCount}</strong><span>个城市</span></article>
     <article><strong>${districtCount}</strong><span>个区</span></article>
-    <article><strong>${verifiedCount}</strong><span>高德已核实</span></article>
+    <article><strong>${verifiedCount}</strong><span>位置已核实</span></article>
   `;
   els.resultCount.textContent = `${items.length} 个结果`;
 }
@@ -408,7 +421,13 @@ function renderDetail() {
     return;
   }
 
-  const comments = item.comments
+  // 过滤掉数据管线内部日志（"高德核实"POI 匹配记录、"系统标记"占位说明），
+  // 这些是给维护者看的质检痕迹，不是给食客看的内容。
+  const pipelineAuthors = new Set(["高德核实", "系统标记"]);
+  const visibleComments = (item.comments ?? []).filter(
+    (comment) => !pipelineAuthors.has(comment.author),
+  );
+  const comments = visibleComments
     .slice(0, 5)
     .map(
       (comment) => `
@@ -451,13 +470,13 @@ function renderDetail() {
     </div>
     ${mapInfo}
     <a class="video-link" href="${safeUrl(item.sourceVideo.url)}" target="_blank" rel="noreferrer">${esc(item.sourceVideo.title)}</a>
-    <div class="comments">
+    ${visibleComments.length ? `<div class="comments">
       <div class="section-heading compact">
         <h3>${esc(clueTitle)}</h3>
-        <span>${esc(item.comments.length)} 条</span>
+        <span>${esc(visibleComments.length)} 条</span>
       </div>
       <ul>${comments}</ul>
-    </div>
+    </div>` : ""}
   `;
 }
 
