@@ -91,6 +91,10 @@ const corrections = {
     name: "御灶四季",
     address: "广州市越秀区北京路天河城8层御灶四季（待确认）",
   },
+  "gz-本地街坊青睐的老广饭堂-BV1JW4y1o7Lv": {
+    name: "六婶西关小厨",
+    address: "广州市越秀区光塔路美东大厦六婶西关小厨（待确认）",
+  },
   "gz-渔情味了-BV1oudABuEN8": {
     name: "渔情味了街坊味大排档",
     address: "广州市海珠区同庆路解放大桥底",
