@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "python3 -m http.server 5173",
     "build": "node scripts/validate-data.mjs",
+    "clean:data": "node scripts/clean-map-data.mjs",
     "apply:candidates": "node scripts/apply-candidates-to-map.mjs",
     "geocode:candidates": "node scripts/geocode-candidates-amap.mjs",
     "review:comments": "node scripts/review-comments-bilibili.mjs",

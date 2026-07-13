@@ -13,8 +13,19 @@ npm run dev
 ## 数据结构
 
 - `data/ups.json`：美食 UP 列表。
-- `data/restaurants.json`：餐厅点位、来源视频、评论精选。
+- `data/restaurants.json`：餐厅点位、来源视频、评论精选。以"餐厅为实体、
+  视频为证据"组织：`sourceVideos[]` 为该店全部来源视频、`visitCount` 为到访
+  次数；`nameQuality: "suspect"` 标注疑似店名（地名/整句标题解析残留），
+  前端不上图、列表标"名称待核实"，坐标与来源视频保留待人工修正；
+  `addressSharedWith` 提示同一高德地址下的其他店名，需人工区分。
 - `scripts/update-bilibili.mjs`：后续每周自动扫描视频的脚本入口。
+
+## 数据维护
+
+```bash
+npm run clean:data   # 幂等：合并重复店、聚合来源视频、标注疑似脏店名
+npm run build        # 校验：同名同区重复、坐标越界、必填字段
+```
 
 ## API Key
 
