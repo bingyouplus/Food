@@ -91,6 +91,38 @@ const corrections = {
     name: "御灶四季",
     address: "广州市越秀区北京路天河城8层御灶四季（待确认）",
   },
+  "gz-渔情味了-BV1oudABuEN8": {
+    name: "渔情味了街坊味大排档",
+    address: "广州市海珠区同庆路解放大桥底",
+  },
+  "gz-渔情未了-BV1fokfBqEJ5": {
+    name: "渔情味了街坊味大排档",
+    address: "广州市海珠区同庆路解放大桥底",
+  },
+  "gz-锦堂春想-雅瑶-BV1yMFSzcE2o": {
+    name: "锦堂春想",
+    address: "广州市花都区新雅街雅正路3号希尔顿惠庭酒店一二层",
+  },
+  "gz-啫八-茶市-BV1gfzaB6E6z": {
+    name: "啫八",
+    address: "广州市海珠区滨江西路惠食佳174号",
+  },
+  "gz-裕华餐馆-BV1fH4y1D7xt": {
+    name: "裕华",
+    address: "广州市海珠区南华东路550号",
+  },
+  "fs-榕樹頭私房菜-BV1qJ2QBWED1": {
+    name: "榕树头私房菜",
+    address: "佛山市顺德区容桂街道上南路聚龙街41号",
+  },
+  "gz-惠爱餐厅-BV1vA4m1A7ah": {
+    name: "惠爱饭店",
+    address: "广州市越秀区建设大马路18号402房自编N405-N406铺",
+  },
+  "gz-里所-livso-BV1U75NzjE3x": {
+    name: "LIVSO 里所",
+    address: "广州市天河区珠江西路高德置地夏广场1楼121号(gaga对面的KAOS餐厅后面)",
+  },
 };
 
 const exclusions = {
