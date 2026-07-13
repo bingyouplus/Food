@@ -5,6 +5,14 @@ const workDir = new URL("../work/", import.meta.url);
 const jsonPath = new URL("duplicate-audit.json", workDir);
 const csvPath = new URL("duplicate-audit.csv", workDir);
 
+const confirmedDistinctPairs = new Set([
+  ["gz-多福美食馆-BV1pZC4YcEYa", "gz-汶记美食店-BV1pA4m1F7Bw"].sort().join("|||"),
+]);
+
+function pairKey(a, b) {
+  return [a.id, b.id].sort().join("|||");
+}
+
 function csvEscape(value) {
   const text = value === undefined || value === null ? "" : Array.isArray(value) ? value.join(" / ") : String(value);
   return `"${text.replaceAll('"', '""')}"`;
@@ -100,6 +108,7 @@ for (let i = 0; i < restaurants.length; i += 1) {
   for (let j = i + 1; j < restaurants.length; j += 1) {
     const a = restaurants[i];
     const b = restaurants[j];
+    if (confirmedDistinctPairs.has(pairKey(a, b))) continue;
     const reason = pairReason(a, b);
     if (reason) pairs.push({ a, b, ...reason });
   }
