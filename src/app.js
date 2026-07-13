@@ -224,14 +224,18 @@ function renderFallbackMap() {
   const minLat = Math.min(...lats, 22.78);
   const maxLat = Math.max(...lats, 23.18);
   const pad = 7;
-  const showLabels = state.zoomed || state.mapZoom >= 1.45;
+  const labelLimit = state.zoomed ? Math.min(items.length, Math.max(18, Math.round(state.mapZoom * 18))) : 0;
+  const selectedIndex = items.findIndex((item) => item.id === state.selectedId);
+  const labelIds = new Set(items.slice(0, labelLimit).map((item) => item.id));
+  if (selectedIndex >= 0) labelIds.add(items[selectedIndex].id);
+  const labelsVisible = state.zoomed || selectedIndex >= 0;
 
   els.fallbackMap.innerHTML = `
     <div class="map-controls" aria-label="地图缩放">
       <button class="zoom-in" type="button" aria-label="放大地图">+</button>
       <button class="zoom-out" type="button" aria-label="缩小地图">−</button>
       <button class="zoom-reset" type="button">重置</button>
-      <button class="zoom-toggle" type="button">${showLabels ? "收起名称" : "显示名称"}</button>
+      <button class="zoom-toggle" type="button">${state.zoomed ? "收起名称" : "显示名称"}</button>
       <span>${state.mapZoom.toFixed(1)}×</span>
     </div>
     <div class="fallback-stage ${state.mapZoom > 1 ? "draggable" : ""}" style="--map-scale:${state.mapZoom};--map-pan-x:${state.mapPan.x}px;--map-pan-y:${state.mapPan.y}px">
@@ -244,7 +248,8 @@ function renderFallbackMap() {
           const x = pad + ((item.lng - minLng) / Math.max(maxLng - minLng, 0.001)) * (100 - pad * 2);
           const y = 100 - pad - ((item.lat - minLat) / Math.max(maxLat - minLat, 0.001)) * (100 - pad * 2);
           const selected = item.id === state.selectedId ? "selected" : "";
-          const name = showLabels ? `<span class="pin-label">${item.name}</span>` : "";
+          const labelClass = selected ? "selected-label" : "";
+          const name = labelsVisible && labelIds.has(item.id) ? `<span class="pin-label ${labelClass}">${item.name}</span>` : "";
           return `
             <button class="map-pin ${selected}" data-id="${item.id}" style="--x:${x}%;--y:${y}%;--pin:${districtColor(item)}" type="button" aria-label="${item.name}">
               <span class="pin-dot"></span>
