@@ -32,6 +32,20 @@ const districtPalette = {
   日本: ["#b889d7", "#c7a0e1", "#9e6bc4", "#d8b8ec"],
 };
 
+function esc(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+function safeUrl(value) {
+  const url = String(value ?? "").trim();
+  return /^(https?:|mailto:|\/|\.\/|#)/i.test(url) ? esc(url) : "#";
+}
+
 const els = {
   upTabs: document.querySelector("#upTabs"),
   cityFilters: document.querySelector("#cityFilters"),
@@ -151,11 +165,11 @@ function renderUpTabs() {
     .map((up) => {
       const initials = up.name.replace(/^探店\s*/, "").slice(0, 2);
       return `
-        <a class="up-tab ${up.active ? "active" : ""}" href="${up.spaceUrl}" target="_blank" rel="noreferrer">
-          <span class="avatar" style="--accent:${up.accent}">
-            ${up.avatar ? `<img src="${up.avatar}" alt="${up.name}" />` : initials}
+        <a class="up-tab ${up.active ? "active" : ""}" href="${safeUrl(up.spaceUrl)}" target="_blank" rel="noreferrer">
+          <span class="avatar" style="--accent:${esc(up.accent)}">
+            ${up.avatar ? `<img src="${safeUrl(up.avatar)}" alt="${esc(up.name)}" />` : esc(initials)}
           </span>
-          <span>${up.name}</span>
+          <span>${esc(up.name)}</span>
         </a>
       `;
     })
@@ -165,11 +179,11 @@ function renderUpTabs() {
 function renderFilters() {
   const cities = ["全部", ...new Set(state.restaurants.map((item) => item.city))];
   els.cityFilters.innerHTML = cities
-    .map((city) => `<button class="${city === state.city ? "active" : ""}" type="button">${city}</button>`)
+    .map((city) => `<button class="${city === state.city ? "active" : ""}" type="button" data-city="${esc(city)}">${esc(city)}</button>`)
     .join("");
   els.cityFilters.querySelectorAll("button").forEach((button) => {
     button.addEventListener("click", () => {
-      state.city = button.textContent;
+      state.city = button.dataset.city;
       renderFilters();
       renderAll();
     });
@@ -231,9 +245,9 @@ function renderFallbackMap() {
           const x = pad + ((item.lng - minLng) / Math.max(maxLng - minLng, 0.001)) * (100 - pad * 2);
           const y = 100 - pad - ((item.lat - minLat) / Math.max(maxLat - minLat, 0.001)) * (100 - pad * 2);
           const selected = item.id === state.selectedId ? "selected" : "";
-          const name = showLabels ? `<span class="pin-label">${item.name}</span>` : "";
+          const name = showLabels ? `<span class="pin-label">${esc(item.name)}</span>` : "";
           return `
-            <button class="map-pin ${selected}" data-id="${item.id}" style="--x:${x}%;--y:${y}%;--pin:${districtColor(item)}" type="button" aria-label="${item.name}">
+            <button class="map-pin ${selected}" data-id="${esc(item.id)}" style="--x:${x}%;--y:${y}%;--pin:${districtColor(item)}" type="button" aria-label="${esc(item.name)}">
               <span class="pin-dot"></span>
               ${name}
             </button>
@@ -311,9 +325,9 @@ function renderLegend() {
   els.legend.innerHTML = districts
     .map(
       (item) => `
-        <button class="legend-item" type="button" data-query="${item.district}">
+        <button class="legend-item" type="button" data-query="${esc(item.district)}">
           <span style="background:${districtColor(item)}"></span>
-          ${item.district}
+          ${esc(item.district)}
         </button>
       `,
     )
@@ -335,13 +349,13 @@ function renderList() {
       const selected = item.id === state.selectedId ? "active" : "";
       const status = mapStatus(item);
       return `
-        <button class="restaurant-row ${selected}" type="button" data-id="${item.id}">
-          <span class="district-chip" style="--chip:${districtColor(item)}">${item.district}</span>
+        <button class="restaurant-row ${selected}" type="button" data-id="${esc(item.id)}">
+          <span class="district-chip" style="--chip:${districtColor(item)}">${esc(item.district)}</span>
           <span class="row-main">
-            <strong>${item.name}</strong>
-            <small>${item.signatureDishes.slice(0, 3).join(" · ")}</small>
+            <strong>${esc(item.name)}</strong>
+            <small>${esc(item.signatureDishes.slice(0, 3).join(" · "))}</small>
           </span>
-          <span class="status-pill ${status.key}">${status.label}</span>
+          <span class="status-pill ${status.key}">${esc(status.label)}</span>
         </button>
       `;
     })
@@ -365,8 +379,8 @@ function renderDetail() {
     .map(
       (comment) => `
         <li>
-          <p>${comment.content}</p>
-          <span>${comment.author} · ${comment.likes} 赞</span>
+          <p>${esc(comment.content)}</p>
+          <span>${esc(comment.author)} · ${esc(comment.likes)} 赞</span>
         </li>
       `,
     )
@@ -378,35 +392,35 @@ function renderDetail() {
     <div class="map-info ${status.key}">
       <div class="section-heading compact">
         <h3>地图信息</h3>
-        <span class="status-pill ${status.key}">${status.label}</span>
+        <span class="status-pill ${status.key}">${esc(status.label)}</span>
       </div>
-      <p>${status.summary}</p>
+      <p>${esc(status.summary)}</p>
       <dl>
-        <div><dt>地址</dt><dd>${item.address}</dd></div>
+        <div><dt>地址</dt><dd>${esc(item.address)}</dd></div>
         <div><dt>坐标</dt><dd>${typeof item.lng === "number" && typeof item.lat === "number" ? `${item.lng.toFixed(6)}, ${item.lat.toFixed(6)}` : "待补"}</dd></div>
       </dl>
-      <a class="map-link" href="${mapLink}" target="_blank" rel="noreferrer">${status.key === "verified" ? "打开高德位置" : "打开高德搜索"}</a>
+      <a class="map-link" href="${safeUrl(mapLink)}" target="_blank" rel="noreferrer">${status.key === "verified" ? "打开高德位置" : "打开高德搜索"}</a>
     </div>
   `;
   const clueTitle = evidence.length ? "评论位置线索" : "评论线索";
 
   els.detail.innerHTML = `
     <div class="detail-top">
-      <span class="district-chip" style="--chip:${districtColor(item)}">${item.city} · ${item.district}</span>
-      <span class="status-pill ${status.key}">${status.label}</span>
+      <span class="district-chip" style="--chip:${districtColor(item)}">${esc(item.city)} · ${esc(item.district)}</span>
+      <span class="status-pill ${status.key}">${esc(status.label)}</span>
     </div>
-    <h2>${item.name}</h2>
-    <p class="address">${item.address}</p>
+    <h2>${esc(item.name)}</h2>
+    <p class="address">${esc(item.address)}</p>
     <div class="info-grid">
-      <div><span>人均</span><strong>${typeof item.pricePerPerson === "number" ? `¥${item.pricePerPerson}` : "待补"}</strong></div>
-      <div><span>菜式</span><strong>${item.signatureDishes.length ? item.signatureDishes.join(" / ") : "待补"}</strong></div>
+      <div><span>人均</span><strong>${typeof item.pricePerPerson === "number" ? `¥${esc(item.pricePerPerson)}` : "待补"}</strong></div>
+      <div><span>菜式</span><strong>${item.signatureDishes.length ? esc(item.signatureDishes.join(" / ")) : "待补"}</strong></div>
     </div>
     ${mapInfo}
-    <a class="video-link" href="${item.sourceVideo.url}" target="_blank" rel="noreferrer">${item.sourceVideo.title}</a>
+    <a class="video-link" href="${safeUrl(item.sourceVideo.url)}" target="_blank" rel="noreferrer">${esc(item.sourceVideo.title)}</a>
     <div class="comments">
       <div class="section-heading compact">
-        <h3>${clueTitle}</h3>
-        <span>${item.comments.length} 条</span>
+        <h3>${esc(clueTitle)}</h3>
+        <span>${esc(item.comments.length)} 条</span>
       </div>
       <ul>${comments}</ul>
     </div>
@@ -452,7 +466,7 @@ function syncAmapMarkers() {
       position: [item.lng, item.lat],
       title: item.name,
       label: {
-        content: item.name,
+        content: esc(item.name),
         direction: "top",
       },
     });
