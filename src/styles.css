@@ -786,6 +786,44 @@ p {
   color: var(--muted);
 }
 
+/* 一店多视频：来源链接之间留间距 */
+.video-link + .video-link {
+  margin-top: 8px;
+}
+
+/* UP 主到访次数徽标（回访本身即强推荐信号） */
+.visit-count {
+  display: inline-flex;
+  align-items: center;
+  margin: 12px 0 4px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(242, 164, 95, 0.16);
+  color: #b26a28;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* 店名待核实（脏条目降级，不删除）提示 */
+.restaurant-row.suspect {
+  opacity: 0.62;
+}
+
+.name-review {
+  color: var(--warm);
+  font-weight: 600;
+}
+
+.name-review-note {
+  margin: 8px 0;
+  padding: 8px 12px;
+  border-radius: 12px;
+  background: rgba(242, 164, 95, 0.14);
+  color: #a15c1f;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
 @media (max-width: 1080px) {
   .topbar {
     grid-template-columns: 1fr;

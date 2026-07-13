@@ -139,7 +139,7 @@ function filteredRestaurants() {
       item.district,
       item.address,
       item.signatureDishes.join(" "),
-      item.sourceVideo.title,
+      (item.sourceVideos ?? [item.sourceVideo]).filter(Boolean).map((video) => video.title).join(" "),
     ]
       .join(" ")
       .toLowerCase();
@@ -261,8 +261,10 @@ function clampPan(x, y) {
 
 function renderFallbackMap() {
   const items = filteredRestaurants();
-  const lngs = items.map((item) => item.lng).filter((value) => typeof value === "number");
-  const lats = items.map((item) => item.lat).filter((value) => typeof value === "number");
+  // 脏店名（地名/整句标题残留）不落图，避免"东京都""伦教"这类残条出现在地图上
+  const mapItems = items.filter((item) => item.nameQuality !== "suspect");
+  const lngs = mapItems.map((item) => item.lng).filter((value) => typeof value === "number");
+  const lats = mapItems.map((item) => item.lat).filter((value) => typeof value === "number");
   const lngSorted = [...lngs].sort((a, b) => a - b);
   const latSorted = [...lats].sort((a, b) => a - b);
   // 用 5%~95% 分位框定主聚集区，避免个别离群点位（如境外城市的视频）
@@ -287,7 +289,7 @@ function renderFallbackMap() {
       <div class="waterline two"></div>
       <div class="city-label gz">广州</div>
       <div class="city-label fs">佛山</div>
-      ${items
+      ${mapItems
         .map((item) => {
           const x = clamp(pad + ((item.lng - minLng) / Math.max(maxLng - minLng, 0.001)) * (100 - pad * 2), pad, 100 - pad);
           const y = clamp(100 - pad - ((item.lat - minLat) / Math.max(maxLat - minLat, 0.001)) * (100 - pad * 2), pad, 100 - pad);
@@ -395,12 +397,16 @@ function renderList() {
     .map((item) => {
       const selected = item.id === state.selectedId ? "active" : "";
       const status = mapStatus(item);
+      const suspect = item.nameQuality === "suspect";
+      const subline = suspect
+        ? `<small class="name-review">名称待核实</small>`
+        : `<small>${esc(item.signatureDishes.slice(0, 3).join(" · "))}</small>`;
       return `
-        <button class="restaurant-row ${selected}" type="button" data-id="${esc(item.id)}">
+        <button class="restaurant-row ${selected} ${suspect ? "suspect" : ""}" type="button" data-id="${esc(item.id)}">
           <span class="district-chip" style="--chip:${districtColor(item)}">${esc(item.district)}</span>
           <span class="row-main">
             <strong>${esc(item.name)}</strong>
-            <small>${esc(item.signatureDishes.slice(0, 3).join(" · "))}</small>
+            ${subline}
           </span>
           <span class="status-pill ${status.key}">${esc(status.label)}</span>
         </button>
@@ -456,6 +462,18 @@ function renderDetail() {
     </div>
   `;
   const clueTitle = evidence.length ? "评论位置线索" : "评论线索";
+  // 餐厅为实体、视频为证据：一家店可能被 UP 主多次探访，到访次数本身就是强推荐信号
+  const videos = item.sourceVideos?.length ? item.sourceVideos : item.sourceVideo ? [item.sourceVideo] : [];
+  const visitBadge = videos.length > 1 ? `<p class="visit-count">UP 主到访 ${videos.length} 次</p>` : "";
+  const videoLinks = videos
+    .map((video) => `<a class="video-link" href="${safeUrl(video.url)}" target="_blank" rel="noreferrer">${esc(video.title)}</a>`)
+    .join("");
+  const suspectNote = item.nameQuality === "suspect"
+    ? `<p class="name-review-note">⚠ 这条可能是视频标题的解析残留，店名待人工核实</p>`
+    : "";
+  const sharedNote = item.addressSharedWith?.length
+    ? `<p class="name-review-note">同一地址下还标记了：${esc(item.addressSharedWith.join("、"))}，请注意区分门店</p>`
+    : "";
 
   els.detail.innerHTML = `
     <div class="detail-top">
@@ -463,13 +481,16 @@ function renderDetail() {
       <span class="status-pill ${status.key}">${esc(status.label)}</span>
     </div>
     <h2>${esc(item.name)}</h2>
+    ${suspectNote}
     <p class="address">${esc(item.address)}</p>
     <div class="info-grid">
       <div><span>人均</span><strong>${typeof item.pricePerPerson === "number" ? `¥${esc(item.pricePerPerson)}` : "待补"}</strong></div>
       <div><span>菜式</span><strong>${item.signatureDishes.length ? esc(item.signatureDishes.join(" / ")) : "待补"}</strong></div>
     </div>
     ${mapInfo}
-    <a class="video-link" href="${safeUrl(item.sourceVideo.url)}" target="_blank" rel="noreferrer">${esc(item.sourceVideo.title)}</a>
+    ${sharedNote}
+    ${visitBadge}
+    ${videoLinks}
     ${visibleComments.length ? `<div class="comments">
       <div class="section-heading compact">
         <h3>${esc(clueTitle)}</h3>
