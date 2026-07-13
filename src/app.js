@@ -144,12 +144,19 @@ function amapMarkerUrl(item) {
 }
 
 function amapSearchUrl(item) {
-  return `https://www.amap.com/search?query=${encodeURIComponent([item.city, item.district, item.name].filter(Boolean).join(""))}`;
+  const query = [item.city, item.district, item.name, item.address]
+    .filter(Boolean)
+    .join(" ");
+  return `https://www.amap.com/search?query=${encodeURIComponent(query)}`;
 }
 
 function amapBranchUrl(item, branch) {
-  const query = branch.amapQuery ?? [item.city, branch.district, branch.name].filter(Boolean).join("");
+  const query = branch.amapQuery ?? [item.city, branch.district, branch.name, branch.address].filter(Boolean).join(" ");
   return `https://www.amap.com/search?query=${encodeURIComponent(query)}`;
+}
+
+function addressMapUrl(item) {
+  return item.status === "geocoded" ? amapMarkerUrl(item) : amapSearchUrl(item);
 }
 
 function renderUpTabs() {
@@ -380,6 +387,7 @@ function renderDetail() {
   const status = mapStatus(item);
   const evidence = locationEvidence(item);
   const mapLink = status.key === "verified" ? amapMarkerUrl(item) : amapSearchUrl(item);
+  const addressLink = addressMapUrl(item);
   const branches = (item.branches ?? [])
     .map(
       (branch) => `
@@ -387,7 +395,7 @@ function renderDetail() {
           <div>
             <strong>${branch.name}</strong>
             <span>${[branch.district, branch.area].filter(Boolean).join(" · ")}</span>
-            <p>${branch.address}</p>
+            <a class="branch-address" href="${amapBranchUrl(item, branch)}" target="_blank" rel="noreferrer">${branch.address}</a>
             ${branch.pricePerPerson ? `<small>参考人均 ¥${branch.pricePerPerson}</small>` : ""}
           </div>
           <a href="${amapBranchUrl(item, branch)}" target="_blank" rel="noreferrer">打开</a>
@@ -433,7 +441,7 @@ function renderDetail() {
       </div>
       <p>${status.summary}</p>
       <dl>
-        <div><dt>地址</dt><dd>${item.address}</dd></div>
+        <div><dt>地址</dt><dd><a class="address-link" href="${addressLink}" target="_blank" rel="noreferrer">${item.address}</a></dd></div>
         <div><dt>坐标</dt><dd>${typeof item.lng === "number" && typeof item.lat === "number" ? `${item.lng.toFixed(6)}, ${item.lat.toFixed(6)}` : "待补"}</dd></div>
       </dl>
       ${branchOptions}
@@ -448,7 +456,7 @@ function renderDetail() {
       <span class="status-pill ${status.key}">${status.label}</span>
     </div>
     <h2>${item.name}</h2>
-    <p class="address">${item.address}</p>
+    <a class="address" href="${addressLink}" target="_blank" rel="noreferrer">${item.address}</a>
     <div class="info-grid">
       <div><span>人均</span><strong>${typeof item.pricePerPerson === "number" ? `¥${item.pricePerPerson}` : "待补"}</strong></div>
       <div><span>菜式</span><strong>${item.signatureDishes.length ? item.signatureDishes.join(" / ") : "待补"}</strong></div>
