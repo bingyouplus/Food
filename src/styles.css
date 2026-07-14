@@ -256,6 +256,52 @@ p {
   pointer-events: auto;
 }
 
+.amap-pin {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 220px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 10px 24px rgba(34, 50, 47, 0.2);
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1;
+  padding: 6px;
+  white-space: nowrap;
+  cursor: pointer;
+  transform: translateY(-6px);
+}
+
+.amap-pin span {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  border-radius: 50%;
+  background: var(--pin);
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.95);
+}
+
+.amap-pin strong {
+  max-width: 172px;
+  overflow: hidden;
+  padding-right: 6px;
+  text-overflow: ellipsis;
+}
+
+.amap-pin.selected {
+  background: #fff8ea;
+  box-shadow: 0 16px 32px rgba(169, 112, 44, 0.25);
+  z-index: 2;
+}
+
+.amap-pin.selected span {
+  background: #e4a14d;
+}
+
 .fallback-map {
   position: absolute;
   inset: 0;

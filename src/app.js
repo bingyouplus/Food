@@ -8,6 +8,7 @@ const state = {
   mapPan: { x: 0, y: 0 },
   zoomed: false,
   amap: null,
+  amapZoom: 10,
   markers: [],
 };
 
@@ -520,6 +521,10 @@ function renderDetail() {
 function selectRestaurant(id) {
   state.selectedId = id;
   renderAll();
+  const item = state.restaurants.find((restaurant) => restaurant.id === id);
+  if (state.amap && item && typeof item.lng === "number" && typeof item.lat === "number") {
+    state.amap.setZoomAndCenter(Math.max(state.amap.getZoom(), 15), [item.lng, item.lat]);
+  }
 }
 
 function tryLoadAmap() {
@@ -529,9 +534,19 @@ function tryLoadAmap() {
     return;
   }
 
+  const securityJsCode = window.FOOD_MAP_CONFIG?.amapSecurityJsCode;
+  if (securityJsCode) {
+    window._AMapSecurityConfig = {
+      securityJsCode,
+    };
+  }
+
   const script = document.createElement("script");
-  script.src = `https://webapi.amap.com/maps?v=2.0&key=${encodeURIComponent(key)}`;
+  script.src = `https://webapi.amap.com/maps?v=2.0&key=${encodeURIComponent(key)}&plugin=AMap.Scale,AMap.ToolBar`;
   script.onload = initAmap;
+  script.onerror = () => {
+    els.modeLabel.textContent = "原型地图";
+  };
   document.head.appendChild(script);
 }
 
@@ -541,9 +556,15 @@ function initAmap() {
   els.fallbackMap.classList.add("hidden");
   els.modeLabel.textContent = "高德地图";
   state.amap = new window.AMap.Map("amap", {
-    zoom: 10,
+    zoom: 11,
     center: [113.26, 23.05],
     mapStyle: "amap://styles/macaron",
+  });
+  if (window.AMap.Scale) state.amap.addControl(new window.AMap.Scale());
+  if (window.AMap.ToolBar) state.amap.addControl(new window.AMap.ToolBar({ position: "LT" }));
+  state.amap.on("zoomend", () => {
+    state.amapZoom = state.amap.getZoom();
+    syncAmapMarkers();
   });
   syncAmapMarkers();
 }
@@ -551,19 +572,26 @@ function initAmap() {
 function syncAmapMarkers() {
   if (!state.amap || !window.AMap) return;
   state.markers.forEach((marker) => state.amap.remove(marker));
-  state.markers = filteredRestaurants().map((item) => {
-    const marker = new window.AMap.Marker({
-      position: [item.lng, item.lat],
-      title: item.name,
-      label: {
-        content: escapeHTML(item.name),
-        direction: "top",
-      },
+  const zoom = state.amap.getZoom?.() ?? state.amapZoom;
+  state.markers = filteredRestaurants()
+    .filter((item) => typeof item.lng === "number" && typeof item.lat === "number")
+    .map((item) => {
+      const selected = item.id === state.selectedId;
+      const marker = new window.AMap.Marker({
+        position: [item.lng, item.lat],
+        title: item.name,
+        content: `
+          <button class="amap-pin ${selected ? "selected" : ""}" type="button" style="--pin:${safeColor(districtColor(item))}" aria-label="${escapeHTML(item.name)}">
+            <span></span>
+            ${zoom >= 14 || selected ? `<strong>${escapeHTML(item.name)}</strong>` : ""}
+          </button>
+        `,
+        offset: new window.AMap.Pixel(-12, -12),
+      });
+      marker.on("click", () => selectRestaurant(item.id));
+      state.amap.add(marker);
+      return marker;
     });
-    marker.on("click", () => selectRestaurant(item.id));
-    state.amap.add(marker);
-    return marker;
-  });
 }
 
 boot();
