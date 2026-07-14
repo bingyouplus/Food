@@ -45,11 +45,44 @@ const els = {
   modeLabel: document.querySelector("#mapModeLabel"),
 };
 
+function escapeHTML(value) {
+  return String(value ?? "").replace(/[&<>"']/g, (char) => {
+    const entities = {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;",
+    };
+    return entities[char];
+  });
+}
+
+function safeUrl(value) {
+  try {
+    const url = new URL(String(value ?? ""), window.location.href);
+    if (url.protocol === "http:" || url.protocol === "https:") return escapeHTML(url.href);
+  } catch {
+    return "#";
+  }
+  return "#";
+}
+
+function safeColor(value, fallback = "#79b8a9") {
+  const color = String(value ?? "").trim();
+  return /^#[0-9a-f]{3,8}$/i.test(color) ? color : fallback;
+}
+
+function formattedDishes(dishes, separator = " / ") {
+  return dishes?.length ? dishes.map(escapeHTML).join(separator) : "待补";
+}
+
 async function boot() {
   const { restaurants, ups } = window.FOOD_MAP_DATA;
   state.ups = ups;
   state.restaurants = restaurants;
-  state.selectedId = restaurants[0]?.id ?? null;
+  state.city = restaurants.some((item) => item.city === "广州") ? "广州" : "全部";
+  state.selectedId = restaurants.find((item) => state.city === "全部" || item.city === state.city)?.id ?? null;
 
   renderUpTabs();
   renderFilters();
@@ -162,13 +195,15 @@ function addressMapUrl(item) {
 function renderUpTabs() {
   els.upTabs.innerHTML = state.ups
     .map((up) => {
-      const initials = up.name.replace(/^探店\s*/, "").slice(0, 2);
+      const upName = escapeHTML(up.name);
+      const initials = escapeHTML(up.name.replace(/^探店\s*/, "").slice(0, 2));
+      const avatar = up.avatar ? `<img src="${safeUrl(up.avatar)}" alt="${upName}" />` : initials;
       return `
-        <a class="up-tab ${up.active ? "active" : ""}" href="${up.spaceUrl}" target="_blank" rel="noreferrer">
-          <span class="avatar" style="--accent:${up.accent}">
-            ${up.avatar ? `<img src="${up.avatar}" alt="${up.name}" />` : initials}
+        <a class="up-tab ${up.active ? "active" : ""}" href="${safeUrl(up.spaceUrl)}" target="_blank" rel="noreferrer">
+          <span class="avatar" style="--accent:${safeColor(up.accent)}">
+            ${avatar}
           </span>
-          <span>${up.name}</span>
+          <span>${upName}</span>
         </a>
       `;
     })
@@ -178,11 +213,14 @@ function renderUpTabs() {
 function renderFilters() {
   const cities = ["全部", ...new Set(state.restaurants.map((item) => item.city))];
   els.cityFilters.innerHTML = cities
-    .map((city) => `<button class="${city === state.city ? "active" : ""}" type="button">${city}</button>`)
+    .map(
+      (city) =>
+        `<button class="${city === state.city ? "active" : ""}" type="button" data-city="${escapeHTML(city)}">${escapeHTML(city)}</button>`,
+    )
     .join("");
   els.cityFilters.querySelectorAll("button").forEach((button) => {
     button.addEventListener("click", () => {
-      state.city = button.textContent;
+      state.city = button.dataset.city;
       renderFilters();
       renderAll();
     });
@@ -249,9 +287,10 @@ function renderFallbackMap() {
           const y = 100 - pad - ((item.lat - minLat) / Math.max(maxLat - minLat, 0.001)) * (100 - pad * 2);
           const selected = item.id === state.selectedId ? "selected" : "";
           const labelClass = selected ? "selected-label" : "";
-          const name = labelsVisible && labelIds.has(item.id) ? `<span class="pin-label ${labelClass}">${item.name}</span>` : "";
+          const safeName = escapeHTML(item.name);
+          const name = labelsVisible && labelIds.has(item.id) ? `<span class="pin-label ${labelClass}">${safeName}</span>` : "";
           return `
-            <button class="map-pin ${selected}" data-id="${item.id}" style="--x:${x}%;--y:${y}%;--pin:${districtColor(item)}" type="button" aria-label="${item.name}">
+            <button class="map-pin ${selected}" data-id="${escapeHTML(item.id)}" style="--x:${x}%;--y:${y}%;--pin:${safeColor(districtColor(item))}" type="button" aria-label="${safeName}">
               <span class="pin-dot"></span>
               ${name}
             </button>
@@ -329,9 +368,9 @@ function renderLegend() {
   els.legend.innerHTML = districts
     .map(
       (item) => `
-        <button class="legend-item" type="button" data-query="${item.district}">
-          <span style="background:${districtColor(item)}"></span>
-          ${item.district}
+        <button class="legend-item" type="button" data-query="${escapeHTML(item.district)}">
+          <span style="background:${safeColor(districtColor(item))}"></span>
+          ${escapeHTML(item.district)}
         </button>
       `,
     )
@@ -353,11 +392,11 @@ function renderList() {
       const selected = item.id === state.selectedId ? "active" : "";
       const status = mapStatus(item);
       return `
-        <button class="restaurant-row ${selected}" type="button" data-id="${item.id}">
-          <span class="district-chip" style="--chip:${districtColor(item)}">${item.district}</span>
+        <button class="restaurant-row ${selected}" type="button" data-id="${escapeHTML(item.id)}">
+          <span class="district-chip" style="--chip:${safeColor(districtColor(item))}">${escapeHTML(item.district)}</span>
           <span class="row-main">
-            <strong>${item.name}</strong>
-            <small>${item.signatureDishes.slice(0, 3).join(" · ")}</small>
+            <strong>${escapeHTML(item.name)}</strong>
+            <small>${formattedDishes(item.signatureDishes.slice(0, 3), " · ")}</small>
           </span>
           <span class="status-pill ${status.key}">${status.label}</span>
         </button>
@@ -383,8 +422,8 @@ function renderDetail() {
     .map(
       (comment) => `
         <li>
-          <p>${comment.content}</p>
-          <span>${comment.author} · ${comment.likes} 赞</span>
+          <p>${escapeHTML(comment.content)}</p>
+          <span>${escapeHTML(comment.author)} · ${Number(comment.likes) || 0} 赞</span>
         </li>
       `,
     )
@@ -398,12 +437,12 @@ function renderDetail() {
       (branch) => `
         <li>
           <div>
-            <strong>${branch.name}</strong>
-            <span>${[branch.district, branch.area].filter(Boolean).join(" · ")}</span>
-            <a class="branch-address" href="${amapBranchUrl(item, branch)}" target="_blank" rel="noreferrer">${branch.address}</a>
-            ${branch.pricePerPerson ? `<small>参考人均 ¥${branch.pricePerPerson}</small>` : ""}
+            <strong>${escapeHTML(branch.name)}</strong>
+            <span>${[branch.district, branch.area].filter(Boolean).map(escapeHTML).join(" · ")}</span>
+            <a class="branch-address" href="${safeUrl(amapBranchUrl(item, branch))}" target="_blank" rel="noreferrer">${escapeHTML(branch.address)}</a>
+            ${branch.pricePerPerson ? `<small>参考人均 ¥${Number(branch.pricePerPerson)}</small>` : ""}
           </div>
-          <a href="${amapBranchUrl(item, branch)}" target="_blank" rel="noreferrer">打开</a>
+          <a href="${safeUrl(amapBranchUrl(item, branch))}" target="_blank" rel="noreferrer">打开</a>
         </li>
       `,
     )
@@ -420,9 +459,9 @@ function renderDetail() {
   const videoLinks = videos
     .map(
       (video) => `
-        <a class="video-link" href="${video.url}" target="_blank" rel="noreferrer">
-          <span>${video.publishedAt || "日期待补"}</span>
-          ${video.title}
+        <a class="video-link" href="${safeUrl(video.url)}" target="_blank" rel="noreferrer">
+          <span>${escapeHTML(video.publishedAt || "日期待补")}</span>
+          ${escapeHTML(video.title)}
         </a>
       `,
     )
@@ -444,27 +483,27 @@ function renderDetail() {
         <h3>地图信息</h3>
         <span class="status-pill ${status.key}">${status.label}</span>
       </div>
-      <p>${status.summary}</p>
+      <p>${escapeHTML(status.summary)}</p>
       <dl>
-        <div><dt>地址</dt><dd><a class="address-link" href="${addressLink}" target="_blank" rel="noreferrer">${item.address}</a></dd></div>
+        <div><dt>地址</dt><dd><a class="address-link" href="${safeUrl(addressLink)}" target="_blank" rel="noreferrer">${escapeHTML(item.address)}</a></dd></div>
         <div><dt>坐标</dt><dd>${typeof item.lng === "number" && typeof item.lat === "number" ? `${item.lng.toFixed(6)}, ${item.lat.toFixed(6)}` : "待补"}</dd></div>
       </dl>
       ${branchOptions}
-      <a class="map-link" href="${mapLink}" target="_blank" rel="noreferrer">${status.key === "verified" ? "打开高德位置" : "打开高德搜索"}</a>
+      <a class="map-link" href="${safeUrl(mapLink)}" target="_blank" rel="noreferrer">${status.key === "verified" ? "打开高德位置" : "打开高德搜索"}</a>
     </div>
   `;
   const clueTitle = evidence.length ? "评论位置线索" : "评论线索";
 
   els.detail.innerHTML = `
     <div class="detail-top">
-      <span class="district-chip" style="--chip:${districtColor(item)}">${item.city} · ${item.district}</span>
+      <span class="district-chip" style="--chip:${safeColor(districtColor(item))}">${escapeHTML(item.city)} · ${escapeHTML(item.district)}</span>
       <span class="status-pill ${status.key}">${status.label}</span>
     </div>
-    <h2>${item.name}</h2>
-    <a class="address" href="${addressLink}" target="_blank" rel="noreferrer">${item.address}</a>
+    <h2>${escapeHTML(item.name)}</h2>
+    <a class="address" href="${safeUrl(addressLink)}" target="_blank" rel="noreferrer">${escapeHTML(item.address)}</a>
     <div class="info-grid">
       <div><span>人均</span><strong>${typeof item.pricePerPerson === "number" ? `¥${item.pricePerPerson}` : "待补"}</strong></div>
-      <div><span>菜式</span><strong>${item.signatureDishes.length ? item.signatureDishes.join(" / ") : "待补"}</strong></div>
+      <div><span>菜式</span><strong>${formattedDishes(item.signatureDishes)}</strong></div>
     </div>
     ${mapInfo}
     ${videoBlock}
@@ -517,7 +556,7 @@ function syncAmapMarkers() {
       position: [item.lng, item.lat],
       title: item.name,
       label: {
-        content: item.name,
+        content: escapeHTML(item.name),
         direction: "top",
       },
     });
